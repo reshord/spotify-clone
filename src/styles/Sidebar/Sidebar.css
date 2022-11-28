@@ -1,0 +1,132 @@
+li {
+    list-style: none;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: 550;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: flex;
+}
+
+
+li:hover {
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+li span {
+    font-size: 15px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    background: black;
+    color: white;
+    width: 242px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 20px 0px 20px 20px;
+}
+
+.SidebarMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+}
+
+.favorites {
+    display: flex;
+    align-items: center;
+}
+
+.Nd_DeCpszONzyaLe5Wd1 {
+    fill: white;
+    background: linear-gradient(135deg,#450af5,#c4efd9);
+    width: 22px;
+    height: 24px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    padding-top: 3px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+
+
+.createPlaylistButton {
+    background: white;
+    color: black;
+    text-align: center;
+    width: 22px;
+    font-size: 19px;
+    height: 24px;
+    margin-right: 10px;
+    border-radius: 2px;
+}
+
+.createPlaylist {
+    display: flex;
+    align-items: center;
+}
+
+.logoImg {
+    width: 140px;
+}
+
+
+
+.sidebarInfo {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.sidebarInfo span {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.sidebarInfo span:hover {
+    text-decoration: underline;
+}
+
+.homePage {
+    display: flex;
+    align-items: center;
+}
+
+.homePage svg {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search svg {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.mediateka {
+    display: flex;
+    align-items: center;
+}
+
+.mediateka svg {
+    fill: white;
+    margin-right: 7px;
+}
