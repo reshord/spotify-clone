@@ -1,0 +1,41 @@
+.cards {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.ContainerTitle {
+    margin-top: 20px;
+}
+
+.ContainerTitle a {
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.ContainerTitle a:hover {
+    text-decoration: 2px underline;
+}
+
+.cardContainer {
+    margin-bottom: 40px;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 97.5%;
+}
+
+.allMusics {
+    color: white;
+    font-size: 15px;
+    opacity: 0.7;
+}
+
+.allMusics:hover {
+    text-decoration: 1.5px underline;
+}

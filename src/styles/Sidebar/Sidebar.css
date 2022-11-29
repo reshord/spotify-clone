@@ -26,8 +26,8 @@ ul {
 .sidebar {
     background: black;
     color: white;
-    width: 242px;
-    height: 100vh;
+    width: 285px;
+    height: 650px;
     position: sticky;
     top: 0;
     display: flex;

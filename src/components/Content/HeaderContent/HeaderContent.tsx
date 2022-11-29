@@ -14,9 +14,10 @@ const HeaderContent = () => {
                     <span>Справка</span>
                     <span>Скачать</span>
                 </div>
-                <span></span>
+                <span className='line'>.</span>
                 <div className='auth'>
-                    <span></span>
+                    <span>Зарегистрироваться</span>
+                    <button className='authBtn'>Войти</button>
                 </div>
             </div>
         </header>

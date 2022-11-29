@@ -1,3 +1,10 @@
 .content {
     width: 100%;
+    background-color: rgb(18, 18, 18);
+    /* background: linear-gradient(230deg, #000000, #434343); */
+}
+
+.contentWrapper {
+    width: 95%;
+    margin: 0 auto;
 }
