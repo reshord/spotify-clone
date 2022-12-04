@@ -1,11 +1,15 @@
 .cards {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 20px;
-}
+    --column-width: 185px;
+    --column-count: 6;
+    --grid-gap: 24px;
+    grid-auto-rows: 0;
+    grid-template-rows: 1fr;
+    overflow-y: hidden;
+    grid-gap: var(--grid-gap);
+    display: grid;
+    grid-template-columns: repeat(var(--column-count),minmax(0,1fr));
+    margin-top: 25px;
 
-.ContainerTitle {
-    margin-top: 20px;
 }
 
 .ContainerTitle a {
@@ -21,19 +25,24 @@
 
 .cardContainer {
     margin-bottom: 40px;
+    margin-top: 20px;
+    width: 100%;
 }
 
 .headerContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 97.5%;
+}
+.headerContainer a {
+    text-decoration: none;
 }
 
 .allMusics {
     color: white;
     font-size: 15px;
     opacity: 0.7;
+    margin-right: 18px;
 }
 
 .allMusics:hover {

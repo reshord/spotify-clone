@@ -26,7 +26,7 @@ ul {
 .sidebar {
     background: black;
     color: white;
-    width: 285px;
+    width: 265px;
     height: 650px;
     position: sticky;
     top: 0;
@@ -53,10 +53,9 @@ ul {
     fill: white;
     background: linear-gradient(135deg,#450af5,#c4efd9);
     width: 22px;
-    height: 24px;
+    height: 22px;
     border-radius: 2px;
     box-sizing: border-box;
-    padding-top: 3px;
     margin-right: 10px;
     text-align: center;
 }
@@ -66,10 +65,13 @@ ul {
 .createPlaylistButton {
     background: white;
     color: black;
-    text-align: center;
-    width: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 19px;
-    height: 24px;
+    padding-bottom: 2px;
+    width: 22px;
+    height: 22px;
     margin-right: 10px;
     border-radius: 2px;
 }
@@ -106,6 +108,10 @@ ul {
     align-items: center;
 }
 
+.homePage a {
+    color: white;
+}
+
 .homePage svg {
     margin-right: 10px;
     font-size: 24px;
@@ -114,6 +120,10 @@ ul {
 .search {
     display: flex;
     align-items: center;
+}
+
+.search a {
+    color: white;
 }
 
 .search svg {

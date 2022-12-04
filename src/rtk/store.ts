@@ -1,9 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit'
+import Genres from './slices/Genres'
 import playlists from './slices/SpotifyPlaylists'
 
 export const store = configureStore({
     reducer: {
-        playlists: playlists.reducer
+        playlists: playlists.reducer,
+        genres: Genres
     }
 })
 

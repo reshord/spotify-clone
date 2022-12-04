@@ -1,0 +1,90 @@
+.songCardInfo {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 405px;
+    margin-left: 10px;
+}
+
+.songCardBody {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.onFocusCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: #778899;
+}
+
+.songCardBody:hover {
+    background: grey;
+}
+
+.songNumber {
+    font-weight: 600;
+    opacity: 0.6;
+}
+
+.songImg {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.songInfo {
+    display: flex;
+    width: 370px;
+    align-items: center;
+}
+
+.songTitle {
+    width: 360px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.songAuthor {
+    opacity: 0.6;
+    width: 300px;
+    font-size: 0.875rem;
+
+}
+
+.songCardBody span {
+    font-size: 0.875rem;
+}
+
+.songAlbumName {
+    width: 240px;
+    opacity: 0.6;
+    font-weight: 600;
+}
+
+.songDateUpdate {
+    font-weight: 600;
+    opacity: 0.6;
+    width: 100px;
+}
+
+.songTime {
+    font-weight: 600;
+    opacity: 0.6;
+    margin-right: 10px;
+}
+
+.startPlaySong svg {
+    fill: white;
+    width: 17px;
+}
+

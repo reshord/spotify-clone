@@ -1,0 +1,211 @@
+.authBody {
+    background: white;
+    padding-bottom: 10px;
+}
+
+hr {
+    opacity: 0.5;
+}
+
+.hrLine {
+    width: 195px;
+}
+
+.toContinueInfo {
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.authBlock {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 680px;
+}
+
+.logo {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0px 10px 0px;
+}
+
+.logo a {
+    cursor: default;
+
+}
+
+.logo img {
+    width: 182px;
+    height: 56px;
+
+}
+
+.authContent {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.authFacebook {
+    background-color: rgb(59, 89, 152);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+    height: 48px;
+    border-radius: 30px;
+}
+
+.authFacebook span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin-left: 7px;
+}
+
+.authApple {
+    background: black;
+    color: white;
+    width: 450px;
+    height: 48px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.authApple span {
+    margin-left: 7px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.authGoogle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--essential-subdued, #878787);
+    border-radius: 30px;
+    width: 450px;
+    height: 48px;
+}
+
+.authGoogle:hover {
+    border-color: var(--essential-base, #000000);
+}
+
+.authGoogle span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin-left: 7px;
+    opacity: 0.7;
+}
+
+.sectionBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.sectionBlock span {
+    font-weight: 700;
+    font-size: 12px;
+    margin: 0px 10px;
+}
+
+.inputDataBlock {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.inputDataBlock span {
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin-bottom: 10px;
+}
+
+.inputAuthData {
+    font-size: 0.875rem;
+    width: 450px;
+    height: 52px;
+    box-sizing: border-box;
+    padding: 0px 0px 0px 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+.inputAuthData:hover {
+    border: 1px solid black;
+}
+
+.inputAuthData:focus {
+    border: 3px solid black;
+}
+
+.restore {
+    color: black;
+    font-weight: 600;
+
+}
+
+.restore:hover {
+    text-decoration: underline;
+}
+
+.restoreOrEntrance {
+    justify-content: space-between;
+    display: flex;
+    margin-top: 7px;
+}
+
+.rememberMeButton input {
+    width: 20px;
+    height: 15px;
+    margin-top: 5px;
+}
+
+.restoreOrEntrance button {
+    background-color: var(--background-base, #1ed760);
+    border: none;
+    border-radius: 30px;
+    padding: 14px 32px;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+}
+
+.restoreOrEntrance button:hover {
+    transform: scale(1.05);
+}
+
+.withoutAccount {
+    font-weight: 700;
+    font-size: 1.125rem;
+    letter-spacing: 1.2px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.registerSpotify {
+    width: 386px;
+    padding: 13px 31px 13px 31px;
+    background: white;
+    border: 1px solid grey;
+    font-weight: 600;
+    opacity: 0.6;
+    border-radius: 30px;
+    font-size: 14px;
+    margin: 0 auto;
+}
+
+.registerSpotify:hover {
+    border: 1px solid black;
+}

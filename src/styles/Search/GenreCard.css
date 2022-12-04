@@ -1,0 +1,25 @@
+.genreCard {
+    width: 185px;
+    height: 185px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.genreTitle {
+    color: white;
+    margin: 10px 10px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.backgroundImg {
+    width: 95px;
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    -webkit-transform: rotate(25deg) translate(18%,-2%);
+    transform: rotate(25deg) translate(18%,-2%);
+}

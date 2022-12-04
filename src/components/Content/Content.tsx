@@ -11,7 +11,8 @@ const Content = () => {
     const location = useLocation()
     
     const {playlists} = useAppSelector<RootState>(store.getState) 
-    const {SpotifyPlaylists, Mood} = playlists
+    
+    
 
     useEffect(() => {
     }, []);
@@ -20,8 +21,12 @@ const Content = () => {
         <main className="content">
             <HeaderContent />
             <div className="contentWrapper">
-                    <MusicContainer title='Spotify Playlists' playlist={SpotifyPlaylists}/>
-                    <MusicContainer title="Mood" playlist={Mood}/>
+                    <MusicContainer title='Spotify Playlists' playlist={playlists.SpotifyPlaylists}/>
+                    <MusicContainer title="Mood" playlist={playlists.Mood} />
+                    <MusicContainer title="Mood" playlist={playlists.Mood} />
+                    <MusicContainer title="Mood" playlist={playlists.Mood} />
+                    <MusicContainer title="Mood" playlist={playlists.Mood} />
+                    <MusicContainer title="Mood" playlist={playlists.Mood} />
             </div>
         </main>
      );
