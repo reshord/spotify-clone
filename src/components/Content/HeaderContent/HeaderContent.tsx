@@ -9,6 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/system';
 import TextField from '@mui/material/TextField';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
 
 const HeaderContent = () => {
 
@@ -21,14 +22,18 @@ const HeaderContent = () => {
 
     return ( 
         <header className="header">
-            <div className='navigation' style={{maxWidth: `${location.pathname === '/search' ? '380px' : ''}`, width: '100%'}}>
+            <div className='navigation' style={{maxWidth: `${location.pathname === '/search' ? '380px' : ''}`,}}>
                 <MdKeyboardArrowLeft className='navArrow' />
                 <MdKeyboardArrowRight className='navArrow' />
+                <AiOutlineArrowLeft 
+                            className='arrowToBack'
+                            style={{backgroundColor: 'var(--background-color)', }}
+                        />
                 <Link to={'/'}>
                     <img className='headerLogoImg' src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_White.png" alt="" />
                 </Link>
                 <Link to={'/search'}>
-                    <BiSearch className='headerSearch'/>
+                    <BiSearch style={{backgroundColor: 'var(--background-color)', display: `${location.pathname === '/search' && 'none'}`}} className='headerSearch'/>
                 </Link>
                 {location.pathname === '/search' && (
                     <div className='searchBlock'>
