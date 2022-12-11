@@ -44,3 +44,9 @@
 .toAuthBtn:hover {
     transform: scale(1.05);
 }
+
+@media (max-width: 878px) {
+    .authBanner {
+        display: none;
+    }
+}

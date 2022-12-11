@@ -8,3 +8,40 @@
     width: 97%;
     margin: 0 auto;
 }
+
+@media (max-width: 1005px) {
+    .content {
+        min-width: 600px;
+    }
+}
+
+@media (max-width: 586px) {
+    .content {
+        min-width: 400px;
+    }
+}
+/* @media (max-width: 1325px) {
+    .content {
+        max-width: 1090px;
+    }
+}
+@media (max-width: 1245px) {
+    .content {
+        max-width: 1030px;
+    }
+}
+@media (max-width: 1194px) {
+    .content {
+        max-width: 1000px;
+    }
+}
+@media (max-width: 1161px) {
+    .content {
+        max-width: 960px;
+    }
+}
+@media (max-width: 1124px) {
+    .content {
+        max-width: 930px;
+    }
+} */

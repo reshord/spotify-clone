@@ -88,3 +88,17 @@
     width: 17px;
 }
 
+@media (max-width: 877px) {
+    .songTitle {
+        width: 300px;
+    }
+    .songAuthor {
+        width: 300px;
+    }
+    .songInfo {
+        width: 310px;
+    }
+    .songCardInfo {
+        width: 345px;
+    }
+}

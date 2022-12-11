@@ -46,13 +46,15 @@ const MusicContainer: React.FC<IProps> = ({title, playlist, token}) => {
             </div>
             {playlist.length > 6 && <Link onClick={() => setSection(playlist)} to={`/section/${currentTitle}`} className="allMusics">ПОКАЗАТЬ ВСЕ</Link>}
         </div>
-           <div className="cards" >
+        <div style={{overflowY: 'hidden'}}>
+            <div className="cards" >
                 {shortlyPlaylist.map(el => (
                     <CardMusic key={el.id} {...el}/>
                 ))}
                 
            </div>
-
+        </div>
+           
         </div>
      );
 }

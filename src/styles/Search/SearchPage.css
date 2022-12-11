@@ -24,9 +24,10 @@
 .genresList {
     margin-top: 20px;
     --column-width: 185px;
-    --column-count: 6;
     --grid-gap: 24px;
     grid-auto-rows: auto;
+    --column-count: 6;
+    grid-template-rows: 1fr;
     grid-gap: var(--grid-gap);
     display: grid;
     grid-template-columns: repeat(var(--column-count),minmax(0,1fr));

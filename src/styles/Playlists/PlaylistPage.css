@@ -6,7 +6,7 @@
 }
 
 .headerBlock {
-    width: 1202px;
+    width: 90%;
     height: 286px;
     padding: 0px 32px 24px 32px;
     position: relative;
@@ -23,7 +23,6 @@
 }
 
 .playlistContent {
-    width: 100%;
     margin: 0 auto;
     padding-bottom: 50px;
 }
@@ -105,4 +104,16 @@
     align-items: center;
     width: 100%;
     padding: 5px 0px;
+}
+
+@media (max-width: 877px) {
+    .playlistTitle {
+        font-size: 4rem;
+    }
+    .songNameBlock {
+        width: 315px;
+    }
+    .playlistBody {
+        max-width: 600;
+    }
 }

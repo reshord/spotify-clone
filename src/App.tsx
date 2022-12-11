@@ -7,12 +7,12 @@ import Sidebar from './components/Sidebar/Sidebar';
 function App() {
   return (
     <>
-    <div className="App">
+      <div className="App">
 
         <Sidebar />
         <Content />
 
-    </div>
+      </div>
     <BannerToAuth />
 
     </>

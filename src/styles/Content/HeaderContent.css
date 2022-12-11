@@ -34,7 +34,7 @@
 }
 
 .searchMusic {
-    padding: 12px 48px;
+    padding: 12px 10px 12px 48px;
     border-radius: 30px;
     width: 100%;
     border: none;
@@ -43,17 +43,18 @@
 
 .searchBlock {
     position: relative;
-    width: 340px;
+    max-width: 240px;
+    width: 100%;
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
 .navigation {
-    width: 100px;
+    max-width: 100px;
     display: flex;
     justify-content: space-between;
 }
-
 
 .navigation svg {
     fill: white;
@@ -64,16 +65,21 @@
 
 .blockInfoAuth {
     display: flex;
-    width: 52%;
+    max-width: 600px;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
+}
+
+.infoForMobile {
+    display: none;
 }
 
 .auth {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 310px;
+    max-width: 310px;
 }
 
 .auth span {
@@ -82,6 +88,7 @@
     font-size: 17px;
     cursor: default;
     transition: 0.1s;
+    margin-right: 15px;
 }
 
 .auth span:hover {
@@ -109,4 +116,128 @@
     width: 1px;
     height: 27px;
     background-color: white;
+}
+
+.selectValue a {
+    color: black
+}
+
+.headerLogoImg {
+    display: none;
+}
+
+.headerSearch {
+    display: none;
+}
+
+.toAppBtn {
+    display: none;
+}
+
+@media (max-width: 1196px) {
+    .auth span {
+        display: none;
+    }
+    .blockInfoAuth {
+        width: 440px;
+    }
+
+}
+@media (max-width: 871px) {
+    .infoForMobile {
+        display: block;
+    }
+    .info {
+        display: none;
+    }
+    .header {
+        height: 75px;
+    }
+    .blockInfoAuth {
+        width: 300px;
+    }
+}
+
+@media (max-width: 670px) {
+    .headerLogoImg {
+        display: block;
+        width: 130px;
+    }
+    .navigation {
+        max-width: 230px;
+    }
+    .navArrow {
+        display: none;
+    }
+    .headerSearch {
+        display: block;
+    }
+}
+
+@media (max-width: 590px) {
+    .infoForMobile {
+        display: none;
+    }
+    .line {
+        display: none;
+    }
+    .auth {
+        display: none;
+    }
+    .buttonMenu span {
+        width: 25px;
+        height: 2.5px;
+        background: white;
+        margin-bottom: 4px;
+    }
+    .buttonMenu {
+        display: flex;
+        flex-direction: column;
+    }
+    .blockInfoAuth {
+        width: 240px;
+    }
+    .toAppBtn {
+        padding: 15px 24px;
+        border-radius: 30px;
+        border: none;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        display: block;
+    }
+    .navigation {
+        max-width: 190px;
+    }
+}
+
+@media (max-width: 536px) {
+    .navigation {
+        max-width: 180px;
+    }
+}
+@media (max-width: 471px) {
+    .blockInfoAuth {
+        width: 215px;
+    }
+}
+@media (max-width: 447px) {
+    .headerSearch {
+        width: 30px;
+    }
+    .navigation {
+        max-width: 170px;
+    }
+    .header {
+        padding: 0px 10px;
+    }
+}
+@media (max-width: 412px) {
+    .toAppBtn {
+        width: 150px;
+        padding: 15px 5px;
+    }
+    .blockInfoAuth {
+        width: 190px;
+        letter-spacing: 0.5;
+    }
 }
