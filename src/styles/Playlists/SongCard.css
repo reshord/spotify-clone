@@ -44,7 +44,7 @@
 
 .songInfo {
     display: flex;
-    width: 370px;
+    max-width: 370px;
     align-items: center;
 }
 
@@ -88,17 +88,59 @@
     width: 17px;
 }
 
-@media (max-width: 877px) {
-    .songTitle {
-        width: 300px;
+.moreMenu {
+
+    display: none;
+}
+
+.moreMenu span {
+    background: white;
+    width: 3px;
+    height: 4px;
+    margin-bottom: 3px;
+    border-radius: 3px;
+}
+
+@media (max-width: 1060px) {
+
+}
+@media (max-width: 920px) {
+    .songAlbumName {
+        display: none;
     }
+    .songDateUpdate {
+        display: none;
+    }
+    .songTime {
+        display: none;
+    }
+    .moreMenu {
+        display: block;
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 470px) {
     .songAuthor {
-        width: 300px;
+        width: 290px;
+        font-size: 12px;
     }
-    .songInfo {
-        width: 310px;
+    .songTitle {
+        width: 290px;
+        font-size: 13px;
     }
     .songCardInfo {
-        width: 345px;
+        width: 360px;
+    }
+}
+
+@media (max-width: 410px) {
+    .songImg {
+        display: none;
+    }
+    .songCardInfo {
+        width: 320px;
     }
 }

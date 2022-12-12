@@ -46,6 +46,11 @@ const SongCard: React.FC<ISongInfo> = ({number, img, title, author, setButtonNum
                 <span className='songAlbumName'>{albumName}</span>
                 <span className='songDateUpdate'>{dateUpdate}</span>
                 <span className='songTime'>{songTime}</span>
+                <div className='moreMenu'>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
         </div>
      );
 }

@@ -51,7 +51,7 @@ const AuthPage = () => {
                         </div>
                         <div className="inputDataBlock">
                             <span>Пароль</span>
-                            <input className='inputAuthData' type="text" placeholder='Пароль'/>
+                            <input className='inputAuthData' type="password" placeholder='Пароль'/>
                         </div>
                         <Link to={''} className='restore'>Забыли пароль?</Link>
                         <div className='restoreOrEntrance'>

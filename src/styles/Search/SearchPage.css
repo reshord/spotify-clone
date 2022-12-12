@@ -32,3 +32,73 @@
     display: grid;
     grid-template-columns: repeat(var(--column-count),minmax(0,1fr));
 }
+
+@media (max-width: 1400px) {
+    .genresList {
+        --column-width: 180px;
+        --column-count: 5;
+        --grid-gap: 24px;
+        grid-auto-rows: auto;
+        grid-template-rows: 1fr;
+        grid-gap: var(--grid-gap);
+        display: grid;
+        grid-template-columns: repeat(var(--column-count),minmax(0,1fr));
+    }
+}
+@media (max-width: 1210px) {
+    .genresList {
+        --column-count: 4;
+
+    }
+}
+
+@media (max-width: 910px) {
+    .genresList {
+        --column-count: 3;
+    }
+}
+
+@media (max-width: 631px) {
+    .genresList {
+        --column-count: 2;
+        padding-left: 30px;
+    }
+    .SearchBlockContent span {
+        padding-left: 30px;
+    }
+}
+@media (max-width: 540px) {
+    .genresList {
+        padding-left: 20px;
+    }
+    .SearchBlockContent span {
+        padding-left: 20px;
+    }
+}
+@media (max-width: 490px) {
+    .genresList {
+        padding-left: 10px;
+    }
+    .SearchBlockContent span {
+        padding-left: 10px;
+    }
+}
+@media (max-width: 460px) {
+    .genresList {
+        --column-count: 2;
+        padding-left: 0px;
+    }
+    .SearchBlockContent span {
+        padding-left: 0px;
+    }
+}
+@media (max-width: 435px) {
+    .genresList {
+        --column-count: 2;
+    }
+}
+@media (max-width: 340px) {
+    .genresList {
+        --column-count: 1;
+    }
+}

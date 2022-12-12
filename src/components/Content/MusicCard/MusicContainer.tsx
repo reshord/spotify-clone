@@ -40,11 +40,18 @@ const MusicContainer: React.FC<IProps> = ({title, playlist, token}) => {
         <div className="cardContainer">
         <div className="headerContainer">
             <div className="ContainerTitle">
-                <Link onClick={() => setSection(playlist)} to={`/section/${currentTitle}`}>
-                    {title}
+                <Link 
+                    onClick={() => setSection(playlist)} 
+                    to={`/section/${currentTitle}`}>
+                        {title}
                 </Link>
             </div>
-            {playlist.length > 6 && <Link onClick={() => setSection(playlist)} to={`/section/${currentTitle}`} className="allMusics">ПОКАЗАТЬ ВСЕ</Link>}
+            {playlist.length > 6 && <Link 
+                                        onClick={() => setSection(playlist)} 
+                                        to={`/section/${currentTitle}`} 
+                                        className="allMusics">
+                                            ПОКАЗАТЬ ВСЕ
+                                    </Link>}
         </div>
         <div style={{overflowY: 'hidden'}}>
             <div className="cards" >

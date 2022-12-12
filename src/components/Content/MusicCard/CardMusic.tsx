@@ -12,7 +12,7 @@ const CardMusic: React.FC<IPlaylist> = ({img, title, description, songs}) => {
     const [activePlayBtn, setActivePlayBtn] = useState<boolean>(false)
 
     const addCurrentPlaylist = (currentPlaylist: ISongInfo[] | undefined) => {
-        dispatch(setCurrentPlaylist({songs: currentPlaylist, title, description}))
+        dispatch(setCurrentPlaylist({songs: currentPlaylist, title, description, img}))
     }
 
     return ( 

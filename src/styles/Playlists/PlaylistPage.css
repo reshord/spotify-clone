@@ -8,7 +8,7 @@
 .headerBlock {
     width: 90%;
     height: 286px;
-    padding: 0px 32px 24px 32px;
+    padding: 0px 0px 24px 32px;
     position: relative;
     margin-bottom: 40px;
 }
@@ -106,14 +106,71 @@
     padding: 5px 0px;
 }
 
-@media (max-width: 877px) {
-    .playlistTitle {
-        font-size: 4rem;
-    }
+.mobilePlaylist {
+    margin-top: 20px;
+}
+
+.mobilePlaylistInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+    height: 130px;
+}
+
+.mobilePlaylistInfo img {
+    width: 80px;
+}
+
+.mobilePlaylistInfo span {
+    color: white;
+}
+
+.mobileImage {
+    width: 140px;
+    margin: 0 auto;
+}
+
+.mobileImage img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.mobilePlaylistTitle {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.mobilePlaylistDescription {
+    font-weight: 600;
+    opacity: 0.5;
+}
+
+.aboutPlaylistMobile {
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+@media (max-width: 1060px) {
     .songNameBlock {
-        width: 315px;
+        width: 380px;
     }
-    .playlistBody {
-        max-width: 600;
+}
+
+@media (max-width: 920px) {
+    .headerSongsList {
+        display: none;
     }
+    .AllPlaylistInfo {
+        display: none;
+    }
+    .headerBlock {
+    }
+}
+
+@media (max-width: 410px) {
+    .mobilePlaylistTitle {
+        font-size: 1.225rem;
+    }
+
 }

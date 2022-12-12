@@ -5,7 +5,7 @@ interface IState {
 }
 
 const initialState: IState = {
-    mobileModal: true
+    mobileModal: false
 }
 
 const Modals = createSlice({

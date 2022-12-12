@@ -33,11 +33,13 @@ const PlaylistPage = () => {
     const [buttonNumber, setButtonNumber] = useState<number | undefined>(-1)
 
 
+
     useEffect(() => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         })
+        
     }, []);
 
      return ( 
@@ -52,6 +54,17 @@ const PlaylistPage = () => {
                         <span className="playlistTitle">{currentPlaylist.title}</span>
                         <span className="playlistDescription">{currentPlaylist.description}</span>
                         <span className="aboutPlaylist">Spotify • {currentPlaylist.songs?.length} треков, {getAllMusicTimes()} мин.</span>
+                    </div>
+                    <div className="mobilePlaylist">
+                        <div className="mobileImage">
+                            <img src={currentPlaylist.img} alt="" />
+                        </div>
+                        <div className="mobilePlaylistInfo">
+                            <span className="mobilePlaylistTitle">{currentPlaylist.title}</span>
+                            <span className="mobilePlaylistDescription">{currentPlaylist.description}</span>
+                            <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="" />
+                            <span className="aboutPlaylistMobile">Spotify • {currentPlaylist.songs?.length} треков, {getAllMusicTimes()} мин.</span>
+                        </div>
                     </div>
                 </div>
                 <div className="playlistContent">

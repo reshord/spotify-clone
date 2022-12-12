@@ -60,3 +60,22 @@
         width: 1050px;
     }
 }
+
+@media (max-width: 412px) {
+    .ContainerTitle a {
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .allMusics {
+        font-size: 12px;
+    }
+}
+@media (max-width: 313px) {
+    .ContainerTitle a {
+        font-size: 16px;
+        font-weight: 700;
+    }
+    .allMusics {
+        font-size: 12px;
+    }
+}

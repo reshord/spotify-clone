@@ -36,6 +36,16 @@
         min-width: 400px;
     }
 }
+@media (max-width: 586px) {
+    .content {
+        min-width: 400px;
+    }
+}
+@media (max-width: 400px) {
+    .content {
+        min-width: 130px;
+    }
+}
 /* @media (max-width: 1325px) {
     .content {
         max-width: 1090px;

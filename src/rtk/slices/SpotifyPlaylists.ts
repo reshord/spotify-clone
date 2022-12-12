@@ -11,6 +11,7 @@ interface IState {
         currentPlaylist: {
             title: string
             songs: null | ISongInfo[]
+            img: string
             description: string
         }
         SpotifyPlaylists: IPlaylist[]
@@ -25,6 +26,7 @@ const initialState: IState = {
         currentPlaylist: {
             title: '',
             songs: null,
+            img: '',
             description: ''
         },
         SpotifyPlaylists: [
@@ -50,7 +52,7 @@ const initialState: IState = {
                     songs: [
                         {"number": 1, "author": "Metro Boomin, Travis Scott, 21 Savage", "img": "https://i.scdn.co/image/ab67616d00004851d93a35654cb16dc6a1b56228", title: "Niagara Falls", albumName: "HEROES & VILLAINS", dateUpdate: "8 hours ago", songTime: "3:27"},
                         {"number": 2, "author": "Drake, 21 Savage", "img": "https://i.scdn.co/image/ab67616d0000485102854a7060fccc1a66a4b5ad", title: "Rich Flex", albumName: "Her Loss", dateUpdate: "8 hours ago", songTime: "3:59"},
-                        {"number": 3, "author": "Quavo, Takeoff, YoungBoy Never Broke Again", "img": "https://i.scdn.co/image/ab67616d00004851ffe5b62233340cb6d453fc2f", title: "To The Bone (feat. YoungBoy Never Broko Again)", albumName: "Only Built For Infinity Links", dateUpdate: "8 hours ago", songTime: "4:43"},
+                        {"number": 3, "author": "Quavo, Takeoff, YoungBoy", "img": "https://i.scdn.co/image/ab67616d00004851ffe5b62233340cb6d453fc2f", title: "To The Bone (feat. YoungBoy)", albumName: "Only Built For Infinity Links", dateUpdate: "8 hours ago", songTime: "4:43"},
                         {"number": 4, "author": "Metro Boomin, Future, Chris Brown", "img": "https://i.scdn.co/image/ab67616d00004851d93a35654cb16dc6a1b56228", title: "Superhero (Heroes & Villains) [with Future]]", albumName: "HEROES & VILLAINS", dateUpdate: "8 hours ago", songTime: "3:02"},
                         {"number": 5, "author": "Latto, Glorilla, Gangsta Boo", "img": "https://i.scdn.co/image/ab67616d0000485137df84cf0611962781f24516", title: "FTCU (feat. GloRilla & Gangsta Boo)", albumName: "FTCU (feat. GloRilla & Gangsta Boo)", dateUpdate: "8 hours ago", songTime: "2:25"},
                         {"number": 6, "author": "Lil Baby", "img": "https://i.scdn.co/image/ab67616d0000485166b04b41fa6f8908dce86695", title: "Not Finished", albumName: "It's Only Me", dateUpdate: "8 hours ago", songTime: "2:43"},
@@ -227,6 +229,7 @@ const playlists = createSlice({
             state.currentPlaylist.songs = action.payload.songs
             state.currentPlaylist.title = action.payload.title
             state.currentPlaylist.description = action.payload.description
+            state.currentPlaylist.img = action.payload.img
         }
     }
 })

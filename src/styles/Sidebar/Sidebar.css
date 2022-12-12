@@ -185,7 +185,7 @@ ul {
     }
 }
 
-@media (max-width: 670px) {
+@media (max-width: 710px) {
     .sidebar {
         display: none;
     }

@@ -23,3 +23,50 @@
     -webkit-transform: rotate(25deg) translate(18%,-2%);
     transform: rotate(25deg) translate(18%,-2%);
 }
+
+@media (max-width: 440px) {
+    .genreCard {
+        width: 165px;
+        height: 165px;
+    }
+    .backgroundImg {
+        width: 80px;
+    }
+}
+@media (max-width: 410px) {
+    .genreCard {
+        width: 155px;
+        height: 155px;
+    }
+    .backgroundImg {
+        width: 70px;
+    }
+}
+@media (max-width: 380px) {
+    .genreCard {
+        width: 145px;
+        height: 145px;
+    }
+    .backgroundImg {
+        width: 70px;
+    }
+}
+@media (max-width: 350px) {
+    .genreCard {
+        width: 135px;
+        height: 135px;
+    }
+    .backgroundImg {
+        width: 60px;
+    }
+}
+@media (max-width: 340px) {
+    .genreCard {
+        max-width: 260px;
+        width: 100%;
+        height: 185px;
+    }
+    .backgroundImg {
+        width: 105px;
+    }
+}
