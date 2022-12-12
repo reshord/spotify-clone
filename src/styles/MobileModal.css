@@ -1,0 +1,47 @@
+.mobileModalBody {
+    background: black;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: none;
+}
+
+.modalMenu a {
+    color: white;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.mobileModalContent {
+    color: white;
+    width: 70%;
+}
+
+.closeModal {
+    font-size: 30px;
+    position: absolute;
+    top: 25px;
+    right: 15px;
+}
+
+.modalMenu {
+    display: flex;
+    flex-direction: column;
+    margin: 55px 0px 0px 35px;
+}
+
+.modalMenu span {
+    margin-top: 20px;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+@media (max-width: 590px) {
+    .mobileModalBody {
+        display: block;
+    }
+}

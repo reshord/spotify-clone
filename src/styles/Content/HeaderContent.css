@@ -234,13 +234,11 @@
         justify-content: space-between;
     }
     .header {
-        background-color: var(--background-color);
-        --background-color: rgb(119,119,119);
+
         opacity: 1;
     }
     .headerSearch {
-        background-color: var(--background-color);
-        --background-color: rgb(119,119,119);
+
         display: block;
     }
     .headerLogoImg {

@@ -10,6 +10,8 @@ import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/system';
 import TextField from '@mui/material/TextField';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
+import { setToggleModal } from '../../../rtk/slices/modal';
+import { useAppDispatch } from '../../../rtk/hooks';
 
 const HeaderContent = () => {
 
@@ -18,6 +20,12 @@ const HeaderContent = () => {
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setCurrSelect(event.target.value as string)
+    }
+    
+    const dispatch = useAppDispatch()
+
+    const openModal = () => {
+        dispatch(setToggleModal(true))
     }
 
     return ( 
@@ -53,7 +61,7 @@ const HeaderContent = () => {
                 )}
             </div>
             <div className="blockInfoAuth">
-                <div className="info">
+                <div className="info" >
                     <span>Premium</span>
                     <span>Справка</span>
                     <span>Скачать</span>
@@ -85,7 +93,7 @@ const HeaderContent = () => {
                     <button onClick={() => window.location.pathname = '/auth'} className='authBtn'>Войти</button>
                 </div>
                 <button className='toAppBtn'>В ПРИЛОЖЕНИЕ</button>
-                <div className="buttonMenu">
+                <div className="buttonMenu" onClick={() => openModal()}>
                     <span></span>
                     <span></span>
                     <span></span>
