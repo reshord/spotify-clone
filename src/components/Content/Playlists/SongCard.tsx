@@ -1,15 +1,21 @@
 import '../../../styles/Playlists/SongCard.css'
 import { ISongInfo } from '../../../types/types';
 import {useState} from 'react'
+import { useAppSelector } from '../../../rtk/hooks/RTKHook';
+import { RootState, store } from '../../../rtk/store';
+import React, {useEffect} from 'react'
 
 
-const SongCard: React.FC<ISongInfo> = ({number, img, title, author, setButtonNumber, albumName, dateUpdate, songTime, buttonNumber, index}) => {
+const SongCard: React.FC<ISongInfo> = ({number, setButtonNumber, buttonNumber, index, author, title, albumName, img,}) => {
     
     const [buttonPlay, setButtonPlay] = useState<boolean>()
     const [buttonState, setButtonState] = useState<boolean>(false)
     
     const changeStateSongCard = (cardNumber: number) => {
     }
+    useEffect(() => {
+
+    }, []);
 
     return ( 
         <div
@@ -44,8 +50,8 @@ const SongCard: React.FC<ISongInfo> = ({number, img, title, author, setButtonNum
                 
             </div>
                 <span className='songAlbumName'>{albumName}</span>
-                <span className='songDateUpdate'>{dateUpdate}</span>
-                <span className='songTime'>{songTime}</span>
+                <span className='songDateUpdate'>{}</span>
+                <span className='songTime'>{}</span>
                 <div className='moreMenu'>
                     <span></span>
                     <span></span>

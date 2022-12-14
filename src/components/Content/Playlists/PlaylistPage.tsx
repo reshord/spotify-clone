@@ -1,4 +1,4 @@
-import { useAppSelector } from "../../../rtk/hooks";
+import { useAppSelector } from "../../../rtk/hooks/RTKHook";
 import { RootState, store } from "../../../rtk/store";
 import Sidebar from "../../Sidebar/Sidebar";
 import HeaderContent from "../HeaderContent/HeaderContent";
@@ -6,6 +6,7 @@ import '../../../styles/Playlists/PlaylistPage.css'
 import BannerToAuth from "../../BannerToAuth";
 import SongCard from "./SongCard";
 import {useEffect, useRef, useState} from 'react'
+import MobileFooter from "../../Footer/MobileFooter";
 
 const PlaylistPage = () => {
 
@@ -14,20 +15,20 @@ const PlaylistPage = () => {
 
 
     const getAllMusicTimes = () => {
-        const test = currentPlaylist.songs?.map(el => {
-            return +el.songTime.split(':').join('.')
-        })
-        let allSongsTime: number | undefined | string[] = test?.reduce((acc, cur) => acc + cur, 0)
-        allSongsTime = allSongsTime?.toString().split('.') 
-        if(allSongsTime && +allSongsTime[0] > 59) {
+        // const test = currentPlaylist.songs?.map(el => {
+        //     return +el.songTime.split(':').join('.')
+        // })
+        // let allSongsTime: number | undefined | string[] = test?.reduce((acc, cur) => acc + cur, 0)
+        // allSongsTime = allSongsTime?.toString().split('.') 
+        // if(allSongsTime && +allSongsTime[0] > 59) {
 
-        }
-        else if(allSongsTime && +allSongsTime[0] < 59) {
-            allSongsTime[0] = `${parseInt(allSongsTime[0])}`
-            allSongsTime[1] = `${parseInt(allSongsTime[1])}`
+        // }
+        // else if(allSongsTime && +allSongsTime[0] < 59) {
+        //     allSongsTime[0] = `${parseInt(allSongsTime[0])}`
+        //     allSongsTime[1] = `${parseInt(allSongsTime[1])}`
             
-        }
-        return allSongsTime?.join('.')
+        // }
+        // return allSongsTime?.join('.')
     }
 
     const [buttonNumber, setButtonNumber] = useState<number | undefined>(-1)
@@ -39,6 +40,7 @@ const PlaylistPage = () => {
             top: 0,
             behavior: 'smooth'
         })
+        console.log(currentPlaylist);
         
     }, []);
 
@@ -53,7 +55,6 @@ const PlaylistPage = () => {
                         <span className='headerPlaylistTitle'>ПЛЕЙЛИСТ</span>
                         <span className="playlistTitle">{currentPlaylist.title}</span>
                         <span className="playlistDescription">{currentPlaylist.description}</span>
-                        <span className="aboutPlaylist">Spotify • {currentPlaylist.songs?.length} треков, {getAllMusicTimes()} мин.</span>
                     </div>
                     <div className="mobilePlaylist">
                         <div className="mobileImage">
@@ -63,7 +64,6 @@ const PlaylistPage = () => {
                             <span className="mobilePlaylistTitle">{currentPlaylist.title}</span>
                             <span className="mobilePlaylistDescription">{currentPlaylist.description}</span>
                             <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="" />
-                            <span className="aboutPlaylistMobile">Spotify • {currentPlaylist.songs?.length} треков, {getAllMusicTimes()} мин.</span>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,12 @@ const PlaylistPage = () => {
 
                         <div className="songsContent">
                             {currentPlaylist.songs?.map((el, index) => (
-                                <SongCard setButtonNumber={(num: number) => setButtonNumber(num)} buttonNumber={buttonNumber} index={index} key={el.number} {...el}/>
+                                <SongCard                                    // setButtonNumber={(num: number) => setButtonNumber(num)}
+                                    buttonNumber={buttonNumber}
+                                    index={index}
+                                    key={el.number} number={index + 1}
+                                    img={el.img} songNumber={0} title={el.title} albumName={el.albumName} author={el.author}
+                             />
                             ))}
                             {!currentPlaylist.songs && (
                                 <div className="checkInfo">Обрабатываем информацию...</div>
@@ -99,6 +104,7 @@ const PlaylistPage = () => {
             <hr />
         </div>
         <BannerToAuth />
+        <MobileFooter />
         </>
      );
 }

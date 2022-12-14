@@ -125,11 +125,12 @@
 @media (max-width: 470px) {
     .songAuthor {
         width: 290px;
-        font-size: 12px;
+        font-size: 0.875rem;
     }
     .songTitle {
         width: 290px;
-        font-size: 13px;
+        font-size: 0.950rem;
+
     }
     .songCardInfo {
         width: 360px;
@@ -142,5 +143,24 @@
     }
     .songCardInfo {
         width: 320px;
+    }
+}
+@media (max-width: 360px) {
+    .songImg {
+        display: none;
+    }
+    .songCardInfo {
+        width: 290px;
+    }
+    .songInfo {
+        width: 260px;
+    }
+    .songAuthor {
+        width: 180px;
+        font-size: 0.8rem;
+    }
+    .songTitle {
+        width: 220px;
+        font-size: 0.812rem;
     }
 }

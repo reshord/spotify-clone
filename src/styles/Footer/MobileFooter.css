@@ -1,0 +1,70 @@
+.mobileFooter {
+    display: none;
+    opacity: 0.9;
+}
+
+.toHomeBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.5;
+}
+.toSearchBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.5;
+}
+.toMediatekaBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.5;
+}
+
+.toSearchBtn span {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    padding-top: 3px;
+}
+.toMediatekaBtn div {
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding-top: 3px;
+}
+.toHomeBtn span {
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding-top: 3px;
+}
+
+.toSearchBtn svg {
+    fill: white;
+    font-size: 25px;
+}
+.toMediatekaBtn svg {
+    fill: white;
+    font-size: 25px;
+}
+.toHomeBtn svg {
+    fill: white;
+    font-size: 25px;
+}
+
+@media (max-width: 590px) {
+    .mobileFooter {
+        display: block;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        position: sticky;
+        bottom: 0;
+        background: black;
+        height: 65px;
+        box-sizing: border-box;
+        padding-top: 8px;
+    }
+}

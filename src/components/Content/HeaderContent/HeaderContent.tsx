@@ -11,12 +11,15 @@ import { Box } from '@mui/system';
 import TextField from '@mui/material/TextField';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { setToggleModal } from '../../../rtk/slices/modal';
-import { useAppDispatch } from '../../../rtk/hooks';
+import { useAppDispatch, useAppSelector } from '../../../rtk/hooks/RTKHook';
+import { RootState, store } from '../../../rtk/store';
+import {AiOutlineSetting} from 'react-icons/ai'
 
 const HeaderContent = () => {
 
     const location = useLocation()
     const [currSelect, setCurrSelect] = useState<string>('Премиум')
+    const {auth} = useAppSelector<RootState>(store.getState)
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setCurrSelect(event.target.value as string)
@@ -93,11 +96,18 @@ const HeaderContent = () => {
                     <button onClick={() => window.location.pathname = '/auth'} className='authBtn'>Войти</button>
                 </div>
                 <button className='toAppBtn'>В ПРИЛОЖЕНИЕ</button>
-                <div className="buttonMenu" onClick={() => openModal()}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                
+                {auth.token 
+                ? (
+                    <AiOutlineSetting className='settingsBtn' onClick={() => openModal()} style={{fill: 'white', fontSize: 27}}/>
+                  )
+                : (
+                    <div className="buttonMenu" onClick={() => openModal()}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                )}
             </div>
         </header>
      );

@@ -1,12 +1,15 @@
 .loginImage {
-    width: 400px;
+    max-width: 400px;
+    min-width: 200px;
+    width: 90%;
     pointer-events: none;
 }
 
 .loginPage {
     background: #1db954;
+    min-height: 500px;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,12 +23,12 @@
     background-color: black;
     color: #1db954;
     font-size: 18px;
-    padding: 9px 0px;
-    width: 17%;
+    padding: 9px 10px;
     margin-top: 35px;
     cursor: pointer;
     font-weight: 600;
 }
 
 .loginBtn:hover {
+    transform: scale(1.05);
 }

@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { useAppSelector } from "../../../rtk/hooks";
+import { useAppSelector } from "../../../rtk/hooks/RTKHook";
 import { RootState, store } from "../../../rtk/store";
 import Sidebar from "../../Sidebar/Sidebar";
 import HeaderContent from "../HeaderContent/HeaderContent";
@@ -9,6 +9,7 @@ import {useState, useEffect} from 'react'
 import { IPlaylist } from "../../../types/types";
 import { IAllPlaylists} from "../../../types/types";
 import CardMusic from "../MusicCard/CardMusic";
+import MobileFooter from "../../Footer/MobileFooter";
 
 const Playlists = () => {
 
@@ -32,7 +33,13 @@ const Playlists = () => {
                     <div className="playlistPageTitle">{currentSection.title}</div>
                     <div className="allPlaylists">
                         {currentSection.list?.map(el => (
-                            <CardMusic {...el}/>
+                            <CardMusic type={''}
+                                img={el.img} 
+                                title={el.title} 
+                                description={el.description} 
+                                songs={el.songs} 
+                                id={el.id}
+                             />
                         ))}
                 </div>
                 </div>
@@ -41,6 +48,7 @@ const Playlists = () => {
 
         </div>
         <BannerToAuth />
+        <MobileFooter />
     </>
      );
 }

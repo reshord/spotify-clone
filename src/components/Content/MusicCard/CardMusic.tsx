@@ -1,19 +1,34 @@
-import { join } from 'path';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useAppDispatch } from '../../../rtk/hooks';
+import { getPlaylistsSongs } from '../../../rtk/axios';
+import { useAppDispatch, useAppSelector } from '../../../rtk/hooks/RTKHook';
 import { setCurrentPlaylist } from '../../../rtk/slices/SpotifyPlaylists';
+import { RootState, store } from '../../../rtk/store';
 import '../../../styles/Content/Music/CardMusic.css'
 import { IPlaylist, ISongInfo } from '../../../types/types';
 
-const CardMusic: React.FC<IPlaylist> = ({img, title, description, songs}) => {
+interface IProps {
+    img: string
+    title: string
+    description: string
+    songs: ISongInfo[] | undefined
+    id: string
+    type: string
+}
+
+const CardMusic: React.FC<IProps> = ({img, title, description, songs, id, type}) => {
 
     const dispatch = useAppDispatch()
     const [activePlayBtn, setActivePlayBtn] = useState<boolean>(false)
+    const {playlists} = useAppSelector<RootState>(store.getState)
 
-    const addCurrentPlaylist = (currentPlaylist: ISongInfo[] | undefined) => {
+    const addCurrentPlaylist = (currentPlaylist: ISongInfo[] | undefined, type: string) => {
         dispatch(setCurrentPlaylist({songs: currentPlaylist, title, description, img}))
+        dispatch(getPlaylistsSongs({id, type}))
     }
+
+    useEffect(() => {
+    }, []);
 
     return ( 
         <>
@@ -21,7 +36,7 @@ const CardMusic: React.FC<IPlaylist> = ({img, title, description, songs}) => {
                 <div onMouseEnter={() => setActivePlayBtn(true)} 
                      onMouseLeave={() => setActivePlayBtn(false)} 
                      className="cardMusic" 
-                     onClick={() => addCurrentPlaylist(songs)}
+                     onClick={() => addCurrentPlaylist(songs, type)}
                      >
                     <div className='blockCardImg'>
                         <img className='cardImg' src={img} alt="" />
@@ -39,7 +54,7 @@ const CardMusic: React.FC<IPlaylist> = ({img, title, description, songs}) => {
                         
                     </div>
                 </div>
-                    <div className='cardMusicMobile' onClick={() => addCurrentPlaylist(songs)}> 
+                    <div className='cardMusicMobile' onClick={() => addCurrentPlaylist(songs, type)}> 
                         <img className='cardImgMobile' src={img} alt="" />
                         <span className='cardTitleMobile'>{title}</span> 
                     </div>

@@ -30,3 +30,84 @@
     display: grid;
     grid-template-columns: repeat(var(--column-count), minmax(0, 1fr));
 }
+
+@media (max-width: 1430px) {
+    .allPlaylists {
+        --column-count: 5;
+    }
+}
+@media (max-width: 1230px) {
+    .allPlaylists {
+        --column-count: 4;
+    }
+}
+@media (max-width: 900px) {
+    .allPlaylists {
+        --column-count: 3;
+    }
+}
+@media (max-width: 540px) {
+    .allPlaylists {
+        --column-count: 2;
+        padding-left: 50px;
+    }
+    .playlistPageTitle {
+        padding-left: 50px;
+    }
+}
+@media (max-width: 490px) {
+    .allPlaylists {
+        --column-count: 2;
+        padding-left: 40px;
+    }
+    .playlistPageTitle {
+        padding-left: 40px;
+    }
+}
+@media (max-width: 450px) {
+    .allPlaylists {
+        --column-count: 2;
+        padding-left: 30px;
+    }
+    .playlistPageTitle {
+        padding-left: 30px;
+    }
+}
+@media (max-width: 425px) {
+    .allPlaylists {
+        --column-count: 2;
+        padding-left: 20px;
+    }
+    .playlistPageTitle {
+        padding-left: 20px;
+    }
+}
+@media (max-width: 400px) {
+    .allPlaylists {
+        --column-count: 2;
+        padding-left: 10px;
+    }
+    .playlistPageTitle {
+        padding-left: 10px;
+    }
+}
+@media (max-width: 385px) {
+    .allPlaylists {
+        --column-count: 2;
+        padding-left: 0px;
+    }
+    .playlistPageTitle {
+        padding-left: 0px;
+    }
+}
+@media (max-width: 360px) {
+    .allPlaylists {
+        --column-count: 1;
+        margin: 0 auto;
+        width: 45%;
+    }
+    .playlistPageTitle {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+}

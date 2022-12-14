@@ -51,3 +51,29 @@
     margin-top: 25px;
 }
 
+@media (max-width: 690px) {
+    .pageNotFoundTitle {
+        font-size: 30px;
+    }
+}
+@media (max-width: 410px) {
+    .pageNotFoundTitle {
+        font-size: 25px;
+    }
+    .cantFound {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 320px) {
+    .pageNotFoundTitle {
+        font-size: 22px;
+    }
+    .cantFound {
+        font-size: 13px;
+    }
+    .notFoundBtn {
+        padding: 10px 25px;
+        font-size: 13px;
+    }
+}

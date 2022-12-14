@@ -90,6 +90,10 @@
     margin-right: 15px;
 }
 
+.settingsBtn {
+    display: none;
+}
+
 .auth span:hover {
     opacity: 1;
     transform: scale(1.05);
@@ -187,21 +191,26 @@
     }
 }
 
-@media (max-width: 670px) {
+@media (max-width: 710px) {
     .headerLogoImg {
         display: block;
         width: 130px;
         margin-right: 20px;
     }
+    .navArrow {
+        display: none;
+    }
+}
+
+@media (max-width: 670px) {
+
     .searchMusic {
         max-width: 170px;
     }
     .searchBlock {
         margin-left: 20px;
     }
-    .navArrow {
-        display: none;
-    }
+
     .headerSearch {
         display: block;
     }
@@ -223,6 +232,9 @@
         background: white;
         margin-bottom: 4px;
     }
+    .settingsBtn {
+        display: block;
+    }
     .buttonMenu {
         display: flex;
         flex-direction: column;
@@ -239,7 +251,7 @@
     }
     .headerSearch {
 
-        display: block;
+        display: none;
     }
     .headerLogoImg {
         margin-right: 20px;
@@ -290,8 +302,7 @@
         width: 50px;
         letter-spacing: 0.5;
     }
-    .searchMusic {
-        max-width: 50px;
-        margin-right: 10px;
+    .searchBlock {
+        display: none;
     }
 }

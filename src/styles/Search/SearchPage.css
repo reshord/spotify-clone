@@ -33,6 +33,10 @@
     grid-template-columns: repeat(var(--column-count),minmax(0,1fr));
 }
 
+.headerSearchBlock {
+    display: none;
+}
+
 @media (max-width: 1400px) {
     .genresList {
         --column-width: 180px;
@@ -97,6 +101,28 @@
         --column-count: 2;
     }
 }
+@media (max-width: 413px) {
+    .genresList {
+        --column-count: 2;
+    }
+    .headerSearchBlock {
+        display: block;
+        display: flex;
+        align-items: center;
+        max-width: 230px;
+        position: relative;
+        margin: 0 auto;
+        padding-top: 15px;
+    }
+    .SearchMusicInput {
+        padding: 12px 10px 12px 48px;
+        border-radius: 30px;
+        border: none;
+        font-weight: 600;
+        width: 100%;
+    }
+}
+
 @media (max-width: 340px) {
     .genresList {
         --column-count: 1;

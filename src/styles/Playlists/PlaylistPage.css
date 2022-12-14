@@ -108,6 +108,7 @@
 
 .mobilePlaylist {
     margin-top: 20px;
+    display: none;
 }
 
 .mobilePlaylistInfo {
@@ -164,7 +165,16 @@
     .AllPlaylistInfo {
         display: none;
     }
+    .mobilePlaylist {
+        display: block;
+    }
+}
+
+
+
+@media (max-width: 440px) {
     .headerBlock {
+        padding-left: 25px;
     }
 }
 
@@ -173,4 +183,10 @@
         font-size: 1.225rem;
     }
 
+}
+
+@media (max-width: 370px) {
+    .headerBlock {
+        padding-left: 15px;
+    }
 }

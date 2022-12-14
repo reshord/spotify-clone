@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import React, { useEffect, useRef, useState } from 'react';
 import SimpleBar from "simplebar-react";
 import { IPlaylist } from '../../../types/types';
-import { useAppDispatch, useAppSelector } from '../../../rtk/hooks';
+import { useAppDispatch, useAppSelector } from '../../../rtk/hooks/RTKHook';
 import { RootState, store } from '../../../rtk/store';
 import { setCurrentSection } from '../../../rtk/slices/SpotifyPlaylists';
 
@@ -13,9 +13,10 @@ interface IProps {
     title: string
     token?: string
     playlist: IPlaylist[]
+    type: string
 }
 
-const MusicContainer: React.FC<IProps> = ({title, playlist, token}) => {
+const MusicContainer: React.FC<IProps> = ({title, playlist, token, type}) => {
 
     const {playlists} = useAppSelector<RootState>(store.getState) 
     const [currentTitle, setCurrentTitle] = useState<string>()
@@ -34,6 +35,7 @@ const MusicContainer: React.FC<IProps> = ({title, playlist, token}) => {
 
     useEffect(() => {
         deleteSpaces()
+        
     }, []);
 
     return ( 
@@ -56,7 +58,15 @@ const MusicContainer: React.FC<IProps> = ({title, playlist, token}) => {
         <div style={{overflowY: 'hidden'}}>
             <div className="cards" >
                 {shortlyPlaylist.map(el => (
-                    <CardMusic key={el.id} {...el}/>
+                    <CardMusic 
+                        key={el.id} 
+                        img={el.img} 
+                        title={el.title} 
+                        description={el.description} 
+                        songs={el.songs} 
+                        id={el.id} 
+                        type={type} 
+                    />
                 ))}
                 
            </div>

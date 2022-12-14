@@ -3,10 +3,6 @@ import { Link, useLocation, useMatch } from 'react-router-dom';
 import '../styles/PageNotFound.css'
 
 const PageNotFound = () => {
-
-
-
-
     return ( 
         <div className="pageNotFound">
             <div className="notFoundInfo">

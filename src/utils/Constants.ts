@@ -1,0 +1,2 @@
+export const ADD_SPOTIFY_SONGS = 'ADD_SPOTIFY_SONGS'
+export const ADD_MOOD_SONGS = 'ADD_MOOD_SONGS'
