@@ -1,4 +1,4 @@
-li {
+.blockMenu li {
     list-style: none;
     cursor: pointer;
     margin-top: 15px;
@@ -7,10 +7,24 @@ li {
     transition: 0.3s;
     display: flex;
 }
+.blockMusic li {
+    list-style: none;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: 600;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: flex;
+}
 
 
-li:hover {
-    opacity: 0.8;
+.blockMenu li:hover {
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.blockMusic li:hover {
+    opacity: 0.9;
     transition: 0.3s;
 }
 

@@ -11,9 +11,8 @@
 
 .modalMenu a {
     color: white;
-    font-size: 1.6rem;
-    margin-bottom: 30px;
-    font-weight: 700;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 .mobileModalContent {
@@ -37,21 +36,30 @@
 .withAuthTokenBlock {
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 1.3rem;
 }
 
 .withAuthTokenBlock a {
     margin: 0;
 }
 
-.withAuthTokenBlock span {
+.withoutAuthTokenBlock {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.withoutAuthTokenBlock span {
+    font-size: 1.3rem;
+    font-weight: 700;
 }
 
 .modalMenu span {
-    margin-top: 30px;
-    font-size: 1.125rem;
-    font-weight: 700;
+    margin-top: 20px;
 }
+
 
 @media (max-width: 590px) {
     .mobileModalBody {

@@ -29,10 +29,8 @@ function App() {
 
   
   return (
-    <>
-        {auth.token ? (
-          <>
-              <div className="App">
+           <>
+              <div className="App" >
                 <Sidebar />
                 <Content />
               </div>
@@ -44,9 +42,7 @@ function App() {
               {Modals.mobileModal && (
                 <MobileModal />
               )}
-          </>
-        ) : <LoginPage />}
-    </>
+         </>
   );
 }
 

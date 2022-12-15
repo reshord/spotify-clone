@@ -8,7 +8,7 @@ interface IParams {
 
 export const getPlaylistsSongs = createAsyncThunk(
     'getSongs', 
-async ({id, type}: IParams) => {
+    async ({id, type}: IParams) => {
     
     const token = localStorage.getItem('token')
 
@@ -24,4 +24,21 @@ async ({id, type}: IParams) => {
     catch(e) {
         console.log(e);
     }
+})
+
+export const getProfile = createAsyncThunk(
+       'profile', 
+    async (token: string | null) => {
+        try {
+            const profile = await axios.get('https://api.spotify.com/v1/me', {
+                headers: {
+                    Authorization: "Bearer " + token,
+                    "Content-Type": "application/json"
+                }
+        })
+            return profile.data
+        }
+        catch(e) {
+            console.log(e);
+        }
 })

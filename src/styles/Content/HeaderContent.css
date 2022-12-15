@@ -142,8 +142,99 @@
     letter-spacing: 1.5px;
 }
 
+.blockInfoAuthWithToken {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.authProfile {
+    height: 32px;
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 30px;
+    border: 1px solid #535353;
+    cursor: pointer;
+    padding: 0px 3px;
+}
+
+.eAXFT6yvz37fvS1lmt6k {
+    margin-right: 3px;
+}
+
+.authProfile:hover {
+    background: #535353;
+}
+
+.blockWithoutProfileImage {
+    background: #535353;
+    border-radius: 20px;
+    padding: 4px 6px;
+}
+
+.changeRate {
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    border: 1px solid var(--essential-subdued,#878787);
+    padding: 6px 13px 7px 13px;
+    border-radius: 30px;
+    cursor: default;
+}
+
+.changeRate:hover {
+    transform: scale(1.05);
+    border: 1px solid white;
+    background: black;
+}
+
+.profileName {
+    font-weight: 700;
+    font-size: 16px;
+}
+
 .arrowToBack {
     display: none;
+}
+
+.profileImage {
+    width: 30px;
+    border-radius: 30px;
+}
+
+.profileModal {
+    background-color: #282828;
+    height: 125px;
+    max-height: 200px;
+    min-width: 175px;
+    max-width: 350px;
+    position: absolute;
+    bottom: -115px;
+    right: 20px;
+    color: white;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.profileModal li {
+    list-style: none;
+    width: 94%;
+    margin: 0 auto;
+    padding: 10px 3px;
+    font-size: 0.93rem;
+    font-weight: 600;
+    cursor: default;
+    box-sizing: border-box;
+    padding-left: 15px;
+    border-radius: 4px;
+}
+
+.profileModal li:hover {
+    background: grey;
 }
 
 @media (max-width: 1196px) {
@@ -258,6 +349,9 @@
     }
     .searchMusic {
         width: 170px;
+    }
+    .blockInfoAuthWithToken {
+        display: none;
     }
 }
 

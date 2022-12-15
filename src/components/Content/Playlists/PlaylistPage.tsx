@@ -87,7 +87,8 @@ const PlaylistPage = () => {
 
                         <div className="songsContent">
                             {currentPlaylist.songs?.map((el, index) => (
-                                <SongCard                                    // setButtonNumber={(num: number) => setButtonNumber(num)}
+                                <SongCard                                   
+                                    setButtonNumber={(num: number) => setButtonNumber(num)}
                                     buttonNumber={buttonNumber}
                                     index={index}
                                     key={el.number} number={index + 1}

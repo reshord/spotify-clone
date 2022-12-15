@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../rtk/hooks/RTKHook';
 import {setToggleModal} from '../rtk/slices/modal'
 import { RootState, store } from '../rtk/store';
-import { deleteToken } from '../rtk/slices/Auth';
 
 const MobileModal = () => {
 
@@ -15,8 +14,16 @@ const MobileModal = () => {
         dispatch(setToggleModal(false))
     }
 
-    const exit = () => {
-        dispatch(deleteToken())
+    const handleClick = () => {
+        const clientId = '4a4a31b6c9084d13b5499f9e8e2a2f45'
+        const redirectUrl = 'http://localhost:3000/'
+        const apiUrl = 'https://accounts.spotify.com/authorize'
+
+        window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&response_type=token&show_daialog=true`
+    }
+
+    const Exit = () => {
+        window.location.href = '/'
     }
 
     return ( 
@@ -27,21 +34,21 @@ const MobileModal = () => {
                     {auth.token ? (
                         <div className='withAuthTokenBlock'>
                             <Link to={'/profile'}>Профиль</Link>
-                            <span onClick={() => exit()}>Выйти</span>
+                            <span onClick={() => Exit()}>Выйти</span>
                         </div>
                     ) : (
-                        <div>
-                            <Link to={'/auth'}>Войти</Link>
-                            <Link to={'/register'}>Зарегистрироваться</Link>
+                        <div className='withoutAuthTokenBlock'>
+                            <span onClick={handleClick}>Войти</span>
+                            <span onClick={handleClick}>Зарегистрироваться</span>
                         </div>
                     )}
                     
-                    <hr style={{width: 30, height: 2, margin: 0, border: '1px solid white'}}/>
-                    <span>Premium</span>
-                    <span>Справка</span>
-                    <span>Скачать</span>
-                    <span>Конфиденциально</span>
-                    <span>Условия</span>
+                        <hr style={{width: 30, height: 2, margin: 0, border: '1px solid white'}}/>
+                        <span>Premium</span>
+                        <span>Справка</span>
+                        <span>Скачать</span>
+                        <span>Конфиденциально</span>
+                        <span>Условия</span>
                 </div>
             </div>
         </div>
