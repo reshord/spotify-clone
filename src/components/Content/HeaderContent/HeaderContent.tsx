@@ -11,18 +11,12 @@ import { setToggleModal } from '../../../rtk/slices/modal';
 import { useAppDispatch, useAppSelector } from '../../../rtk/hooks/RTKHook';
 import { RootState, store } from '../../../rtk/store';
 import {AiOutlineSetting} from 'react-icons/ai'
+import {GiHamburgerMenu} from 'react-icons/gi'
 import { getProfile } from '../../../rtk/axios';
 
 const HeaderContent = () => {
 
-    const handleClick = () => {
-        const clientId = '4a4a31b6c9084d13b5499f9e8e2a2f45'
-        const redirectUrl = 'http://localhost:3000/'
-        const apiUrl = 'https://accounts.spotify.com/authorize'
-
-        window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&response_type=token&show_daialog=true`
-        
-    }
+    
 
     const location = useLocation()
     
@@ -35,6 +29,19 @@ const HeaderContent = () => {
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setCurrSelect(event.target.value as string)
+    }
+
+    const handleClick = () => {
+        const clientId = '4a4a31b6c9084d13b5499f9e8e2a2f45'
+        const redirectUrl = 'https://magical-madeleine-924e48.netlify.app'
+        const apiUrl = 'https://accounts.spotify.com/authorize'
+
+        window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&response_type=token&show_daialog=true`
+        
+    }
+
+    const Exit = () => {
+        window.location.href = '/'
     }
     
     const dispatch = useAppDispatch()
@@ -166,14 +173,10 @@ const HeaderContent = () => {
             </div>
             {auth.token 
                 ? (
-                    <AiOutlineSetting className='settingsBtn' onClick={() => openModal()} style={{fill: 'white', fontSize: 27}}/>
+                    <AiOutlineSetting className='settingsBtn' onClick={() => openModal()} style={{fill: 'white', fontSize: 27, marginRight: 15}}/>
                   )
                 : (
-                    <div className="buttonMenu" onClick={() => openModal()}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                    <GiHamburgerMenu className='headerMenuBtn' onClick={() => openModal()}/>
                 )}
         </header>
      );

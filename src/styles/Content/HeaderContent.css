@@ -204,6 +204,10 @@
     border-radius: 30px;
 }
 
+.headerMenuBtn {
+    display: none;
+} 
+
 .profileModal {
     background-color: #282828;
     height: 125px;
@@ -317,11 +321,11 @@
     .auth {
         display: none;
     }
-    .buttonMenu span {
-        width: 25px;
-        height: 2.5px;
-        background: white;
-        margin-bottom: 4px;
+    .headerMenuBtn {
+        display: block;
+        fill: white;
+        font-size: 25px;
+        margin-right: 15px;
     }
     .settingsBtn {
         display: block;
@@ -329,6 +333,7 @@
     .buttonMenu {
         display: flex;
         flex-direction: column;
+        display: block;
     }
     .blockInfoAuth {
         width: 50px;

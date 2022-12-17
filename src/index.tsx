@@ -13,6 +13,7 @@ import PlaylistPage from './components/Content/Playlists/PlaylistPage';
 import AuthPage from './components/Auth/AuthPage';
 import SearchPage from './components/Search/SearchPage';
 import LoginPage from './components/Auth/LoginPage';
+import ProfilePage from './components/ProfilePage/ProfilePage';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -28,6 +29,7 @@ root.render(
               <Route path='/playlist/:playlist' element={<PlaylistPage />}/>
               <Route path='/auth' element={<AuthPage />}/>
               <Route path='/search' element={<SearchPage />}/>
+              <Route path='/profile/:id' element={<ProfilePage />}/>
               <Route path='*' element={<PageNotFound />}/>
           </Routes>
       </BrowserRouter>

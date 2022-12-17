@@ -16,7 +16,7 @@ const MobileModal = () => {
 
     const handleClick = () => {
         const clientId = '4a4a31b6c9084d13b5499f9e8e2a2f45'
-        const redirectUrl = 'http://localhost:3000/'
+        const redirectUrl = 'https://magical-madeleine-924e48.netlify.app'
         const apiUrl = 'https://accounts.spotify.com/authorize'
 
         window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&response_type=token&show_daialog=true`
@@ -33,7 +33,7 @@ const MobileModal = () => {
                 <div className="modalMenu">
                     {auth.token ? (
                         <div className='withAuthTokenBlock'>
-                            <Link to={'/profile'}>Профиль</Link>
+                            <Link to={`/profile/${auth.profile?.id}`}>Профиль</Link>
                             <span onClick={() => Exit()}>Выйти</span>
                         </div>
                     ) : (
@@ -44,11 +44,11 @@ const MobileModal = () => {
                     )}
                     
                         <hr style={{width: 30, height: 2, margin: 0, border: '1px solid white'}}/>
-                        <span>Premium</span>
-                        <span>Справка</span>
-                        <span>Скачать</span>
-                        <span>Конфиденциально</span>
-                        <span>Условия</span>
+                        <span className='menuItem'>Premium</span>
+                        <span className='menuItem'>Справка</span>
+                        <span className='menuItem'>Скачать</span>
+                        <span className='menuItem'>Конфиденциально</span>
+                        <span className='menuItem'>Условия</span>
                 </div>
             </div>
         </div>

@@ -1,0 +1,25 @@
+.userProfile img {
+    width: 112px;
+    border-radius: 50%;
+}
+
+.userProfile {
+    display: flex;
+    align-items: center;
+}
+
+.userProfile span {
+    color: white;
+    margin-left: 20px;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.profilePage {
+    padding: 0px 15px;
+    background: white;
+    height: 100vh;
+    background: linear-gradient(rgb(127, 127, 127) 0%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+}
