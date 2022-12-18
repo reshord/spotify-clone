@@ -1,25 +1,94 @@
 .userProfile img {
-    width: 112px;
+    width: 232px;
     border-radius: 50%;
 }
 
 .userProfile {
     display: flex;
     align-items: center;
+    margin-top: 30px;
+    margin-left: 20px;
 }
 
-.userProfile span {
-    color: white;
+.profileContent {
+    width: 100%;
+}
+
+.blockAboutProfile {
+    display: flex;
+    flex-direction: column;
     margin-left: 20px;
+}
+
+.profileTitle {
+    font-size: 12px;
     font-weight: 700;
-    font-size: 1.4rem;
+    color: white;
+}
+
+.userName {
+    color: white;
+    font-weight: 700;
+    font-size: 4.2rem;
+}
+
+.toBackArrow {
+    display: none;
 }
 
 .profilePage {
-    padding: 0px 15px;
     background: white;
     height: 100vh;
     background: linear-gradient(rgb(127, 127, 127) 0%, transparent 100%);
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+}
+
+.toBackArrow {
+    padding-left: 15px;
+}
+
+.userProfile {
+    padding-left: 15px;
+}
+
+@media (max-width: 1001px) {
+    .toBackArrow {
+        display: block;
+    }
+    .userProfile {
+        margin-top: 0;
+    }
+    .userProfile {
+        margin: 0;
+    }
+    .userProfile img {
+        width: 150px;
+    }
+    .userName {
+        font-size: 3.8rem;
+    }
+}
+
+@media (max-width: 590px) {
+    .userProfile img {
+        width: 120px;
+    }
+    .profileTitle {
+        display: none;
+    }
+    .userName {
+        font-size: 2.5rem;
+    }
+}
+@media (max-width: 390px) {
+    .userProfile img {
+        width: 100px;
+    }
+    .profileTitle {
+        display: none;
+    }
+    .userName {
+        font-size: 2rem;
+    }
 }

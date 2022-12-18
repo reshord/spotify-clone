@@ -51,6 +51,7 @@ const PlaylistPage = () => {
             <div className="playlistBody">
                 <HeaderContent />
                 <div className="headerBlock">
+                    <img className="playlistImage" src={currentPlaylist.img} alt="" />
                     <div className="AllPlaylistInfo">
                         <span className='headerPlaylistTitle'>ПЛЕЙЛИСТ</span>
                         <span className="playlistTitle">{currentPlaylist.title}</span>

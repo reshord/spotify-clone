@@ -39,6 +39,9 @@ const Sidebar = () => {
                                 <span>Любимые треки</span>
                             </li>
                         </ul>
+                        <div className="myPlaylistsList">
+
+                        </div>
                     </div>
                 </div>
                     

@@ -22,8 +22,6 @@ const HeaderContent = () => {
     
     const [currSelect, setCurrSelect] = useState<string>('Премиум')
     const [profileModal, setProfileModal] = useState<boolean>(false)
-
-    const profileModalList: string[] = ['Профиль', 'Настройки', 'Выйти']
     
     const {auth} = useAppSelector<RootState>(store.getState)
 
@@ -33,7 +31,7 @@ const HeaderContent = () => {
 
     const handleClick = () => {
         const clientId = '4a4a31b6c9084d13b5499f9e8e2a2f45'
-        const redirectUrl = 'https://magical-madeleine-924e48.netlify.app'
+        const redirectUrl = 'http://localhost:3000/'
         const apiUrl = 'https://accounts.spotify.com/authorize'
 
         window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&response_type=token&show_daialog=true`
@@ -45,18 +43,6 @@ const HeaderContent = () => {
     }
     
     const dispatch = useAppDispatch()
-
-    const profileMenu = (currentEl: string) => {
-        switch(currentEl) {
-            case 'Профиль':
-                return
-            case 'Настройки': 
-                return
-            case 'Выйти': 
-                window.location.href = '/'
-            break
-        }
-    }
 
     const openModal = () => {
         dispatch(setToggleModal(true))
@@ -70,8 +56,9 @@ const HeaderContent = () => {
     return ( 
         <header className="header">
             <div className='navigation' style={{maxWidth: `${location.pathname === '/search' ? '380px' : ''}`,}}>
-                <MdKeyboardArrowLeft className='navArrow' />
-                <MdKeyboardArrowRight className='navArrow' />
+                <Link to={'/'}>
+                    <MdKeyboardArrowLeft className='navArrow' />
+                </Link>
                 <AiOutlineArrowLeft 
                             className='arrowToBack'
                             style={{backgroundColor: 'var(--background-color)', }}
@@ -119,7 +106,24 @@ const HeaderContent = () => {
                     {profileModal && (
                         <div className='profileModal'>
                             <ul>
-                                {profileModalList.map((el, index) => <li onClick={() => profileMenu(el)} key={index}>{el}</li>)}
+                                <li>
+                                    <Link to={`/profile/${auth.profile?.id}`}>Профиль</Link>
+                                </li>
+                                <li>
+                                    <Link to={'/'}>Настройки</Link>
+                                </li>
+                                <li>
+                                    <Link to={'/'}>Premium</Link>
+                                </li>
+                                <li>
+                                    <Link to={'/'}>Скачать</Link>
+                                </li>
+                                <li>
+                                    <Link to={'/'}>Справка</Link>
+                                </li>
+                                <li  className='exitBtn'>
+                                    <span onClick={() => window.location.href = '/'}>Выйти</span>
+                                </li>
                             </ul>
                         </div>
                         )}

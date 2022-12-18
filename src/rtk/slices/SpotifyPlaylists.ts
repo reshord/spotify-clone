@@ -22,6 +22,7 @@ interface IState {
         }
         SpotifyPlaylists: IPlaylist[]
         Mood: IPlaylist[]
+        Focus: IPlaylist[]
 }
 
 const initialState: IState = {
@@ -90,48 +91,106 @@ const initialState: IState = {
                 },
         ],
         Mood: [
-                        {
-                            id: '37i9dQZF1DX3rxVfibe1L0',
-                            img: "https://i.scdn.co/image/ab67706f00000002bd0e19e810bb4b55ab164a95",
-                            title: "Mood Booster",
-                            description: "Get happy with today's dose of feel-good songs!",
-                            songs: []
-                        },
-                        {
-                            id: '37i9dQZF1DX9XIFQuFvzM4',
-                            img: "https://i.scdn.co/image/ab67706f0000000213a02d059c0479e65a850267",
-                            title: "Feelin' Good",
-                            description: "Feel good with this positively timeless playlist!",
-                            songs: []
-                        },
-                        {
-                            id: '37i9dQZF1DX2pSTOxoPbx9',
-                            img: "https://i.scdn.co/image/ab67706f00000002a6e2870c97bde5e2719c20b8",
-                            title: "Dark & Stormy",
-                            description: "Beautifully dark, dramatic tracks.",
-                            songs: []
-                        },
-                        {
-                            id: '37i9dQZF1DXcEKFjZJYZcc',
-                            img: "https://i.scdn.co/image/ab67706f00000002f68ba9973e4f1f0cdf268ccd",
-                            title: "Feel Good Piano",
-                            description: "Happy vibes for an upbeat morning.",
-                            songs: []
-                        },
-                        {
-                            id: '37i9dQZF1DX6GwdWRQMQpq',
-                            img: "https://i.scdn.co/image/ab67706f000000025a82853306e0a01ea4d7895b",
-                            title: "Feelin' Myself",
-                            description: "The hip-hop playlist that's a whole mood. Art By Laci Jordan; Cover: Saweetie",
-                            songs: []
-                        },
-                        {
-                            id: '37i9dQZF1DWSqBruwoIXkA',
-                            img: "https://i.scdn.co/image/ab67706f00000002c0d9b0a600352ab5d14abe70",
-                            title: "sad hour",
-                            description: "Somehow heartbreak feels good in a place like this. Cover: Taylor Swift",
-                            songs: []
-                        },
+                {
+                    id: '37i9dQZF1DX3rxVfibe1L0',
+                    img: "https://i.scdn.co/image/ab67706f00000002bd0e19e810bb4b55ab164a95",
+                    title: "Mood Booster",
+                    description: "Get happy with today's dose of feel-good songs!",
+                    songs: []
+                },
+                {
+                    id: '37i9dQZF1DX9XIFQuFvzM4',
+                    img: "https://i.scdn.co/image/ab67706f0000000213a02d059c0479e65a850267",
+                    title: "Feelin' Good",
+                    description: "Feel good with this positively timeless playlist!",
+                    songs: []
+                },
+                {
+                    id: '37i9dQZF1DX2pSTOxoPbx9',
+                    img: "https://i.scdn.co/image/ab67706f00000002a6e2870c97bde5e2719c20b8",
+                    title: "Dark & Stormy",
+                    description: "Beautifully dark, dramatic tracks.",
+                    songs: []
+                },
+                {
+                    id: '37i9dQZF1DXcEKFjZJYZcc',
+                    img: "https://i.scdn.co/image/ab67706f00000002f68ba9973e4f1f0cdf268ccd",
+                    title: "Feel Good Piano",
+                    description: "Happy vibes for an upbeat morning.",
+                    songs: []
+                },
+                {
+                    id: '37i9dQZF1DX6GwdWRQMQpq',
+                    img: "https://i.scdn.co/image/ab67706f000000025a82853306e0a01ea4d7895b",
+                    title: "Feelin' Myself",
+                    description: "The hip-hop playlist that's a whole mood. Art By Laci Jordan; Cover: Saweetie",
+                    songs: []
+                },
+                {
+                    id: '37i9dQZF1DWSqBruwoIXkA',
+                    img: "https://i.scdn.co/image/ab67706f00000002c0d9b0a600352ab5d14abe70",
+                    title: "sad hour",
+                    description: "Somehow heartbreak feels good in a place like this. Cover: Taylor Swift",
+                    songs: []
+                },
+        ],
+        Focus: [
+                {
+                    id: '37i9dQZF1DWWQRwui0ExPn',
+                    img: "https://i.scdn.co/image/ab67706f00000003abaf6c3c6a4b29f8a4565a86",
+                    title: "lofi beats",
+                    description: "The chillest beats to help you relax, study, code, and focus.",
+                    songs: []
+                },
+                {
+                    id: '37i9dQZF1DX5trt9i14X7j',
+                    img: "https://i.scdn.co/image/ab67706f00000003863b311d4b787ed621f7e696",
+                    title: "Coding Mode",
+                    description: "Dedicated to all the programmers out there.",
+                    songs: []
+                },
+                {
+                    id: '37i9dQZF1DWZeKCadgRdKQ',
+                    img: "https://i.scdn.co/image/ab67706f000000035551996f500ba876bda73fa5",
+                    title: "Deep Focus",
+                    description: "Keep calm and focus with ambient and post-rock music.",
+                    songs: []
+                },
+                {
+                    id: '37i9dQZF1DX4sWSpwq3LiO',
+                    img: "https://i.scdn.co/image/ab67706f00000003ca5a7517156021292e5663a6",
+                    title: "Peaceful Piano",
+                    description: "Relax and indulge with beautiful piano pieces",
+                    songs: []
+                },
+                {
+                    id: '37i9dQZF1DWV7EzJMK2FUI',
+                    img: "https://i.scdn.co/image/ab67706f000000036808b15e5db5e5569aae1471",
+                    title: "Jazz in the Background",
+                    description: "Soft instrumental Jazz for all your activities.",
+                    songs: []
+                },
+                {
+                    id: '37i9dQZF1DX8Uebhn9wzrS',
+                    img: "https://i.scdn.co/image/ab67706f000000035b0a7b8408322a3b9ed15e1e",
+                    title: "chill lofi study beats",
+                    description: "The perfect study beats. Find your focus, crush your productivity.",
+                    songs: []
+                },
+                {
+                    id: '37i9dQZF1DX0SM0LYsmbMT',
+                    img: "https://i.scdn.co/image/ab67706f000000025ea54b91b073c2776b966e7b",
+                    title: "Jazz Vibes",
+                    description: "The original chill instrumental beats playlist.",
+                    songs: []
+                },
+                {
+                    id: '0JQ5DAqbMKFCbimwdOYlsl',
+                    img: "https://i.scdn.co/image/ab67706f00000002e435ce0a86a8b9dc24527618",
+                    title: "Workday Lounge",
+                    description: "Lounge and chill out music for your workday.",
+                    songs: []
+                },
         ],
     }
 
@@ -168,6 +227,17 @@ const playlists = createSlice({
                 }
                 else if(action.payload.type === 'ADD_MOOD_SONGS') {
                     state.Mood.filter(el => {
+                        if(el.id === action.payload.data.id) {
+                            const items = action.payload.data.tracks.items
+                            const songsList = addSongsToPlaylist(items)
+        
+                            el.songs = songsList
+                            state.currentPlaylist.songs = songsList
+                        }
+                    })
+                }
+                else if(action.payload.type === 'ADD_FOCUS_SONGS') {
+                    state.Focus.filter(el => {
                         if(el.id === action.payload.data.id) {
                             const items = action.payload.data.tracks.items
                             const songsList = addSongsToPlaylist(items)

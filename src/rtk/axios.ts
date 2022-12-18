@@ -6,6 +6,11 @@ interface IParams {
     type: string
 }
 
+interface IPlaylists {
+    token: string | null
+    id: string | undefined
+}
+
 export const getPlaylistsSongs = createAsyncThunk(
     'getSongs', 
     async ({id, type}: IParams) => {
@@ -26,6 +31,8 @@ export const getPlaylistsSongs = createAsyncThunk(
     }
 })
 
+
+
 export const getProfile = createAsyncThunk(
        'profile', 
     async (token: string | null) => {
@@ -42,3 +49,4 @@ export const getProfile = createAsyncThunk(
             console.log(e);
         }
 })
+

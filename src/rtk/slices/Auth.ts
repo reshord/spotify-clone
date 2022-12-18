@@ -36,6 +36,7 @@ const auth = createSlice({
         },
     },
     extraReducers: {
+        //Get profile
         [getProfile.pending.toString()]: (state) => {
             state.messages = 'Loading...'
         },
@@ -45,7 +46,7 @@ const auth = createSlice({
         },
         [getProfile.rejected.toString()]: (state) => {
             state.messages = 'something went wrong'
-        }
+        },
     }
 })
 
