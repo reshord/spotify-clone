@@ -10,7 +10,7 @@ import MobileFooter from "../Footer/MobileFooter";
 
 const SearchPage = () => {
 
-    const {genres} = useAppSelector<RootState>(store.getState)
+    const {genres, auth} = useAppSelector<RootState>(store.getState)
 
     return ( 
         <>
@@ -43,7 +43,9 @@ const SearchPage = () => {
                     </div>
                 </main>
             </div>
-            <BannerToAuth />
+            {!auth.token && (
+                <BannerToAuth />
+              )}
             <MobileFooter />
         </>
      );

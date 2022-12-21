@@ -1,7 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit'
 import Auth from './slices/Auth'
 import Genres from './slices/Genres'
-import Modals from './slices/modal'
+import Modals from './slices/modals'
 import playlists from './slices/SpotifyPlaylists'
 
 export const store = configureStore({

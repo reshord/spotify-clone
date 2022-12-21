@@ -49,7 +49,10 @@
 }
 
 .songTitle {
-    width: 360px;
+    width: 330px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     font-size: 1rem;
     font-weight: 600;
 }
@@ -66,7 +69,10 @@
 }
 
 .songAlbumName {
-    width: 240px;
+    width: 280px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     opacity: 0.6;
     font-weight: 600;
 }
@@ -85,6 +91,7 @@
 
 .startPlaySong svg {
     fill: white;
+    margin-right: 10px;
     width: 17px;
 }
 
@@ -101,8 +108,31 @@
     border-radius: 3px;
 }
 
-@media (max-width: 1060px) {
 
+@media (max-width: 1250px) {
+    .songTitle {
+        width: 260px;
+    }
+    .songCardInfo {
+        width: 360px;
+    }
+
+    .songInfo {
+        width: 330px;
+    }
+}
+
+@media (max-width: 1040px) {
+    .songTitle {
+        width: 220px;
+    }
+    .songCardInfo {
+        width: 340px;
+    }
+
+    .songInfo {
+        width: 310px;
+    }
 }
 @media (max-width: 920px) {
     .songAlbumName {
@@ -120,32 +150,30 @@
         flex-direction: column;
         margin-right: 10px;
     }
+    .songCardInfo {
+
+    }
+    .songTitle {
+        width: 350px;
+    }
 }
 
 @media (max-width: 470px) {
     .songAuthor {
-        width: 290px;
+        width: 260px;
         font-size: 0.875rem;
     }
     .songTitle {
-        width: 290px;
+        width: 260px;
         font-size: 0.950rem;
 
     }
     .songCardInfo {
-        width: 360px;
+        width: 340px;
     }
 }
 
 @media (max-width: 410px) {
-    .songImg {
-        display: none;
-    }
-    .songCardInfo {
-        width: 320px;
-    }
-}
-@media (max-width: 360px) {
     .songImg {
         display: none;
     }
@@ -155,6 +183,17 @@
     .songInfo {
         width: 260px;
     }
+}
+@media (max-width: 360px) {
+    .songImg {
+        display: none;
+    }
+    .songCardInfo {
+        width: 250px;
+    }
+    .songInfo {
+        max-width: 225px;
+    }
     .songAuthor {
         width: 180px;
         font-size: 0.8rem;
@@ -162,5 +201,17 @@
     .songTitle {
         width: 220px;
         font-size: 0.812rem;
+    }
+}
+@media (max-width: 290px) {
+
+    .songCardInfo {
+        width: 215px;
+    }
+    .songInfo {
+        max-width: 190px;
+    }
+    .songTitle {
+        width: 150px;
     }
 }

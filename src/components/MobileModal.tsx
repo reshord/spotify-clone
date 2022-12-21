@@ -2,7 +2,7 @@ import '../styles/MobileModal.css'
 import {MdOutlineClose} from 'react-icons/md'
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../rtk/hooks/RTKHook';
-import {setToggleModal} from '../rtk/slices/modal'
+import {setToggleModal} from '../rtk/slices/modals'
 import { RootState, store } from '../rtk/store';
 
 const MobileModal = () => {

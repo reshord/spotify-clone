@@ -160,9 +160,47 @@
     opacity: 0.7;
 }
 
+.blockToGetToken {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    align-items: center;
+
+}
+
+.blockToGetToken span {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.blockToGetToken button {
+    padding: 10px 30px;
+    border-radius: 30px;
+    border: none;
+    font-size: 17px;
+    font-weight: 700;
+}
+.blockToGetToken button:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 1257px) {
+    .playlistTitle {
+        font-size: 4rem;
+    }
+}
 @media (max-width: 1060px) {
+    .playlistImage {
+        width: 200px;
+        height: 200px;
+    }
     .songNameBlock {
         width: 380px;
+    }
+    .playlistTitle {
+        font-size: 3rem;
     }
 }
 
@@ -175,6 +213,13 @@
     }
     .mobilePlaylist {
         display: block;
+        width: 400px;
+        margin: 0 auto;
+    }
+    .playlistImage {
+        display: none;
+    }
+    .mobilePlaylistInfo {
     }
 }
 

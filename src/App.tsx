@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from './rtk/hooks/RTKHook'
 import { setToken } from './rtk/slices/Auth'
 import MobileFooter from './components/Footer/MobileFooter';
 import { getPlaylistsSongs } from './rtk/axios';
+import ModalToAuth from './components/ModalToAuth';
 
 
 function App() {
@@ -34,12 +35,18 @@ function App() {
                 <Content />
               </div>
 
-              <BannerToAuth />
+              {!auth.token && (
+                <BannerToAuth />
+              )}
               {auth.token && (
                 <MobileFooter />
               )}
               {Modals.mobileModal && (
                 <MobileModal />
+              )}
+
+              {Modals.modalToAuth.toggle && (
+                <ModalToAuth />
               )}
          </>
   );
