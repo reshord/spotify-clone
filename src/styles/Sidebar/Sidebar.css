@@ -151,6 +151,10 @@ ul {
     align-items: center;
 }
 
+.mediateka a {
+    color: white;
+}
+
 .mediateka svg {
     fill: white;
     margin-right: 7px;

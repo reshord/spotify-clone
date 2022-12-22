@@ -4,18 +4,19 @@ import {useState} from 'react'
 import { useAppSelector } from '../../../rtk/hooks/RTKHook';
 import { RootState, store } from '../../../rtk/store';
 import React, {useEffect} from 'react'
-
+import {MdOutlineFavoriteBorder, MdFavorite} from 'react-icons/md'
 
 const SongCard: React.FC<ISongInfo> = ({number, setButtonNumber, buttonNumber, index, author, title, albumName, img,}) => {
     
     const [buttonPlay, setButtonPlay] = useState<boolean>()
-    const [buttonState, setButtonState] = useState<boolean>(false)
+    const [isFavourite, setFavourite] = useState<boolean>(false)
     
     const changeStateSongCard = (cardNumber: number) => {
     }
-    useEffect(() => {
 
-    }, []);
+    useEffect(() => {
+        console.log(isFavourite)
+    }, [isFavourite]);
 
     return ( 
         <div
@@ -50,8 +51,17 @@ const SongCard: React.FC<ISongInfo> = ({number, setButtonNumber, buttonNumber, i
                 
             </div>
                 <span className='songAlbumName'>{albumName}</span>
-                <span className='songDateUpdate'>{}</span>
-                <span className='songTime'>{}</span>
+                <span className='songDateUpdate'>Soon</span>
+                <div className='songTime'>
+                    {isFavourite ? (
+                        <MdFavorite style={{fontSize: 20, marginRight: 20, fill: 'lightgreen'}} onClick={() => setFavourite(false)}/>
+                    ) 
+                    : (
+                        <MdOutlineFavoriteBorder style={{fontSize: 20, marginRight: 20, }} onClick={() => setFavourite(true)}/>
+                    )}
+                    
+                    2:20
+                </div>
                 <div className='moreMenu'>
                     <span></span>
                     <span></span>

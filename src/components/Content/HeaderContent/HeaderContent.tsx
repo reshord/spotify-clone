@@ -13,15 +13,18 @@ import { RootState, store } from '../../../rtk/store';
 import {AiOutlineSetting} from 'react-icons/ai'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import { getProfile } from '../../../rtk/axios';
+import {GrClose} from 'react-icons/gr'
 
 const HeaderContent = () => {
 
-    
 
     const location = useLocation()
     
     const [currSelect, setCurrSelect] = useState<string>('Премиум')
+
+
     const [profileModal, setProfileModal] = useState<boolean>(false)
+    const [value, setValue] = useState<string>('')
     
     const {auth} = useAppSelector<RootState>(store.getState)
 
@@ -71,10 +74,6 @@ const HeaderContent = () => {
                 </Link>
                 {location.pathname === '/search' && (
                     <div className='searchBlock'>
-                        <input className='searchMusic' 
-                               type="text" 
-                               placeholder='Что хочешь послушать?'
-                            />
                         <BiSearch 
                             style={{fill: 'black', 
                             background: 'white', 
@@ -83,6 +82,24 @@ const HeaderContent = () => {
                             borderRadius: 30, 
                             marginLeft: 10}}
                         />
+                        <input className='searchMusic' 
+                               type="text" 
+                               placeholder='Что хочешь послушать?'
+                               value={value}
+                               onChange={e => setValue(e.target.value)}
+                            />
+                        {value && (
+                            <GrClose 
+                            style={{fill: 'black', 
+                            background: 'white', 
+                            position: 'absolute', 
+                            right: 10,
+                            borderRadius: 30, 
+                            fontSize: 25,
+                            }}
+                            onClick={() => setValue('')}
+                        />
+                        )}
                     </div>
                 )}
             </div>

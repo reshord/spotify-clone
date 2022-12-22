@@ -10,17 +10,29 @@ import { IPlaylist } from "../../../types/types";
 import { IAllPlaylists} from "../../../types/types";
 import CardMusic from "../MusicCard/CardMusic";
 import MobileFooter from "../../Footer/MobileFooter";
+import axios from "axios";
 
 const Playlists = () => {
 
-    const {playlists} = useAppSelector<RootState>(store.getState) 
+    const {playlists, auth} = useAppSelector<RootState>(store.getState) 
     const {currentSection} = playlists
+
+    const getPlaylist = async () => {
+        const data = await axios.get('https://api.spotify.com/v1/me/tracks', {
+            headers: {
+                Authorization: 'Bearer ' + auth.token,
+                'Content-Type': 'application/json'
+            }
+        })
+        console.log(data)
+    }
     
     useEffect(() => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         })
+        getPlaylist()
     }, []);
 
     return ( 

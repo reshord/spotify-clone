@@ -14,6 +14,7 @@ import AuthPage from './components/Auth/AuthPage';
 import SearchPage from './components/Search/SearchPage';
 import LoginPage from './components/Auth/LoginPage';
 import ProfilePage from './components/ProfilePage/ProfilePage';
+import FavouritesPage from './components/Favourites/Favourites';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -30,6 +31,7 @@ root.render(
               <Route path='/auth' element={<AuthPage />}/>
               <Route path='/search' element={<SearchPage />}/>
               <Route path='/profile/:id' element={<ProfilePage />}/>
+              <Route path='/collection/playlists' element={<FavouritesPage />}/>
               <Route path='*' element={<PageNotFound />}/>
           </Routes>
       </BrowserRouter>

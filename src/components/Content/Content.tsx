@@ -23,10 +23,8 @@ const Content = () => {
             <div className="contentWrapper">
                     <MusicContainer title='Spotify Playlists' playlist={playlists.SpotifyPlaylists} type={'ADD_SPOTIFY_SONGS'}/>
                     <MusicContainer title="Mood" playlist={playlists.Mood} type={'ADD_MOOD_SONGS'}/>
+                    <MusicContainer title="Mood" playlist={playlists.Dream} type={'ADD_DREAM_SONGS'}/>
                     <MusicContainer title="Фокус" playlist={playlists.Focus} type={'ADD_FOCUS_SONGS'}/>
-                    <MusicContainer title="Mood" playlist={playlists.Mood} type={''}/>
-                    <MusicContainer title="Mood" playlist={playlists.Mood} type={''}/>
-                    <MusicContainer title="Mood" playlist={playlists.Mood} type={''}/>
             </div>
         </main>
      );

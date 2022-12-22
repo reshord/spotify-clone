@@ -14,8 +14,6 @@
 }
 
 .headerBlock {
-    max-width: 1000px;
-    
     height: 286px;
     padding: 40px 0px 24px 32px;
     position: relative;
@@ -28,6 +26,12 @@
     color: white;
     display: flex;
     flex-direction: column;
+}
+
+.currentPlaylistInfo {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .playlistContent {
@@ -85,7 +89,7 @@
 
 .songNameBlock {
     display: flex;
-    width: 370px;
+    width: 330px;
     margin-left: 10px;
 }
 
@@ -111,7 +115,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 5px 0px;
+    padding: 20px 0px 5px 0px;
 }
 
 .mobilePlaylist {
@@ -133,6 +137,36 @@
 
 .mobilePlaylistInfo span {
     color: white;
+}
+
+.playlistContentHeader {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px 0px;
+}
+
+.playlistPlay {
+    background-color: var(--background-base,#1ed760);
+    width: 58px;
+    height: 58px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 30px;
+}
+
+.playlistPlay:hover {
+    transform: scale(1.05);
+}
+
+.AddToFavorites svg {
+    opacity: 0.6;
+}
+
+.AddToFavorites svg:hover {
+    opacity: 1;
 }
 
 .mobileImage {
@@ -240,7 +274,10 @@
 
 @media (max-width: 440px) {
     .headerBlock {
-        padding-left: 25px;
+        padding-left: 0px;
+    }
+    .mobilePlaylistInfo {
+        margin-left: 20px;
     }
 }
 
@@ -252,7 +289,4 @@
 }
 
 @media (max-width: 370px) {
-    .headerBlock {
-        padding-left: 15px;
-    }
 }

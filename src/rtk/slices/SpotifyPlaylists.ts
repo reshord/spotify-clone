@@ -22,6 +22,7 @@ interface IState {
         SpotifyPlaylists: IPlaylist[]
         Mood: IPlaylist[]
         Focus: IPlaylist[]
+        Dream: IPlaylist[]
 }
 
 const initialState: IState = {
@@ -191,6 +192,22 @@ const initialState: IState = {
                     songs: []
                 },
         ],
+        Dream: [
+                {
+                    id: '37i9dQZF1DWZd79rJ6a7lp',
+                    img: "https://i.scdn.co/image/ab67706f00000003bc9438e3a6ff78076f8b1405",
+                    title: "Sleep",
+                    description: "Gentle ambient piano to help you fall asleep.",
+                    songs: []
+                },
+                {
+                    id: '37i9dQZF1DXdbkmlag2h7b',
+                    img: "https://i.scdn.co/image/ab67706f00000003d2291e0c5d43a1b21a941031",
+                    title: "DayDreamer",
+                    description: "Drift away with enthralling instrumentals.",
+                    songs: []
+                },
+        ],
     }
 
 const playlists = createSlice({
@@ -237,6 +254,17 @@ const playlists = createSlice({
                 }
                 else if(action.payload.type === 'ADD_FOCUS_SONGS') {
                     state.Focus.filter(el => {
+                        if(el.id === action.payload.data.id) {
+                            const items = action.payload.data.tracks.items
+                            const songsList = addSongsToPlaylist(items)
+        
+                            el.songs = songsList
+                            state.currentPlaylist.songs = songsList
+                        }
+                    })
+                }
+                else if(action.payload.type === 'ADD_DREAM_SONGS') {
+                    state.Dream.filter(el => {
                         if(el.id === action.payload.data.id) {
                             const items = action.payload.data.tracks.items
                             const songsList = addSongsToPlaylist(items)
