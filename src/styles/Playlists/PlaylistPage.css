@@ -186,21 +186,34 @@
     transform: scale(1.05);
 }
 
-@media (max-width: 1257px) {
+@media (max-width: 1250px) {
     .playlistTitle {
         font-size: 4rem;
     }
+    .songNameBlock {
+        width: 330px;
+    }
+    .albumInfo {
+        width: 140px;
+    }
 }
-@media (max-width: 1060px) {
+
+@media (max-width: 1050px) {
     .playlistImage {
         width: 200px;
         height: 200px;
     }
     .songNameBlock {
-        width: 380px;
+        width: 310px;
     }
     .playlistTitle {
         font-size: 3rem;
+    }
+    .aboutSong {
+        width: 200px;
+    }
+    .songAuthor {
+        max-width: 200px;
     }
 }
 

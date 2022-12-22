@@ -111,27 +111,43 @@
 
 @media (max-width: 1250px) {
     .songTitle {
-        width: 260px;
-    }
-    .songCardInfo {
-        width: 360px;
-    }
-
-    .songInfo {
-        width: 330px;
-    }
-}
-
-@media (max-width: 1040px) {
-    .songTitle {
-        width: 220px;
+        width: 230px;
     }
     .songCardInfo {
         width: 340px;
     }
-
+    .songAlbumName {
+        width: 180px;
+    }
     .songInfo {
         width: 310px;
+    }
+}
+@media (max-width: 1115px) {
+    .songTitle {
+        width: 230px;
+    }
+    .songCardInfo {
+        width: 320px;
+    }
+    .songAlbumName {
+        width: 130px;
+    }
+    .songInfo {
+        width: 290px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .songTitle {
+        width: 220px;
+    }
+    .songCardInfo {
+        width: 300px;
+    }
+
+    .songInfo {
+        width: 265px;
     }
 }
 @media (max-width: 920px) {
@@ -150,11 +166,14 @@
         flex-direction: column;
         margin-right: 10px;
     }
+    .songInfo {
+        width: 290px;
+    }
     .songCardInfo {
-
+        width: 320px;
     }
     .songTitle {
-        width: 350px;
+        width: 380px;
     }
 }
 
