@@ -107,8 +107,15 @@ const PlaylistPage = () => {
                                     setButtonNumber={(num: number) => setButtonNumber(num)}
                                     buttonNumber={buttonNumber}
                                     index={index}
-                                    key={el.number} number={index + 1}
-                                    img={el.img} songNumber={0} title={el.title} albumName={el.albumName} author={el.author}
+                                    key={el.number} 
+                                    number={index + 1}
+                                    img={el.img} 
+                                    songNumber={0} 
+                                    title={el.title} 
+                                    albumName={el.albumName} 
+                                    author={el.author}
+                                    id={el.id}
+                                    isFavourite={el.isFavourite}
                             />
                             ))}
                             {!currentPlaylist.songs && (

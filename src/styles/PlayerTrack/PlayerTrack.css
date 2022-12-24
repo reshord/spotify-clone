@@ -1,0 +1,86 @@
+.playerTrackBody {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #181818;
+    border-top: 1px solid #282828;
+}
+
+.currentTrackBlock {
+    max-width: 260px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.currentTrackInfo {
+    display: flex;
+    flex-direction: column;
+    max-width: 170px;
+    margin-left: 15px;
+}
+
+.currentTrackInfo a:hover {
+    text-decoration: underline;
+}
+
+.currentTrackTitle {
+    font-size: 0.875rem;
+    color: white;
+    font-weight: 700;
+}
+
+.currentTrackAuthor {
+    color: #b3b3b3;
+    font-size: 0.6875rem;
+    margin-top: 5px;
+}
+
+.blockAddToFavourites {
+    opacity: 0.6;
+    margin-left: 25px;
+}
+
+.blockAddToFavourites:hover {
+    opacity: 1;
+}
+
+.controlsBtns {
+    display: flex;
+    justify-content: space-between;
+    width: 140px;
+}
+
+.prevTrackBtn {
+    fill: white;
+}
+
+.nextTrackBtn {
+    fill: white;
+}
+
+.controlBtn {
+    font-size: 30px;
+}
+
+.playerControls {
+    width: 300px;
+}
+
+.startTrackBtn {
+    background: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding-left: 2px;
+}
+
+.pauseTrackBtn {
+    background: white;
+    border-radius: 20px;
+}

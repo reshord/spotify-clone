@@ -73,7 +73,7 @@
 }
 
 .albumInfo {
-    width: 190px;
+    width: 180px;
     margin-left: 10px;
 }
 
@@ -89,7 +89,7 @@
 
 .songNameBlock {
     display: flex;
-    width: 330px;
+    width: 360px;
     margin-left: 10px;
 }
 
@@ -101,7 +101,7 @@
     fill: white;
     opacity: 0.5;
     margin-right: 10px;
-
+    width: 100px;
 }
 
 .headerSongsList span {

@@ -10,11 +10,12 @@ import { setToken } from './rtk/slices/Auth'
 import MobileFooter from './components/Footer/MobileFooter';
 import { getPlaylistsSongs } from './rtk/axios';
 import ModalToAuth from './components/ModalToAuth';
+import PlayerTrack from './components/PlayerTrack/PlayerTrack';
 
 
 function App() {
 
-  const {Modals, auth} = useAppSelector<RootState>(store.getState)
+  const {Modals, auth, player} = useAppSelector<RootState>(store.getState)
 
   const dispatch = useAppDispatch()
 
@@ -25,7 +26,7 @@ function App() {
           dispatch(setToken(token))
           window.localStorage.setItem('token', token)
       }      
-    }, [auth.token]);
+    }, [auth.token, player.currentlyPlayingTrack]);
 
   
   return (
@@ -40,6 +41,9 @@ function App() {
               )}
               {auth.token && (
                 <MobileFooter />
+              )}
+              {auth.token && (
+                <PlayerTrack />
               )}
               {Modals.mobileModal && (
                 <MobileModal />

@@ -1,22 +1,41 @@
 import '../../../styles/Playlists/SongCard.css'
 import { ISongInfo } from '../../../types/types';
 import {useState} from 'react'
-import { useAppSelector } from '../../../rtk/hooks/RTKHook';
+import { useAppDispatch, useAppSelector } from '../../../rtk/hooks/RTKHook';
 import { RootState, store } from '../../../rtk/store';
 import React, {useEffect} from 'react'
 import {MdOutlineFavoriteBorder, MdFavorite} from 'react-icons/md'
+import { addSongToFavourites } from '../../../rtk/slices/SpotifyPlaylists';
 
-const SongCard: React.FC<ISongInfo> = ({number, setButtonNumber, buttonNumber, index, author, title, albumName, img,}) => {
+const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, buttonNumber, index, author, title, albumName, img, id}) => {
     
     const [buttonPlay, setButtonPlay] = useState<boolean>()
-    const [isFavourite, setFavourite] = useState<boolean>(false)
-    
-    const changeStateSongCard = (cardNumber: number) => {
+    // const [isFavourite, setFavourite] = useState<boolean>(false)
+
+    const {favourites} =  useAppSelector<RootState>(store.getState)    
+    const dispatch = useAppDispatch()
+
+    const addToFavourites = () => {
+        // setFavourite(true)
+        dispatch(addSongToFavourites({
+            id, title, author,
+            number: 0,
+            img: '',
+            songNumber: 0,
+            albumName: '',
+            isFavourite: false
+        }))
+    }
+    const deleteFavourite = () => {
+        // setFavourite(false)
+        // dispatch(deleteSongFavourites({id, title, author, isFavourite}))
     }
 
     useEffect(() => {
-        console.log(isFavourite)
-    }, [isFavourite]);
+    //    if(favourites.favouritesList.length && favourites.favouritesList.filter(el => el.id === id)[0].isFavourite) {
+    //         setFavourite(true)
+    //    }
+    },[]);
 
     return ( 
         <div
@@ -54,15 +73,19 @@ const SongCard: React.FC<ISongInfo> = ({number, setButtonNumber, buttonNumber, i
                 <span className='songDateUpdate'>Soon</span>
                 <div className='songTime'>
                     {isFavourite ? (
-                        <MdFavorite style={{fontSize: 20, marginRight: 20, fill: 'lightgreen'}} onClick={() => setFavourite(false)}/>
+                        <MdFavorite style={{fontSize: 20, marginRight: 20, fill: 'lightgreen'}} onClick={() => deleteFavourite()}/>
                     ) 
                     : (
-                        <MdOutlineFavoriteBorder style={{fontSize: 20, marginRight: 20, }} onClick={() => setFavourite(true)}/>
+                        <MdOutlineFavoriteBorder style={{fontSize: 20, marginRight: 20, }} onClick={() => addToFavourites()}/>
                     )}
-                    
-                    2:20
+                    <span>2:20</span>
+                    <div className='moreMenu'>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
-                <div className='moreMenu'>
+                <div className='moreMenuMobile'>
                     <span></span>
                     <span></span>
                     <span></span>

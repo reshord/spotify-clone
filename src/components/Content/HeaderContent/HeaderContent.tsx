@@ -36,8 +36,19 @@ const HeaderContent = () => {
         const clientId = '4a4a31b6c9084d13b5499f9e8e2a2f45'
         const redirectUrl = 'http://localhost:3000/'
         const apiUrl = 'https://accounts.spotify.com/authorize'
-
-        window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&response_type=token&show_daialog=true`
+        const scope = [
+            'user-read-email',
+            'user-read-private', 
+            'user-read-playback-state',
+            'user-read-currently-playing', 
+            'user-read-playback-position',
+            'user-modify-playback-state',
+            'user-top-read',
+            'user-read-recently-played',
+            'app-remote-control',
+            'streaming'
+        ]
+        window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(' ')}&response_type=token&show_daialog=true`
         
     }
 

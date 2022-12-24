@@ -49,4 +49,22 @@ export const getProfile = createAsyncThunk(
             console.log(e);
         }
 })
+export const getCurrentlyPlayingTrack = createAsyncThunk(
+       'currentlyPlayingTrack', 
+    async (token: string | null) => {
+        try {
+            const {data} = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', {
+                headers: {
+                    Authorization: "Bearer " + token,
+                    "Content-Type": "application/json"
+                }
+        })
+            if(data !== '') {
+                return data
+            }
+        }
+        catch(e) {
+            console.log(e);
+        }
+})
 

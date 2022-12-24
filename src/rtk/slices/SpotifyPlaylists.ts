@@ -1,11 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ExecOptionsWithStringEncoding } from "child_process";
 import { IAllPlaylists, IPlaylist, ISongInfo } from "../../types/types";
-import { getPlaylistsSongs } from "../axios";
+import { getCurrentlyPlayingTrack, getPlaylistsSongs } from "../axios";
 import { addSongsToPlaylist } from "../hooks/addSongsToPlaylist";
 
 
+
+
 interface IState {
+        favoritesList: ISongInfo[] | []
         messages: string
         currentSection: {
             title: string
@@ -26,6 +29,7 @@ interface IState {
 }
 
 const initialState: IState = {
+        favoritesList: [],
         messages: '',
         currentSection: {
             title: '',
@@ -224,8 +228,32 @@ const playlists = createSlice({
             state.currentPlaylist.description = action.payload.description
             state.currentPlaylist.img = action.payload.img
         },
+        addSongToFavourites: (state, {payload}: PayloadAction<ISongInfo>) => {
+            const foundFavourite = state.favoritesList.filter(el => el.id === payload.id)
+
+            if(!foundFavourite.length) {
+                state.favoritesList = [...state.favoritesList, payload]
+                const res = state.currentPlaylist.songs?.map(el => {
+                    if(el.id === payload.id) {
+                        el.isFavourite = true
+                        // return {
+                        //     number: el.number,
+                        //     title: el.title,
+                        //     author: el.author,
+                        //     albumName: el.albumName,
+                        //     id: el.id,
+                        //     img: el.img,
+                        //     songNumber: el.songNumber,
+                        //     isFavourite: true,
+                            
+                        // }
+                    }
+                })
+            }
+        }
     },
     extraReducers: {
+        // Get Playlists Songs
         [getPlaylistsSongs.pending.toString()]: (state) => {
             state.messages = 'Loading...'
         },
@@ -277,9 +305,10 @@ const playlists = createSlice({
         },
         [getPlaylistsSongs.rejected.toString()]: (state) => {
             state.messages = 'something went wrong'
-        }
+        },
+        
     }
 })
 
-export const {setCurrentSection, setCurrentPlaylist} = playlists.actions
+export const {setCurrentSection, setCurrentPlaylist, addSongToFavourites} = playlists.actions
 export default playlists
