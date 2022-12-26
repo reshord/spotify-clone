@@ -59,7 +59,7 @@
 }
 
 .showsContainer {
-    width: 1245px;
+    width: 1210px;
     --column-width: 185px;
     --column-count: 6;
     --grid-gap: 24px;
@@ -70,12 +70,12 @@
     grid-template-columns: repeat(var(--column-count),minmax(0,1fr));
     margin-top: 25px;
     overflow: hidden;
-
 }
 
 .podcastsContainer {
-    padding: 20px 0px 0px 25px; 
-
+    padding: 20px 0px 0px 0px; 
+    width: 95%;
+    margin: 0 auto;
 }
 
 .podcastCardInfo {
@@ -88,3 +88,8 @@
     padding: 5px;
 }
 
+@media (max-width: 590px) {
+    .podcastsContainer {
+        width: 90%;
+    }
+}

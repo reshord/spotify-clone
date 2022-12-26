@@ -6,6 +6,7 @@ interface IState {
         img: string
         toggle: boolean
     }
+    aboutAuthorModal: boolean
 }
 
 const initialState: IState = {
@@ -13,7 +14,8 @@ const initialState: IState = {
     modalToAuth: {
         img: '',
         toggle: false
-    }
+    },
+    aboutAuthorModal: false
 }
 
 const Modals = createSlice({
@@ -26,9 +28,12 @@ const Modals = createSlice({
         setModalToAuth: (state, action) => {
             state.modalToAuth.toggle = action.payload.toggle
             state.modalToAuth.img = action.payload.img
+        },
+        aboutAuthorModal: (state, action) => {
+            state.aboutAuthorModal = action.payload
         }
     }
 })
 
-export const {setToggleModal, setModalToAuth} = Modals.actions
+export const {setToggleModal, setModalToAuth, aboutAuthorModal} = Modals.actions
 export default Modals.reducer

@@ -8,7 +8,7 @@ import { RootState, store } from "../../rtk/store";
 import { IShowList } from "../../types/types";
 
 const PodcastsCard: React.FC<IShowList> = 
-    ({id, description, title, author, image, items}) => {
+    ({id, description, title, author, image, items, background}) => {
 
     const dispatch = useAppDispatch()
     const {auth} = useAppSelector<RootState>(store.getState)
@@ -21,7 +21,8 @@ const PodcastsCard: React.FC<IShowList> =
             title,
             author,
             image,
-            items
+            items,
+            background
         }))
         dispatch(setModalToAuth(true))
     }

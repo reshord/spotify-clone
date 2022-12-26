@@ -50,5 +50,6 @@ export interface IShowList {
     title?: string
     author?: string
     image?: string
-    items?: any[] | null
+    items?: any[] | null,
+    background?: string
 }

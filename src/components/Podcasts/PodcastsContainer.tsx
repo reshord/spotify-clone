@@ -18,8 +18,10 @@ const PodcastsContainer: React.FC<IProps> = ({title}) => {
         <div className="podcastsContainer">
             <span className="podcastsContainerTitle">{title}</span>
             
-            <div className="showsContainer">
-                {shows.showList?.map((el, index) => ( <PodcastsCard {...el}/> ))}
+            <div style={{overflowY: 'hidden'}}>
+                <div className="showsContainer">
+                    {shows.showList?.map((el, index) => ( <PodcastsCard {...el}/> ))}
+                </div>
             </div>
         </div>
      );

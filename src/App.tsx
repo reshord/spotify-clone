@@ -42,13 +42,9 @@ function App() {
               {auth.token && (
                 <MobileFooter />
               )}
-              {auth.token && (
-                <PlayerTrack />
-              )}
               {Modals.mobileModal && (
                 <MobileModal />
               )}
-
               {Modals.modalToAuth.toggle && (
                 <ModalToAuth />
               )}

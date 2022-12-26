@@ -12,10 +12,9 @@
     display: flex;
     align-items: center;
     height: 340px;
-    width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
     padding-left: 20px;
-    background-color: rgb(32, 0, 80);
 }
 
 .showPageInfo {
@@ -61,7 +60,6 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 80%;
 }
 
 .aboutAuthorTitle {
@@ -93,6 +91,11 @@
     padding: 7px 15px;
     color: white;
     letter-spacing: .1em;
+    margin-right: 10px;
+}
+
+.infoAboutAuthorBtn {
+    display: none;
 }
 
 .followShowBlock button:hover {
@@ -101,7 +104,6 @@
 
 .allShowEpisodeInfoAuthor {
     max-width: 370px;
-    width: 100%;
     color: white;
     display: flex;
     flex-direction: column;
@@ -115,16 +117,21 @@
 }
 
 .randomEpisodeCard {
+    box-sizing: border-box;
     padding: 16px;
     border-radius: 4px;
     cursor: pointer;
-    width: 764px;
+    max-width: 764px;
     height: 167px;
     display: flex;
     flex-direction: column;
     --background-tinted-base: hsla(0,0%,100%,.07);
     background-color: var(--background-tinted-base);
     margin: 20px 0px;
+}
+
+.randomEpisodeCard span {
+    max-width: 400px;
 }
 
 .randomEpisodeCard:hover {
@@ -152,4 +159,177 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 750px;
+}
+
+.aboutAuthorModalBody {
+    display: none;
+}
+
+@media (max-width: 1450px) {
+    .randomEpisodeCard {
+        max-width: 600px;
+    }
+}
+@media (max-width: 1270px) {
+    .randomEpisodeCard {
+        width: 500px;
+    }
+    .showPageTitle {
+        font-size: 4rem;
+    }
+    .aboutAuthorDescription {
+        width: 200px;
+    }
+}
+@media (max-width: 890px) {
+    .randomEpisodeCard {
+        width: 500px;
+    }
+    .showPageTitle {
+        font-size: 3rem;
+    }
+    .showPageHeadeImg {
+        width: 200px;
+        height: 200px;
+    }
+    .showPageInfo {
+        height: 180px;
+    }
+    .aboutAuthorDescription {
+        width: 200px;
+    }
+}
+@media (max-width: 850px) {
+    .randomEpisodeCard {
+        width: 400px;
+    }
+    .aboutAuthorTitle {
+        font-size: 1rem;
+    }
+    .aboutAuthorDescription {
+        font-size: 0.8rem;
+    }
+    .randomEpisodeCardTitle {
+        font-size: 0.9rem;
+    }
+    .randomEpisodeCardDescription {
+        font-size: 0.7rem;
+    }
+    .randomEpisodeCard {
+        height: 140px;
+    }
+    .allShowEpisodeListTitle {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 740px) {
+    .aboutAuthorDescription {
+        width: 150px;
+    }
+}
+@media (max-width: 630px) {
+    .infoAboutAuthorBtn {
+        display: block;
+    }
+    .allShowEpisodeInfoAuthor {
+        display: none;
+    }
+    .showPageTitle {
+        font-size: 2rem;
+    }
+    .showPageAuthor {
+        font-size: 1.2rem;
+    }
+    .followShowBlock {
+        display: flex;
+    }
+    .showPageHeadeImg {
+        width: 160px;
+        height: 160px;
+    }
+    .showPageInfo {
+        height: 150px;
+    }
+    .allShowEpisode {
+        width: 100%;
+    }
+    .randomEpisodeCard {
+        width: 100%;
+    }
+    .aboutAuthorModalBody {
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 5;
+        position: fixed;
+        top: 0;
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .aboutAuthorModalContent {
+        background: rgb(18, 18, 18);
+        width: 220px;
+        box-sizing: border-box;
+        padding: 15px 15px;
+
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        position: relative;
+    }
+    .closeAboutAuthModal {
+        fill: white;
+        font-size: 16px;
+        position: absolute;
+        right: 10px;
+    }
+    .aboutAuthorModalContent span {
+        color: white;
+    }
+    .aboutAuthorTitle {
+        font-size: 14px;
+    }
+    .aboutAuthorDescription {
+        width: 90%;
+    }
+}
+
+@media (max-width: 475px) {
+    .showPageHeader {
+        flex-direction: column;
+        padding-top: 20px;
+        padding-left: 0px;
+    } 
+    .podcastsTitle {
+        display: none;
+    }
+    .showPageTitle {
+        font-size: 1.7rem;
+    }
+    .showCardTitle {
+        font-size: 0.9rem;
+    }
+    .showPageAuthor {
+        font-size: 1rem;
+    }
+    .showPageInfo {
+        height: 80px;
+        text-align: center;
+        margin-left: 0;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 395px) {
+    .followShowBlock button {
+        font-size: 10px;
+    }
+    .randomEpisodeCardTitle {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }

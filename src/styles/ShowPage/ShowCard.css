@@ -1,11 +1,14 @@
 .showCard {
     display: flex;
-    padding: 16px;
-    width: 764px;
+    max-width: 764px;
     height: 140px;
     border-top: 1px solid #535353;
+    border-bottom: 1px solid #535353;
     border-radius: 10px;
     cursor: pointer;
+    padding: 16px;
+    margin-top: 10px;
+
 }
 
 .showCard:hover {
@@ -50,4 +53,93 @@
     font-weight: 600;
     opacity: 0.7;
     margin-top: 10px;
+}
+
+@media (max-width: 1450px) {
+    .showCard {
+        width: 600px;
+        box-sizing: border-box;
+    }
+    .showCardDescription {
+        max-width: 400px;
+    }
+    .showCardTitle {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 1270px) {
+    .showCard {
+        max-width: 500px;
+    }
+    .showCardDescription {
+        max-width: 300px;
+    }
+    .showCardTitle {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 850px) {
+    .showCard {
+        width: 400px;
+    }
+    .showCardDescription {
+        max-width: 200px;
+    }
+    .showCardTitle {
+        max-width: 200px;
+    }
+    .showCardImage img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 630px) {
+    .showCard {
+        max-width: 580px;
+        width: 100%;
+    }
+    .showCardTitle {
+        max-width: 360px;
+    }
+    .showCardDescription {
+        max-width: 360px;
+    }
+}
+@media (max-width: 580px) {
+    .showCardTitle {
+        max-width: 290px;
+    }
+    .showCardDescription {
+        max-width: 290px;
+    }
+}
+
+@media (max-width: 475px) {
+    .showCard {
+        padding: 8px 12px;
+        height: 120px;
+    }
+    .showCardTitle {
+        max-width: 220px;
+    }
+    .showCardDescription {
+        max-width: 220px;
+    }
+    .showCardInfo {
+        margin-top: 5px;
+    }
+}
+@media (max-width: 410px) {
+    .showCardTitle {
+        max-width: 170px;
+    }
+    .showCardDescription {
+        max-width: 170px;
+    }
+    .showCardInfo {
+        margin-top: 5px;
+    }
 }
