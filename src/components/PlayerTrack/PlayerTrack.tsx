@@ -17,13 +17,13 @@ const PlayerTrack = () => {
     const dispatch = useAppDispatch()
 
     const changeCurrentTrack = async (type: string) => {
-        await axios.post(`https://api.spotify.com/v1/me/player/${type}`, {}, {
-            headers: {
-                Authorization: `Bearer ${auth.token}`,
-                'Content-Type': 'application/json'
-            }
-        })
-        dispatch(getCurrentlyPlayingTrack(auth.token))
+        // await axios.post(`https://api.spotify.com/v1/me/player/${type}`, {}, {
+        //     headers: {
+        //         Authorization: `Bearer ${auth.token}`,
+        //         'Content-Type': 'application/json'
+        //     }
+        // })
+        // dispatch(getCurrentlyPlayingTrack(auth.token))
     }
 
     useEffect(() => {

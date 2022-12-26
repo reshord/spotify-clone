@@ -128,7 +128,11 @@ const HeaderContent = () => {
                             </div>
                         )}
                         <span className='profileName' style={{color: 'white'}}>{auth.profile?.display_name}</span>
-                        <svg style={{fill: 'white'}} role="img" height="16" width="16" aria-hidden="true" className="Svg-sc-ytk21e-0 uPxdw eAXFT6yvz37fvS1lmt6k" viewBox="0 0 16 16" data-encore-id="icon"><path d="M14 6l-6 6-6-6h12z"></path></svg>
+                        {profileModal ? (
+                            <svg style={{fill: 'white'}} role="img" height="16" width="16" aria-hidden="true" className="Svg-sc-ytk21e-0 uPxdw eAXFT6yvz37fvS1lmt6k" viewBox="0 0 16 16" data-encore-id="icon"><path d="M14 10L8 4l-6 6h12z"></path></svg>
+                        ) : (
+                            <svg style={{fill: 'white'}} role="img" height="16" width="16" aria-hidden="true" className="Svg-sc-ytk21e-0 uPxdw eAXFT6yvz37fvS1lmt6k" viewBox="0 0 16 16" data-encore-id="icon"><path d="M14 6l-6 6-6-6h12z"></path></svg>
+                        )}
                     </div>
                     
                     {profileModal && (

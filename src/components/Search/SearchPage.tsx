@@ -53,8 +53,8 @@ const SearchPage = () => {
                     <div className="SearchBlockContent">
                         <span>Все остальное</span>
                         <div className="genresList">
-                            {genres.genresList.map(el => (
-                                <GenreCard {...el}/>
+                            {genres.genresList.map((el, index: number) => (
+                                <GenreCard key={index} {...el}/>
                             ))}
                         </div>
                     </div>

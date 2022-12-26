@@ -1,6 +1,6 @@
 import HeaderContent from "./HeaderContent/HeaderContent";
 import '../../styles/Content/Content.css'
-import MusicContainer from "./MusicCard/MusicContainer";
+import MusicContainer from "./MusicContainer/MusicContainer";
 import { useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { useAppSelector } from '../../rtk/hooks/RTKHook';
@@ -13,8 +13,8 @@ const Content = () => {
     
     const {playlists, auth} = useAppSelector<RootState>(store.getState) 
 
-
     useEffect(() => {
+
     }, []);
 
     return ( 
@@ -24,7 +24,7 @@ const Content = () => {
                     <MusicContainer title='Spotify Playlists' playlist={playlists.SpotifyPlaylists} type={'ADD_SPOTIFY_SONGS'}/>
                     <MusicContainer title="Mood" playlist={playlists.Mood} type={'ADD_MOOD_SONGS'}/>
                     <MusicContainer title="Mood" playlist={playlists.Dream} type={'ADD_DREAM_SONGS'}/>
-                    <MusicContainer title="Фокус" playlist={playlists.Focus} type={'ADD_FOCUS_SONGS'}/>
+                    <MusicContainer title="Focus" playlist={playlists.Focus} type={'ADD_FOCUS_SONGS'}/>
             </div>
         </main>
      );

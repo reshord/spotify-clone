@@ -7,8 +7,7 @@ import '../../../styles/Playlists/AllPlaylists.css'
 import BannerToAuth from "../../BannerToAuth";
 import {useState, useEffect} from 'react'
 import { IPlaylist } from "../../../types/types";
-import { IAllPlaylists} from "../../../types/types";
-import CardMusic from "../MusicCard/CardMusic";
+import CardMusic from "../MusicContainer/CardMusic";
 import MobileFooter from "../../Footer/MobileFooter";
 import axios from "axios";
 

@@ -1,0 +1,155 @@
+.showPage {
+    display: flex;
+    justify-content: space-between;
+    background: rgb(18, 18, 18);
+}
+
+.showPageContent {
+    width: 100%;
+}
+
+.showPageHeader {
+    display: flex;
+    align-items: center;
+    height: 340px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 20px;
+    background-color: rgb(32, 0, 80);
+}
+
+.showPageInfo {
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 25px;
+}
+
+.showPageInfo span {
+    color: white;
+}
+
+.showPageHeadeImg {
+    width: 232px;
+    height: 232px;
+    border-radius: 10px;
+    box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+}
+
+.showPageAuthor {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.showPageTitle {
+    font-size: 6rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 900px;
+}
+
+.allShowEpisodeContent {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
+.allShowEpisode {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 80%;
+}
+
+.aboutAuthorTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.aboutAuthorDescription {
+    font-size: 1rem;
+    opacity: 0.6;
+    font-weight: 600;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.followShowBlock {
+    margin: 30px 15px;
+
+}
+
+.followShowBlock button {
+    border: 1px solid hsla(0,0%,100%,.3);
+    background-color: transparent;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 15px;
+    color: white;
+    letter-spacing: .1em;
+}
+
+.followShowBlock button:hover {
+    border: 1px solid white;
+}
+
+.allShowEpisodeInfoAuthor {
+    max-width: 370px;
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.allShowEpisodeListTitle {
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.randomEpisodeCard {
+    padding: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 764px;
+    height: 167px;
+    display: flex;
+    flex-direction: column;
+    --background-tinted-base: hsla(0,0%,100%,.07);
+    background-color: var(--background-tinted-base);
+    margin: 20px 0px;
+}
+
+.randomEpisodeCard:hover {
+    opacity: 0.7;
+}
+
+.andomEpisodeCardContinue {
+    color: white;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    font-weight: 600;
+}
+
+.randomEpisodeCardTitle {
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 12px 0px;
+}
+
+.randomEpisodeCardDescription {
+    color: white;
+    opacity: 0.6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 750px;
+}

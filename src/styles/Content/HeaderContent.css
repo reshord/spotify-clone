@@ -216,11 +216,10 @@
 .profileModal {
     background-color: #282828;
     max-height: 250px;
-    min-height: 235px;
     min-width: 175px;
     max-width: 350px;
     position: absolute;
-    bottom: -240px;
+    bottom: -230px;
     right: 20px;
     color: white;
     border-radius: 5px;

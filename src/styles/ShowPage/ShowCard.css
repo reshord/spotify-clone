@@ -1,0 +1,53 @@
+.showCard {
+    display: flex;
+    padding: 16px;
+    width: 764px;
+    height: 140px;
+    border-top: 1px solid #535353;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.showCard:hover {
+    --background-tinted-base: hsla(0,0%,100%,.07);
+    background-color: var(--background-tinted-base);
+}
+
+.showCard:first-child {
+    margin-top: 30px;
+}
+
+.showCardInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.showCardImage img {
+    width: 112px;
+    height: 112px;
+    border-radius: 10px;
+}
+
+.showCardInfo span {
+    color: white;
+}
+
+.showCardTitle {
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 600px;
+}
+
+.showCardDescription {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 600px;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.7;
+    margin-top: 10px;
+}

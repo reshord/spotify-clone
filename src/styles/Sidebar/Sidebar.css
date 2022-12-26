@@ -41,7 +41,7 @@ ul {
     background: black;
     color: white;
     min-width: 235px;
-    height: 100%;
+    height: 100vh;
     position: sticky;
     top: 0px;
     display: flex;
@@ -63,31 +63,31 @@ ul {
     align-items: center;
 }
 
+
 .Nd_DeCpszONzyaLe5Wd1 {
     fill: white;
     background: linear-gradient(135deg,#450af5,#c4efd9);
     width: 22px;
     height: 22px;
     border-radius: 2px;
-    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 10px;
-    padding-top: 2px;
-    text-align: center;
 }
 
 
 
-.createPlaylistButton {
+.Bwc9jlVb7HWs8JJupnBB {
     background: white;
     color: black;
+    margin-right: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 19px;
-    padding-bottom: 2px;
     width: 22px;
     height: 22px;
-    margin-right: 10px;
+
     border-radius: 2px;
 }
 
@@ -161,7 +161,7 @@ ul {
 }
 
 .sidebarContentPC {
-    min-height: 610px;
+    min-height: 590px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -24,24 +24,24 @@ const TracksPlayer = createSlice({
     reducers: {
 
     },
-    extraReducers: {
-        // Get Currently Playing Track
-        [getCurrentlyPlayingTrack.pending.toString()]: (state) => {
+    // extraReducers: {
+    //     // Get Currently Playing Track
+    //     [getCurrentlyPlayingTrack.pending.toString()]: (state) => {
 
-        },
-        [getCurrentlyPlayingTrack.fulfilled.toString()]: (state, action) => {
-            let currentlyPlayingTrackCurrentPlayingTrack: ICurrentPlayingTrack = {
-                id: action.payload.item.id,
-                img: action.payload.item.album.images[2].url,
-                title: action.payload.item.name,
-                author: action.payload.item.artists[0].name,
-            }
-            state.currentlyPlayingTrack = currentlyPlayingTrackCurrentPlayingTrack
-        },
-        [getCurrentlyPlayingTrack.rejected.toString()]: (state) => {
+    //     },
+    //     [getCurrentlyPlayingTrack.fulfilled.toString()]: (state, action) => {
+    //         let currentlyPlayingTrackCurrentPlayingTrack: ICurrentPlayingTrack = {
+    //             id: action.payload.item.id,
+    //             img: action.payload.item.album.images[2].url,
+    //             title: action.payload.item.name,
+    //             author: action.payload.item.artists[0].name,
+    //         }
+    //         state.currentlyPlayingTrack = currentlyPlayingTrackCurrentPlayingTrack
+    //     },
+    //     [getCurrentlyPlayingTrack.rejected.toString()]: (state) => {
 
-        },
-    }
+    //     },
+    // }
 })
 
 export default TracksPlayer.reducer

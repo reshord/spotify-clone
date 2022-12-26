@@ -44,6 +44,11 @@ export interface IPlaylist {
     songs?: ISongInfo[]
 }
 
-export interface IAllPlaylists {
-
+export interface IShowList {
+    id?: string
+    description?: string
+    title?: string
+    author?: string
+    image?: string
+    items?: any[] | null
 }

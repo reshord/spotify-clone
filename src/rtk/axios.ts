@@ -5,6 +5,10 @@ interface IParams {
     id: string
     type: string
 }
+interface IShowParams {
+    id: string | undefined
+    token: string | null
+}
 
 interface IPlaylists {
     token: string | null
@@ -62,6 +66,22 @@ export const getCurrentlyPlayingTrack = createAsyncThunk(
             if(data !== '') {
                 return data
             }
+        }
+        catch(e) {
+            console.log(e);
+        }
+})
+export const getShows = createAsyncThunk(
+       'show', 
+    async ({id, token}: IShowParams) => {
+        try {
+            const data = await axios.get(`https://api.spotify.com/v1/shows/${id}`, {
+                headers: {
+                    Authorization: "Bearer " + token,
+                    "Content-Type": "application/json"
+                }
+            })
+            return data.data
         }
         catch(e) {
             console.log(e);

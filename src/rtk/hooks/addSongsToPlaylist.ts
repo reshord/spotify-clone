@@ -1,4 +1,4 @@
-export const addSongsToPlaylist = (items: any, ) => {
+export const addSongsToPlaylist = (items: any) => {
     return items.map((song: any) => {
         return {
             title: song.track.name,
@@ -7,6 +7,15 @@ export const addSongsToPlaylist = (items: any, ) => {
             albumName: song.track.album.name,
             author: song.track.artists[0].name,
             isFavourite: false
+        }
+     })
+}
+export const getNewShowListItems = (items: any) => {
+    return items.map((song: any) => {
+        return {
+            description: song.description,
+            title: song.name,
+            image: song.images[1].url,
         }
      })
 }
