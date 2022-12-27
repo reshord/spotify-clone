@@ -5,6 +5,7 @@ import { useAppSelector } from '../../rtk/hooks/RTKHook';
 import { RootState, store } from '../../rtk/store';
 import '../../styles/Favourites/Favourites.css'
 import HeaderContent from '../Content/HeaderContent/HeaderContent';
+import MobileFooter from '../Footer/MobileFooter';
 import Sidebar from '../Sidebar/Sidebar';
 import ArtistsSection from './ArtistsSection';
 import PlaylsitsSection from './PlaylistsSection';
@@ -16,22 +17,28 @@ const FavouritesPage = () => {
 
     const {auth} = useAppSelector<RootState>(store.getState)
     const [currSection, setCurrSection] = useState<number>(0)
+    const [mobileSection, setMobileSection] = useState<number>(0)
 
     const navigation = useNavigate()
 
     React.useEffect(() => {
         if(!auth.token) navigation('/')
-    }, [auth.profile]);
+        console.log(mobileSection);
+        
+    }, [auth.profile, mobileSection]);
 
     return ( 
-        <div className="favouritesPage">
+        <>
+            <div className="favouritesPage">
             <Sidebar />
             <div className="favouritesBody">
                     <ProfileHeader 
                             currSection={currSection} 
                             setCurrSection={(index: number) => setCurrSection(index)} 
                             setProfileModal={(profileModal: boolean) => setProfileModal(profileModal)}
+                            setMobileSection={(index: number) => setMobileSection(index)}
                             profileModal={profileModal}
+                            mobileSection={mobileSection}
                             />
                     {profileModal && (
                         <div className='profileModalFavorite'>
@@ -59,14 +66,22 @@ const FavouritesPage = () => {
                         )}
                     <div className="favouritesContent">
                         {currSection === 0 && ( <PlaylsitsSection /> )}
-                        {currSection === 2 && ( <ArtistsSection /> )}
                         {currSection === 1 && ( <PodcastsSection /> )}
+                        {currSection === 2 && ( <ArtistsSection /> )}
 
                         <hr style={{marginTop: 70, width: '95%'}}/>
                     </div>
+                    <div className="favouritesContentMobile">
+                        {mobileSection === 0 && ( <PlaylsitsSection /> )}
+                        {mobileSection === 1 && ( <PodcastsSection /> )}
+                        {mobileSection === 2 && ( <ArtistsSection /> )}
+                    </div>
+                </div>
             </div>
-
-        </div>
+            <MobileFooter />
+        </>
+        
+        
      );
 }
  

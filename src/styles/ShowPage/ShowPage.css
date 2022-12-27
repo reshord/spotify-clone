@@ -169,6 +169,9 @@
     .randomEpisodeCard {
         max-width: 600px;
     }
+    .showPageInfo {
+        width: 650px;
+    }
 }
 @media (max-width: 1270px) {
     .randomEpisodeCard {
@@ -176,6 +179,9 @@
     }
     .showPageTitle {
         font-size: 4rem;
+    }
+    .showPageInfo {
+        width: 500px;
     }
     .aboutAuthorDescription {
         width: 200px;
@@ -194,6 +200,7 @@
     }
     .showPageInfo {
         height: 180px;
+        width: 400px;
     }
     .aboutAuthorDescription {
         width: 200px;
@@ -227,6 +234,14 @@
     .aboutAuthorDescription {
         width: 150px;
     }
+    .showPageInfo {
+        width: 350px;
+    }
+    .showPageAuthor {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
 }
 @media (max-width: 630px) {
     .infoAboutAuthorBtn {
@@ -249,6 +264,7 @@
         height: 160px;
     }
     .showPageInfo {
+        width: 240px;
         height: 150px;
     }
     .allShowEpisode {
@@ -314,6 +330,7 @@
     }
     .showPageAuthor {
         font-size: 1rem;
+        text-overflow: clip;
     }
     .showPageInfo {
         height: 80px;

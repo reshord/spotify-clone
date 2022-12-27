@@ -311,21 +311,8 @@
     }
 }
 
+
 @media (max-width: 670px) {
-
-    .searchMusic {
-        max-width: 170px;
-    }
-    .searchBlock {
-        margin-left: 20px;
-    }
-
-    .headerSearch {
-        display: block;
-    }
-}
-
-@media (max-width: 590px) {
     .infoForMobile {
         display: none;
     }

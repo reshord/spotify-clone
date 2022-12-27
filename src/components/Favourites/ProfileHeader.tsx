@@ -7,11 +7,16 @@ import { RootState, store } from "../../rtk/store";
 interface IProps {
     currSection: number
     setCurrSection: (index: number) => void
+    setMobileSection: (index: number) => void
     setProfileModal: (profileModal: boolean) => void
     profileModal: boolean
+    mobileSection: number
+
 }
 
-const ProfileHeader: React.FC<IProps> = ({currSection, setCurrSection, setProfileModal, profileModal}) => {
+const ProfileHeader: React.FC<IProps> = (
+    {currSection, setCurrSection, setProfileModal, profileModal, mobileSection, setMobileSection}
+) => {
 
     const sections = ['Плейлисты', 'Подкасты', 'Исполнители', 'Альбомы']
     const {auth} = useAppSelector<RootState>(store.getState)
@@ -20,6 +25,22 @@ const ProfileHeader: React.FC<IProps> = ({currSection, setCurrSection, setProfil
 
     return ( 
         <div className="favouriteHeaderContent">
+                    <div className="favoriteHeaderBlockMobile">  
+                        <div className="favoriteHeaderMobileInfo">
+                            <img className="favoriteHeaderAuthImage" src={`${auth.profile && auth.profile.images && auth.profile?.images[0].url}`} alt="" />
+                            <div className="favoriteHeaderTitle">Моя медиатека</div>
+                        </div>
+                        <div className="mobileSections">
+                            {sections.map((el, index) => (
+                                <div key={index}
+                                    className={`${mobileSection === index ? 'mobileSection' : 'defaultMobileSection'}`}
+                                    onClick={() => setMobileSection(index)}
+                                    >
+                                        {el}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                     <div className='allSections'>
                             <Link to={'/'}>
                                 <MdKeyboardArrowLeft 
