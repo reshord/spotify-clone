@@ -42,7 +42,7 @@ const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, bu
              className={buttonNumber === index ? 'onFocusCard' : 'songCardBody'} 
              onMouseMove={buttonNumber !== index ? () => setButtonPlay(true) : () => setButtonPlay(false)} 
              onMouseLeave={() => setButtonPlay(false)}
-             onClick={() => setButtonNumber && setButtonNumber(number - 1)}
+             onClick={() => setButtonNumber && setButtonNumber(number ? number - 1 : number)}
              >
 
             <div className="songCardInfo" >

@@ -12,8 +12,10 @@ import { useAppDispatch, useAppSelector } from '../../../rtk/hooks/RTKHook';
 import { RootState, store } from '../../../rtk/store';
 import {AiOutlineSetting} from 'react-icons/ai'
 import {GiHamburgerMenu} from 'react-icons/gi'
-import { getProfile } from '../../../rtk/axios';
+import { getProfile, getSearched } from '../../../rtk/axios';
 import {GrClose} from 'react-icons/gr'
+import axios from 'axios';
+import { deleteSearchResults } from '../../../rtk/slices/Search';
 
 const HeaderContent = () => {
 
@@ -62,16 +64,25 @@ const HeaderContent = () => {
         dispatch(setToggleModal(true))
     }
 
+    const toEmptyValue = () => {
+        dispatch(deleteSearchResults())
+        setValue('')
+    }
+    
+    const search = async () => {
+        dispatch(getSearched({token: auth.token, value}))
+    }
+
     useEffect(() => {
         if(auth.token) dispatch(getProfile(auth.token))
 
     }, [auth.token]);
 
     return ( 
-        <header className="header">
+        <header className="header" style={{background: `${location.pathname === '/search' ? 'rgb(18, 18, 18)' : ''}`}}>
             <div className='navigation' style={{maxWidth: `${location.pathname === '/search' ? '380px' : ''}`,}}>
                 <Link to={'/'}>
-                    <MdKeyboardArrowLeft className='navArrow' />
+                    <MdKeyboardArrowLeft className='navArrow' style={{background: `${location.pathname === '/search' ? 'rgb(18, 18, 18)' : ''}`}}/>
                 </Link>
                 <AiOutlineArrowLeft 
                             className='arrowToBack'
@@ -98,6 +109,11 @@ const HeaderContent = () => {
                                placeholder='Что хочешь послушать?'
                                value={value}
                                onChange={e => setValue(e.target.value)}
+                               onKeyUp={event => {
+                                if(event.key === 'Enter') {
+                                    search()
+                                }
+                               }}
                             />
                         {value && (
                             <GrClose 
@@ -108,7 +124,7 @@ const HeaderContent = () => {
                             borderRadius: 30, 
                             fontSize: 25,
                             }}
-                            onClick={() => setValue('')}
+                            onClick={() => toEmptyValue()}
                         />
                         )}
                     </div>
@@ -135,30 +151,7 @@ const HeaderContent = () => {
                         )}
                     </div>
                     
-                    {profileModal && (
-                        <div className='profileModal'>
-                            <ul>
-                                <li>
-                                    <Link to={`/profile/${auth.profile?.id}`}>Профиль</Link>
-                                </li>
-                                <li>
-                                    <Link to={'/'}>Настройки</Link>
-                                </li>
-                                <li>
-                                    <Link to={'/'}>Premium</Link>
-                                </li>
-                                <li>
-                                    <Link to={'/'}>Скачать</Link>
-                                </li>
-                                <li>
-                                    <Link to={'/'}>Справка</Link>
-                                </li>
-                                <li  className='exitBtn'>
-                                    <span onClick={() => window.location.href = '/'}>Выйти</span>
-                                </li>
-                            </ul>
-                        </div>
-                        )}
+                    
                     
                 </div>
             )}
@@ -214,6 +207,30 @@ const HeaderContent = () => {
                 : (
                     <GiHamburgerMenu className='headerMenuBtn' onClick={() => openModal()}/>
                 )}
+                {profileModal && (
+                        <div className='profileModal'>
+                            <ul>
+                                <li>
+                                    <Link to={`/profile/${auth.profile?.id}`}>Профиль</Link>
+                                </li>
+                                <li>
+                                    <Link to={'/'}>Настройки</Link>
+                                </li>
+                                <li>
+                                    <Link to={'/'}>Premium</Link>
+                                </li>
+                                <li>
+                                    <Link to={'/'}>Скачать</Link>
+                                </li>
+                                <li>
+                                    <Link to={'/'}>Справка</Link>
+                                </li>
+                                <li  className='exitBtn'>
+                                    <span onClick={() => window.location.href = '/'}>Выйти</span>
+                                </li>
+                            </ul>
+                        </div>
+                        )}
         </header>
      );
 }

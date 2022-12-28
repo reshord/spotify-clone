@@ -1,7 +1,7 @@
 import HeaderContent from "./HeaderContent/HeaderContent";
 import '../../styles/Content/Content.css'
 import MusicContainer from "./MusicContainer/MusicContainer";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { useAppSelector } from '../../rtk/hooks/RTKHook';
 import { RootState, store } from './../../rtk/store';
@@ -11,10 +11,10 @@ const Content = () => {
 
     const location = useLocation()
     
-    const {playlists, auth} = useAppSelector<RootState>(store.getState) 
+    const {playlists, auth} = useAppSelector<RootState>(store.getState)
 
     useEffect(() => {
-
+        
     }, []);
 
     return ( 

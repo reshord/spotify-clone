@@ -6,7 +6,7 @@ interface IState {
         img: string
         toggle: boolean
     }
-    aboutAuthorModal: boolean
+    aboutAuthorModal: boolean,
 }
 
 const initialState: IState = {
@@ -15,7 +15,7 @@ const initialState: IState = {
         img: '',
         toggle: false
     },
-    aboutAuthorModal: false
+    aboutAuthorModal: false,
 }
 
 const Modals = createSlice({
@@ -31,7 +31,8 @@ const Modals = createSlice({
         },
         aboutAuthorModal: (state, action) => {
             state.aboutAuthorModal = action.payload
-        }
+        },
+
     }
 })
 

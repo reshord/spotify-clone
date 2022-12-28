@@ -1,6 +1,7 @@
 .SearchPageBody {
     display: flex;
     justify-content: space-between;
+    background: rgb(18, 18, 18);
 }
 
 .SearchPageContent {
@@ -35,6 +36,151 @@
 
 .headerSearchBlock {
     display: none;
+}
+
+.searchHeaderSections {
+    margin-top: 0px;
+    position: sticky;
+    top: 65px;
+    z-index: 999;
+    background: rgb(18, 18, 18);
+    height: 50px;
+    padding-top: 20px;
+    padding-left: 30px;
+}
+
+.searchHeaderSections span {
+    font-weight: 600;
+    margin-right: 10px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    cursor: default;
+} 
+
+.defaultSearchSection {
+    color: white;
+    --background-tinted-base: hsla(0,0%,100%,.1);
+    background-color: var(--background-tinted-base,rgba(0,0,0,0.6));
+}
+
+.searchSection {
+    background: white;
+}
+
+.bestResultTitle {
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.searchResults {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.searchResultsTracksTitle {
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    width: 805px;
+}
+
+.searchResultsTracksBlock {
+    width: 805px;
+}
+
+.searchResultsTracks {
+    margin-top: 20px;
+}
+
+
+
+.bestResultName {
+    color: white;
+    font-weight: 700;
+    font-size: 1.7rem;
+    margin-left: 15px;
+}
+
+.bestResultBlock {
+    background: #181818;
+    height: 234px;
+    width: 390px;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+}
+
+.bestResultBlock:hover {
+    --background-tinted-base: hsla(0,0%,100%,.1);
+    background-color: var(--background-tinted-base,rgba(0,0,0,0.6));
+    transition: 0.3s;
+}
+
+.bestResultImage {
+    width: 92px;
+    height: 92px;
+    border-radius: 50px;
+    margin: 15px;
+}
+
+.allSearchSection {
+    display: flex;
+    justify-content: space-between;
+}
+
+.executorTitle {
+    color: white;
+    letter-spacing: 1.2px;
+    background-color: rgba(0,0,0,.2);
+    font-weight: 600;
+    font-size: 12px;
+    padding: 10px 10px;
+    width: 130px;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.searchedSongCard {
+    padding: 7px 7px;
+    border-radius: 5px;
+    cursor: default;
+}
+
+.searchedSongCard:hover {
+    --background-tinted-base: hsla(0,0%,100%,.1);
+    background-color: var(--background-tinted-base,rgba(0,0,0,0.6));
+}
+
+.searchedSongCardInfo {
+    display: flex;
+}
+
+.searchedSongImage {
+    width: 40px;
+}
+
+.searchedSongInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    color: white;
+    font-weight: 600;
+}
+
+.searchedSongAuthor {
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+.allSearchedTracksList {
+    width: 95%;
+    margin: 0 auto;
 }
 
 @media (max-width: 1400px) {

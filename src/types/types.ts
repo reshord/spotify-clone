@@ -23,16 +23,16 @@ interface IImage {
 
 export interface ISongInfo {
     number: number
-    author: string
+    author?: string
     index?: number
-    id: string
+    id?: string
     setButtonNumber?: (num: number) => void
     buttonNumber?: number
-    img: string
-    songNumber: number
-    title: string
-    albumName: string
-    isFavourite: boolean
+    img?: string
+    songNumber?: number
+    title?: string
+    albumName?: string
+    isFavourite?: boolean
 }
 
 export interface IPlaylist {
@@ -52,4 +52,32 @@ export interface IShowList {
     image?: string
     items?: any[] | null,
     background?: string
+}
+
+export interface ISearchedTracks {
+    name: string,
+    id: string,
+    albumName: string,
+    author: string,
+    image: {
+        url: string
+    },
+}
+export interface ISearchedAlbums {
+    image: string,
+    name: string,
+    id: string
+}
+export interface ISearchedPlaylists {
+    image: string,
+    name: string,
+    id: string,
+    description: string,
+}
+export interface ISearchedArtists {
+    image: {
+        url: string
+    },
+    name: string,
+    id: string,
 }

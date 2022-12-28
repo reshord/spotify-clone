@@ -69,10 +69,9 @@
 }
 
 .aboutAuthorDescription {
-    font-size: 1rem;
+    font-size: 1.1rem;
     opacity: 0.6;
     font-weight: 600;
-    max-width: 300px;
     word-wrap: break-word;
 }
 
@@ -211,10 +210,7 @@
         width: 400px;
     }
     .aboutAuthorTitle {
-        font-size: 1rem;
-    }
-    .aboutAuthorDescription {
-        font-size: 0.8rem;
+        font-size: 1.2rem;
     }
     .randomEpisodeCardTitle {
         font-size: 0.9rem;
@@ -287,7 +283,7 @@
     }
     .aboutAuthorModalContent {
         background: rgb(18, 18, 18);
-        width: 220px;
+        width: 300px;
         box-sizing: border-box;
         padding: 15px 15px;
 
@@ -298,15 +294,12 @@
     }
     .closeAboutAuthModal {
         fill: white;
-        font-size: 16px;
+        font-size: 20px;
         position: absolute;
         right: 10px;
     }
     .aboutAuthorModalContent span {
         color: white;
-    }
-    .aboutAuthorTitle {
-        font-size: 14px;
     }
     .aboutAuthorDescription {
         width: 90%;

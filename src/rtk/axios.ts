@@ -9,6 +9,10 @@ interface IShowParams {
     id: string | undefined
     token: string | null
 }
+interface ISearchParams {
+    token: string | null
+    value: string
+}
 
 interface IPlaylists {
     token: string | null
@@ -82,6 +86,23 @@ export const getShows = createAsyncThunk(
                 }
             })
             return data.data
+        }
+        catch(e) {
+            console.log(e);
+        }
+})
+
+export const getSearched = createAsyncThunk(
+       'search', 
+    async ({token, value}: ISearchParams) => {
+        try {
+            const {data} = await axios.get(`https://api.spotify.com/v1/search?q=${value}&type=album,track,artist,playlist`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            })
+            return data
         }
         catch(e) {
             console.log(e);

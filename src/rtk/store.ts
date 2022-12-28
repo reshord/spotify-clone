@@ -6,6 +6,7 @@ import Modals from './slices/modals'
 import playlists from './slices/SpotifyPlaylists'
 import TracksPlayer from './slices/TracksPlayer'
 import Shows from './slices/Show'
+import SearchSlice from './slices/Search'
 
 export const store = configureStore({
     reducer: {
@@ -15,7 +16,8 @@ export const store = configureStore({
         auth: Auth,
         favourites: Favourites,
         player: TracksPlayer,
-        shows: Shows
+        shows: Shows,
+        search: SearchSlice
     }
 })
 

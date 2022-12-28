@@ -379,4 +379,13 @@
     .favoriteArtists {
         height: 200px;
     }
+    .blockPlaylistsCards {
+        width: 350px;
+    }
+}
+
+@media (max-width: 489px)  {
+    .blockPlaylistsCards {
+        width: 320px;
+    }
 }

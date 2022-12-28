@@ -19,3 +19,42 @@ export const getNewShowListItems = (items: any) => {
         }
      })
 }
+export const getNewSearchResultsAlbums = (items: any) => {
+    return items.map((album: any) => {
+        return {
+            image: album.image,
+            name: album.name,
+            id: album.id
+        }
+     })
+}
+export const getNewSearchResultsArtists = (items: any) => {
+    return items.map((artist: any) => {
+        return {
+            image: artist.images[1],
+            name: artist.name,
+            id: artist.id,
+        }
+     })
+}
+export const getNewSearchResultsPlaylists = (items: any) => {
+    return items.map((playlist: any) => {
+        return {
+            image: playlist.images[0].url,
+            name: playlist.name,
+            id: playlist.id,
+            description: playlist.description,
+        }
+     })
+}
+export const getNewSearchResultsTracks = (items: any) => {
+    return items.map((track: any) => {
+        return {
+            name: track.name,
+            id: track.id,
+            albumName: track.album.name,
+            image: track.album.images[1],
+            author: track.artists[0].name
+        }
+     })
+}
