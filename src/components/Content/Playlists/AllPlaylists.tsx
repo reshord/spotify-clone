@@ -13,7 +13,7 @@ import axios from "axios";
 
 const Playlists = () => {
 
-    const {playlists, auth} = useAppSelector<RootState>(store.getState) 
+    const {playlists, auth, search} = useAppSelector<RootState>(store.getState) 
     const {currentSection} = playlists
 
     const getPlaylist = async () => {
@@ -32,6 +32,8 @@ const Playlists = () => {
             behavior: 'smooth'
         })
         getPlaylist()
+        console.log(search.currentSearchPlaylist.songs);
+        
     }, []);
 
     return ( 
@@ -52,6 +54,7 @@ const Playlists = () => {
                                 id={el.id}
                              />
                         ))}
+
                 </div>
                 </div>
                 

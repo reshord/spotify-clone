@@ -15,7 +15,7 @@ import {GiHamburgerMenu} from 'react-icons/gi'
 import { getProfile, getSearched } from '../../../rtk/axios';
 import {GrClose} from 'react-icons/gr'
 import axios from 'axios';
-import { deleteSearchResults } from '../../../rtk/slices/Search';
+import { deleteSearchResults, setCurrentSearchValue } from '../../../rtk/slices/Search';
 
 const HeaderContent = () => {
 
@@ -66,11 +66,13 @@ const HeaderContent = () => {
 
     const toEmptyValue = () => {
         dispatch(deleteSearchResults())
+        dispatch(setCurrentSearchValue(''))
         setValue('')
     }
     
     const search = async () => {
         dispatch(getSearched({token: auth.token, value}))
+        dispatch(setCurrentSearchValue(value))
     }
 
     useEffect(() => {

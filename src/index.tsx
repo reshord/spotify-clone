@@ -17,6 +17,7 @@ import ProfilePage from './components/ProfilePage/ProfilePage';
 import FavouritesPage from './components/Favourites/Favourites';
 import PodcastsPage from './components/Podcasts/PodcastsPage';
 import ShowPage from './components/Podcasts/ShowPage/ShowPage';
+import SearchModal from './components/Search/SearchModal';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -36,6 +37,7 @@ root.render(
               <Route path='/collection/playlists' element={<FavouritesPage />}/>
               <Route path='/genre/podcasts-web' element={<PodcastsPage />}/>
               <Route path='/show/:id' element={<ShowPage />}/>
+              <Route path='/search/recent' element={<SearchModal />}/>
               <Route path='*' element={<PageNotFound />}/>
           </Routes>
       </BrowserRouter>

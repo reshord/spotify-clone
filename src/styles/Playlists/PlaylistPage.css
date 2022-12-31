@@ -128,11 +128,12 @@
     flex-direction: column;
     justify-content: space-between;
     margin-top: 20px;
-    height: 130px;
+    max-height: 130px;
 }
 
 .mobilePlaylistInfo img {
     width: 80px;
+    margin-top: 15px;
 }
 
 .mobilePlaylistInfo span {

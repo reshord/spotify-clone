@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getPlaylistsSongs } from '../../../rtk/axios';
+import { getCurrentSearchPlaylistsSongs, getPlaylistsSongs } from '../../../rtk/axios';
 import { useAppDispatch, useAppSelector } from '../../../rtk/hooks/RTKHook';
 import { setModalToAuth } from '../../../rtk/slices/modals';
 import { setCurrentPlaylist } from '../../../rtk/slices/SpotifyPlaylists';
@@ -9,26 +9,30 @@ import '../../../styles/Content/Music/CardMusic.css'
 import { IPlaylist, ISongInfo } from '../../../types/types';
 
 interface IProps {
-    img: string
-    title: string
-    description: string
+    img: string | undefined
+    title: string | undefined
+    description: string | undefined
     songs: ISongInfo[] | undefined
-    id: string
+    id: string | undefined
     type: string
 }
 
-const CardMusic: React.FC<IProps> = ({img, title, description, songs, id, type}) => {
+const CardMusic: React.FC<IProps> = ({img, title, description, songs, id, type,}) => {
 
     const dispatch = useAppDispatch()
     const [activePlayBtn, setActivePlayBtn] = useState<boolean>(false)
-    const {playlists, auth} = useAppSelector<RootState>(store.getState)
+    const {playlists, auth, search} = useAppSelector<RootState>(store.getState)
 
     const addCurrentPlaylist = (currentPlaylist: ISongInfo[] | undefined, type: string) => {
         dispatch(setCurrentPlaylist({songs: currentPlaylist, title, description, img}))
         dispatch(getPlaylistsSongs({id, type}))
+
+        if(type === 'searchedPlaylist') {
+            dispatch(getCurrentSearchPlaylistsSongs(id))
+        }
     }
 
-    const activeToAuthModal = (img: string) => {
+    const activeToAuthModal = (img: string | undefined) => {
         dispatch(setModalToAuth({toggle: true, img}))
     }
 

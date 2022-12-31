@@ -2,8 +2,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
 
 interface IParams {
-    id: string
-    type: string
+    id: string | undefined
+    type: string | undefined
 }
 interface IShowParams {
     id: string | undefined
@@ -109,3 +109,22 @@ export const getSearched = createAsyncThunk(
         }
 })
 
+export const getCurrentSearchPlaylistsSongs = createAsyncThunk(
+    'currentSearchPlaylistSongs', 
+    async (id: string | undefined) => {
+    
+    const token = localStorage.getItem('token')
+
+    try {
+        const songsList = await axios.get(`https://api.spotify.com/v1/playlists/${id}`, {
+            headers: {
+                Authorization: "Bearer " + token,
+                "Content-Type": "application/json"
+            }
+        })
+        return {data: songsList.data}
+    }
+    catch(e) {
+        console.log(e);
+    }
+})

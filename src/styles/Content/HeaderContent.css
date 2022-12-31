@@ -370,6 +370,11 @@
     .headerLogoImg {
     }
 }
+@media (max-width: 500px) {
+    .searchBlock {
+        display: none;
+    }
+}
 
 @media (max-width: 471px) {
     .blockInfoAuth {
@@ -404,7 +409,5 @@
         width: 50px;
         letter-spacing: 0.5;
     }
-    .searchBlock {
-        display: none;
-    }
+
 }

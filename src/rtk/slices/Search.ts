@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { ISearchedAlbums, ISearchedArtists, ISearchedPlaylists, ISearchedTracks } from "../../types/types";
-import { getSearched } from "../axios";
-import { getNewSearchResultsAlbums, getNewSearchResultsArtists, getNewSearchResultsPlaylists, getNewSearchResultsTracks } from "../hooks/addSongsToPlaylist";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ISearchedAlbums, ISearchedArtists, ISearchedPlaylists, ISearchedTracks, ISongInfo } from "../../types/types";
+import { getCurrentSearchPlaylistsSongs, getSearched } from "../axios";
+import { addSongsToPlaylist, getNewSearchResultsAlbums, getNewSearchResultsArtists, getNewSearchResultsPlaylists, getNewSearchResultsTracks } from "../hooks/addSongsToPlaylist";
 
 interface IState {
     searchedTracks: null | ISearchedTracks[]
@@ -9,6 +9,10 @@ interface IState {
     searchedPlaylists: null | ISearchedPlaylists[]
     searchedAlbums: null | ISearchedAlbums[]
     messages: string
+    currentSearchValue: string
+    currentSearchPlaylist: {
+        songs: ISongInfo[] | undefined
+    }
 }
 
 const initialState: IState = {
@@ -16,7 +20,11 @@ const initialState: IState = {
     searchedArtists: null,
     searchedPlaylists: null,
     searchedAlbums: null,
-    messages: ''
+    messages: '',
+    currentSearchValue: '',
+    currentSearchPlaylist: {
+        songs: []
+    }
 }
 
 const SearchSlice = createSlice({
@@ -28,9 +36,13 @@ const SearchSlice = createSlice({
             state.searchedArtists = null
             state.searchedPlaylists = null
             state.searchedTracks = null
-        }
+        },
+        setCurrentSearchValue: (state, {payload}: PayloadAction<string>) => {
+            state.currentSearchValue = payload
+        },
     },
     extraReducers: {
+        // Get Searched
         [getSearched.pending.toString()]: (state) => {
             state.messages = 'process..'
         },
@@ -46,8 +58,22 @@ const SearchSlice = createSlice({
         [getSearched.pending.toString()]: (state) => {
 
         },
+        // Get Current Search Playlists Songs
+        [getCurrentSearchPlaylistsSongs.pending.toString()]: (state) => {
+            state.messages = 'process..'
+        },
+        [getCurrentSearchPlaylistsSongs.fulfilled.toString()]: (state, action) => {
+            state.messages = 'fulfilled'
+            const items = action.payload.data.tracks.items
+            const songsList = addSongsToPlaylist(items)
+            state.currentSearchPlaylist.songs = songsList
+
+        },
+        [getCurrentSearchPlaylistsSongs.pending.toString()]: (state) => {
+
+        },
     }
 })
 
-export const {deleteSearchResults} = SearchSlice.actions
+export const {deleteSearchResults, setCurrentSearchValue} = SearchSlice.actions
 export default SearchSlice.reducer

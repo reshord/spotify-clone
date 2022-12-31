@@ -22,9 +22,10 @@ export const getNewShowListItems = (items: any) => {
 export const getNewSearchResultsAlbums = (items: any) => {
     return items.map((album: any) => {
         return {
-            image: album.image,
+            image: album.images[1].url,
             name: album.name,
-            id: album.id
+            id: album.id,
+            author: album.artists[0].name,
         }
      })
 }

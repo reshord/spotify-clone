@@ -12,7 +12,7 @@ import {MdOutlineFavoriteBorder} from 'react-icons/md'
 
 const PlaylistPage = () => {
 
-    const {playlists, auth} = useAppSelector<RootState>(store.getState) 
+    const {playlists, auth, search} = useAppSelector<RootState>(store.getState) 
     const {currentPlaylist} = playlists
 
 
@@ -67,7 +67,7 @@ const PlaylistPage = () => {
                         <span className='headerPlaylistTitle'>ПЛЕЙЛИСТ</span>
                         <span className="playlistTitle">{currentPlaylist.title}</span>
                         <span className="playlistDescription">{currentPlaylist.description}</span>
-                        <span className="currentPlaylistInfo">Spotify • {currentPlaylist.songs?.length} треков</span>
+                        <span className="currentPlaylistInfo">Spotify • {currentPlaylist.songs?.length || search.currentSearchPlaylist.songs?.length} треков</span>
                     </div>
                     <div className="mobilePlaylist">
                         <div className="mobileImage">
@@ -118,7 +118,22 @@ const PlaylistPage = () => {
                                     isFavourite={el.isFavourite}
                             />
                             ))}
-                            {!currentPlaylist.songs && (
+                            {search.currentSearchPlaylist.songs?.map((song, index) => (
+                                <SongCard
+                                    img={song.img}
+                                    title={song.title}
+                                    description={song.description}
+                                    id={song.id} 
+                                    number={index + 1}
+                                    songNumber={0} 
+                                    albumName={song.albumName} 
+                                    key={song.number} 
+
+                                    buttonNumber={buttonNumber}
+
+                                />
+                            ))}
+                            {!currentPlaylist.songs || !search.currentSearchPlaylist?.songs && (
                                 <div className="checkInfo">Обрабатываем информацию...</div>
                             )}
                         </div>

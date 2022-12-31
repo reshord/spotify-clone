@@ -93,6 +93,7 @@ a {
         flex-direction: column;
         align-items: center;
         width: 160px;
+        margin-right: 15px;
     }
     .cardImgMobile {
         width: 154px;
@@ -104,6 +105,11 @@ a {
         font-weight: 600;
         margin-top: 15px;
         padding-bottom: 15px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 150px;
+        text-align: center;
     }
     .cardMusic {
         display: none;

@@ -28,9 +28,10 @@ export interface ISongInfo {
     id?: string
     setButtonNumber?: (num: number) => void
     buttonNumber?: number
+    description?: string | undefined
     img?: string
     songNumber?: number
-    title?: string
+    title?: string | undefined
     albumName?: string
     isFavourite?: boolean
 }
@@ -66,6 +67,7 @@ export interface ISearchedTracks {
 export interface ISearchedAlbums {
     image: string,
     name: string,
+    author: string
     id: string
 }
 export interface ISearchedPlaylists {
@@ -73,6 +75,7 @@ export interface ISearchedPlaylists {
     name: string,
     id: string,
     description: string,
+    songsList: ISongInfo[] | undefined
 }
 export interface ISearchedArtists {
     image: {

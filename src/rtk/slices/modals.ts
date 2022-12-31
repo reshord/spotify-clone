@@ -7,6 +7,7 @@ interface IState {
         toggle: boolean
     }
     aboutAuthorModal: boolean,
+    searchMobileModal: boolean
 }
 
 const initialState: IState = {
@@ -16,6 +17,7 @@ const initialState: IState = {
         toggle: false
     },
     aboutAuthorModal: false,
+    searchMobileModal: true
 }
 
 const Modals = createSlice({
@@ -32,7 +34,9 @@ const Modals = createSlice({
         aboutAuthorModal: (state, action) => {
             state.aboutAuthorModal = action.payload
         },
-
+        setSearchMobileModal: (state, action) => {
+            state.searchMobileModal = action.payload
+        }
     }
 })
 

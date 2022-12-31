@@ -11,6 +11,7 @@ import MobileFooter from './components/Footer/MobileFooter';
 import { getPlaylistsSongs } from './rtk/axios';
 import ModalToAuth from './components/ModalToAuth';
 import PlayerTrack from './components/PlayerTrack/PlayerTrack';
+import SearchModal from './components/Search/SearchModal';
 
 
 function App() {
