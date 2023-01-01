@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import { useAppSelector } from '../../rtk/hooks/RTKHook';
 import { RootState, store } from './../../rtk/store';
 import axios from "axios";
+import MobileFooter from "../Footer/MobileFooter";
 
 const Content = () => {
 
@@ -21,11 +22,14 @@ const Content = () => {
         <main className="content"  >
             <HeaderContent />
             <div className="contentWrapper">
-                    <MusicContainer title='Spotify Playlists' playlist={playlists.SpotifyPlaylists} type={'ADD_SPOTIFY_SONGS'}/>
-                    <MusicContainer title="Mood" playlist={playlists.Mood} type={'ADD_MOOD_SONGS'}/>
-                    <MusicContainer title="Mood" playlist={playlists.Dream} type={'ADD_DREAM_SONGS'}/>
-                    <MusicContainer title="Focus" playlist={playlists.Focus} type={'ADD_FOCUS_SONGS'}/>
+                    <MusicContainer name='Spotify Playlists' playlist={playlists.SpotifyPlaylists} type={'ADD_SPOTIFY_SONGS'}/>
+                    <MusicContainer name="Mood" playlist={playlists.Mood} type={'ADD_MOOD_SONGS'}/>
+                    <MusicContainer name="Mood" playlist={playlists.Dream} type={'ADD_DREAM_SONGS'}/>
+                    <MusicContainer name="Focus" playlist={playlists.Focus} type={'ADD_FOCUS_SONGS'}/>
             </div>
+            {auth.token && (
+                <MobileFooter />
+            )}
         </main>
      );
 }

@@ -287,6 +287,7 @@
         display: block;
         background-color: #181818;
         width: 100%;
+        padding-bottom: 20px;
     }
     .searchBlockInput {
         display: flex;
@@ -370,20 +371,32 @@
     }
     .searchedAuthorTitle {
         color: white;
-        font-size: 18px;
+        font-size: 17px;
     }
     .searchedAuthorMarker {
         color: white;
         opacity: 0.6;
-        font-size: 14px;
+        font-size: 12px;
+        margin-top: 2px;
     }
     .searchedAuthorImage {
         width: 56px;
         height: 56px;
     }
     .searchedPlaylistsList {
-        display: flex;
+        --column-width: 185px;
+        --column-count: 4;
+        --grid-gap: 24px;
+        grid-auto-rows: 0;
+        grid-template-rows: 1fr;
+        grid-gap: var(--grid-gap);
+        display: grid;
+        grid-template-columns: repeat(var(--column-count),minmax(0,1fr));
+        margin-top: 25px;
+        overflow: hidden;
         margin: 10px 0px;
+        min-width: 660px;
+        padding-right: 15px;
     }
     .searchedTrackInfo span {
         color: white;
@@ -409,6 +422,7 @@
     .searchedTrackAbout {
         opacity: 0.6;
         font-size: 12px;
+        margin-top: 2px;
     }
     .searchedTrackBody img {
         width: 56px;
@@ -435,6 +449,7 @@
     .searchedPlaylistAbout {
         opacity: 0.6;
         font-size: 12px;
+        margin-top: 2px;
     }
     .searchedPlaylistBody img {
         width: 56px;
@@ -446,6 +461,9 @@
     .searchedPlaylistAbout {
         opacity: 0.6;
         font-size: 12px;
+    }
+    .shortlySearchedTracksList {
+        margin-top: 15px;
     }
     .searchedArtistsBody {
         display: flex;
@@ -475,6 +493,7 @@
     .searchedArtistsAbout {
         opacity: 0.6;
         font-size: 12px;
+        margin-top: 2px;
     }
     .searchedAlbumBody {
         display: flex;
@@ -502,8 +521,9 @@
         white-space: nowrap;
     }
     .searchedAlbumAbout {
-        font-size: 14px;
+        font-size: 12px;
         opacity: 0.6;
+        margin-top: 2px;
     }
 }
 @media (max-width: 460px) {

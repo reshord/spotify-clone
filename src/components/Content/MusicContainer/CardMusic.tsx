@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { getCurrentSearchPlaylistsSongs, getPlaylistsSongs } from '../../../rtk/axios';
 import { useAppDispatch, useAppSelector } from '../../../rtk/hooks/RTKHook';
 import { setModalToAuth } from '../../../rtk/slices/modals';
@@ -10,25 +10,27 @@ import { IPlaylist, ISongInfo } from '../../../types/types';
 
 interface IProps {
     img: string | undefined
-    title: string | undefined
+    name: string | undefined
     description: string | undefined
     songs: ISongInfo[] | undefined
     id: string | undefined
     type: string
 }
 
-const CardMusic: React.FC<IProps> = ({img, title, description, songs, id, type,}) => {
+const CardMusic: React.FC<IProps> = ({img, name, description, songs, id, type,}) => {
 
     const dispatch = useAppDispatch()
     const [activePlayBtn, setActivePlayBtn] = useState<boolean>(false)
     const {playlists, auth, search} = useAppSelector<RootState>(store.getState)
 
+    const location = useLocation()
+
     const addCurrentPlaylist = (currentPlaylist: ISongInfo[] | undefined, type: string) => {
-        dispatch(setCurrentPlaylist({songs: currentPlaylist, title, description, img}))
+        dispatch(setCurrentPlaylist({songs: currentPlaylist, name, description, img}))
         dispatch(getPlaylistsSongs({id, type}))
 
         if(type === 'searchedPlaylist') {
-            dispatch(getCurrentSearchPlaylistsSongs(id))
+            dispatch(getCurrentSearchPlaylistsSongs({id, name, img, description}))
         }
     }
 
@@ -43,7 +45,7 @@ const CardMusic: React.FC<IProps> = ({img, title, description, songs, id, type,}
         <>
             {auth.token 
             ? (
-                <Link to={`/playlist/${title}`} className='linkToPlaylist'>
+                <Link to={`/playlist/${name}`} className='linkToPlaylist'>
                 <div onMouseEnter={() => setActivePlayBtn(true)} 
                      onMouseLeave={() => setActivePlayBtn(false)} 
                      className="cardMusic" 
@@ -58,7 +60,7 @@ const CardMusic: React.FC<IProps> = ({img, title, description, songs, id, type,}
                         )}
                     </div>
                     <div className='cardInfo'>
-                        <span className='title'>{title}</span>
+                        <span className='title'>{name}</span>
                         <div className='description'>
                             {description}
                         </div>
@@ -67,7 +69,7 @@ const CardMusic: React.FC<IProps> = ({img, title, description, songs, id, type,}
                 </div>
                     <div className='cardMusicMobile' onClick={() => addCurrentPlaylist(songs, type)}> 
                         <img className='cardImgMobile' src={img} alt="" />
-                        <span className='cardTitleMobile'>{title}</span> 
+                        <span className='cardTitleMobile'>{name}</span> 
                     </div>
             </Link>
             ) 
@@ -87,7 +89,7 @@ const CardMusic: React.FC<IProps> = ({img, title, description, songs, id, type,}
                             )}
                         </div>
                         <div className='cardInfo'>
-                            <span className='title'>{title}</span>
+                            <span className='title'>{name}</span>
                             <div className='description'>
                                 {description}
                             </div>
@@ -98,13 +100,13 @@ const CardMusic: React.FC<IProps> = ({img, title, description, songs, id, type,}
                        ? (
                          <div className='cardMusicMobile' onClick={() => addCurrentPlaylist(songs, type)}> 
                             <img className='cardImgMobile' src={img} alt="" />
-                            <span className='cardTitleMobile'>{title}</span> 
+                            <span className='cardTitleMobile'>{name}</span> 
                         </div>
                        ) 
                        : (
                             <div className='cardMusicMobile' onClick={() => activeToAuthModal(img)}> 
                                 <img className='cardImgMobile' src={img} alt="" />
-                                <span className='cardTitleMobile'>{title}</span> 
+                                <span className='cardTitleMobile'>{name}</span> 
                             </div>
                        )}
                 </div>

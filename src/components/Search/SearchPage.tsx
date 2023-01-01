@@ -145,7 +145,7 @@ const SearchPage = () => {
                             {currentSection === 4 && (
                                 <div className="allSearchedPlaylistsList">
                                     {searchedPlaylists?.map((playlist, index) => (
-                                        <CardMusic img={playlist.image} title={playlist.name} description={playlist.description} songs={undefined} id={playlist.id} type={"searchedPlaylist"} />
+                                        <CardMusic img={playlist.image} name={playlist.name} description={playlist.description} songs={undefined} id={playlist.id} type={"searchedPlaylist"} />
                                     ))}
                                 </div>
                             )}
@@ -165,7 +165,9 @@ const SearchPage = () => {
             {!auth.token && (
                 <BannerToAuth />
               )}
-            <MobileFooter />
+            {auth.token && (
+                <MobileFooter />
+            )}
         </>
      );
 }

@@ -12,6 +12,9 @@ interface IState {
     currentSearchValue: string
     currentSearchPlaylist: {
         songs: ISongInfo[] | undefined
+        name: string | undefined
+        description: string
+        image: string | undefined
     }
 }
 
@@ -23,7 +26,10 @@ const initialState: IState = {
     messages: '',
     currentSearchValue: '',
     currentSearchPlaylist: {
-        songs: []
+        name: '',
+        songs: [],
+        description: '',
+        image: ''
     }
 }
 
@@ -67,7 +73,9 @@ const SearchSlice = createSlice({
             const items = action.payload.data.tracks.items
             const songsList = addSongsToPlaylist(items)
             state.currentSearchPlaylist.songs = songsList
-
+            state.currentSearchPlaylist.image = action.payload.img
+            state.currentSearchPlaylist.name = action.payload.name
+            state.currentSearchPlaylist.description = action.payload.description
         },
         [getCurrentSearchPlaylistsSongs.pending.toString()]: (state) => {
 

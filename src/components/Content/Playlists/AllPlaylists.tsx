@@ -48,7 +48,7 @@ const Playlists = () => {
                         {currentSection.list?.map(el => (
                             <CardMusic type={''}
                                 img={el.img} 
-                                title={el.title} 
+                                name={el.title} 
                                 description={el.description} 
                                 songs={el.songs} 
                                 id={el.id}

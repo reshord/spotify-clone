@@ -9,6 +9,10 @@ import { useAppDispatch, useAppSelector } from "../../rtk/hooks/RTKHook"
 import { deleteSearchResults, setCurrentSearchValue } from "../../rtk/slices/Search"
 import { RootState, store } from "../../rtk/store"
 import CardMusic from "../Content/MusicContainer/CardMusic"
+import SearchedAlbumCard from "./SearchedCards/SearchedAlbumCard"
+import SearchedArtistsCard from "./SearchedCards/SearchedArtistsCard"
+import SearchedPlaylistsCard from "./SearchedCards/SearchedPlaylistsCard"
+import SearchedTracksCard from "./SearchedCards/SearchedTracks"
 
 const SearchModal = () => {
     const {genres, auth, search} = useAppSelector<RootState>(store.getState)
@@ -18,7 +22,7 @@ const SearchModal = () => {
     const [currentSection, setCurrentSection] = useState<number>(0)
 
     const shortlyPlaylistsList = search.searchedPlaylists?.slice(0, 4)
-    const shortlyTracksList = search.searchedTracks?.slice(0, 5)
+    const shortlyAlbumsList = search.searchedAlbums?.slice(0, 4)
 
 
     const dispatch = useAppDispatch()
@@ -36,6 +40,7 @@ const SearchModal = () => {
 
     useEffect(() => {
         setValue('')
+        setCurrentSection(0)
         dispatch(setCurrentSearchValue(''))
         window.scrollTo({
             top: 0,
@@ -47,7 +52,7 @@ const SearchModal = () => {
         <div className="searchModalBody" style={{height: `${!search.currentSearchValue ? '100vh' : ''}`}}>
             <div className="searchModalHeader" style={{height: `${search.currentSearchValue ? 140 : 60}`}}>        
                 <div className="headerSearchBlock">
-                        <Link to={'/'}>
+                        <Link to={'/search'}>
                             <AiOutlineArrowLeft
                                     className='closeSearchModal'
                             />
@@ -67,6 +72,7 @@ const SearchModal = () => {
                                 placeholder='Что хочешь послушать?'
                                 value={value ? value : search.currentSearchValue}
                                 onChange={e => setValue(e.target.value)}
+                                autoFocus={true}
                                 onKeyUp={(enter) => {
                                     if(enter.key === 'Enter') {
                                         spotifySearch()
@@ -104,7 +110,7 @@ const SearchModal = () => {
                     )}
             </div>
             <div className="searchModalContent">
-                {!search.currentSearchValue && (
+                {!search.currentSearchValue &&  (
                     <div className="withoutInputValue">
                         <span className="withoutInputValueTitle">Слушай то, что нравится</span>
                         <span className="withoutInputValueInfo">Находи исполнителей, треки, подкасты, аудиокниги и не только</span>
@@ -127,73 +133,33 @@ const SearchModal = () => {
                         <div style={{overflow: 'scroll'}}>
                             <div className="searchedPlaylistsList">
                                 {shortlyPlaylistsList?.map(el => (
-                                    <CardMusic description={el.description} id={el.id} img={el.image} title={el.name} songs={search.currentSearchPlaylist.songs} type={"searchedPlaylist"}/>
+                                    <CardMusic description={el.description} id={el.id} img={el.image} name={el.name} songs={search.currentSearchPlaylist.songs} type={"searchedPlaylist"}/>
                                 ))}
                             </div>
                         </div>
                         <div className="shortlySearchedTracksList">
-                            {shortlyTracksList?.map(el => (
-                                <div className="searchedTrackBody">
-                                    <img src={`${el.image.url}`} alt="" />
-                                    <div className="searchedTrackInfo">
-                                        <span className="searchedTrackTitle">{el.name}</span>
-                                        <span className="searchedTrackAbout">Трек • {el.author}</span>
-                                    </div>
-                                </div>
-                            ))}
+                            {shortlyAlbumsList?.map(el => ( <SearchedAlbumCard {...el} /> ))}
                         </div>
                     </>
                 )}
-                {currentSection === 1 && search.currentSearchValue && (
+                {currentSection === 1 && (
                     <div className="searchedTracksList">
-                        {search.searchedTracks?.map(el => (
-                            <div className="searchedTrackBody">
-                                <img src={`${el.image.url}`} alt="" />
-                                <div className="searchedTrackInfo">
-                                    <span className="searchedTrackTitle">{el.name}</span>
-                                    <span className="searchedTrackAbout">Трек • {el.author}</span>
-                                </div>
-                            </div>
-                        ))}
+                        {search.searchedTracks?.map(el => ( <SearchedTracksCard {...el} /> ))}
                     </div>
                 )}
-                {currentSection === 2 && search.currentSearchValue && (
+                {currentSection === 2 && (
                     <div className="searchedAlbumList">
-                        {search.searchedAlbums?.map(el => (
-                            <div className="searchedAlbumBody">
-                                <img src={`${el.image}`} alt="" />
-                                <div className="searchedAlbumInfo">
-                                    <span className="searchedAlbumTitle">{el.name}</span>
-                                    <span className="searchedAlbumAbout">Альбом • {el.author}</span>
-                                </div>
-                            </div>
-                        ))}
+                        {search.searchedAlbums?.map(el => ( <SearchedAlbumCard {...el} /> ))}
                     </div>
                 )}
-                {currentSection === 3 && search.searchedArtists && (
+                {currentSection === 3 && (
                     <div className="searchedArtists">
-                        {search.searchedArtists?.map(el => (
-                            <div className="searchedArtistsBody">
-                                <img src={el?.image?.url} alt="" />
-                                <div className="searchedArtistsInfo">
-                                    <span className="searchedArtistsTitle">{el.name}</span>
-                                    <span className="searchedArtistsAbout">Артист</span>
-                                </div>
-                            </div>
-                        ))}
+                        {search.searchedArtists?.map(el => ( <SearchedArtistsCard {...el} /> ))}
                     </div>
                 )}
-                {currentSection === 4 && search.currentSearchValue && (
+                {currentSection === 4 && (
                     <div className="searchedPlaylistList">
-                        {search.searchedPlaylists?.map(el => (
-                            <div className="searchedPlaylistBody">
-                                <img src={`${el.image}`} alt="" />
-                                <div className="searchedPlaylistInfo">
-                                    <span className="searchedPlaylistTitle">{el.name}</span>
-                                    <span className="searchedPlaylistAbout">Плейлист</span>
-                                </div>
-                            </div>
-                        ))}
+                        {search.searchedPlaylists?.map(el => ( <SearchedPlaylistsCard {...el} /> ))}
                     </div>
                 )}
             </div>

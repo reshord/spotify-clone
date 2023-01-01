@@ -53,7 +53,7 @@ const PlaylistPage = () => {
             behavior: 'smooth'
         })
         if(!auth.token) navigate('/')
-    }, [currentPlaylist]);
+    }, [currentPlaylist, auth.token]);
 
      return ( 
         <>
@@ -62,20 +62,20 @@ const PlaylistPage = () => {
             <div className="playlistBody">
                 <HeaderContent />
                 <div className="headerBlock">
-                    <img className="playlistImage" src={currentPlaylist.img} alt="" />
+                    <img className="playlistImage" src={currentPlaylist.img || search.currentSearchPlaylist.image} alt="" />
                     <div className="AllPlaylistInfo">
                         <span className='headerPlaylistTitle'>ПЛЕЙЛИСТ</span>
-                        <span className="playlistTitle">{currentPlaylist.title}</span>
-                        <span className="playlistDescription">{currentPlaylist.description}</span>
+                        <span className="playlistTitle">{currentPlaylist.title || search.currentSearchPlaylist.name}</span>
+                        <span className="playlistDescription">{currentPlaylist.description || search.currentSearchPlaylist.description}</span>
                         <span className="currentPlaylistInfo">Spotify • {currentPlaylist.songs?.length || search.currentSearchPlaylist.songs?.length} треков</span>
                     </div>
                     <div className="mobilePlaylist">
                         <div className="mobileImage">
-                            <img src={currentPlaylist.img} alt="" />
+                            <img src={currentPlaylist.img || search.currentSearchPlaylist.image} alt="" />
                         </div>
                         <div className="mobilePlaylistInfo">
-                            <span className="mobilePlaylistTitle">{currentPlaylist.title}</span>
-                            <span className="mobilePlaylistDescription">{currentPlaylist.description}</span>
+                            <span className="mobilePlaylistTitle">{currentPlaylist.title || search.currentSearchPlaylist.name}</span>
+                            <span className="mobilePlaylistDescription">{currentPlaylist.description || search.currentSearchPlaylist.description}</span>
                             <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="" />
                         </div>
                     </div>
@@ -142,7 +142,10 @@ const PlaylistPage = () => {
             </div>
             <hr />
         </div>
-        <MobileFooter />
+            <MobileFooter />
+            {auth.token && (
+                <MobileFooter />
+            )}
         </>
      );
 }

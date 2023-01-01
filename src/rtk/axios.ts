@@ -19,6 +19,13 @@ interface IPlaylists {
     id: string | undefined
 }
 
+interface SearchPlaylistSongsParams {
+    id: string | undefined
+    name: string | undefined
+    description: string | undefined
+    img: string | undefined
+}
+
 export const getPlaylistsSongs = createAsyncThunk(
     'getSongs', 
     async ({id, type}: IParams) => {
@@ -111,7 +118,7 @@ export const getSearched = createAsyncThunk(
 
 export const getCurrentSearchPlaylistsSongs = createAsyncThunk(
     'currentSearchPlaylistSongs', 
-    async (id: string | undefined) => {
+    async ({id, name, img, description}: SearchPlaylistSongsParams) => {
     
     const token = localStorage.getItem('token')
 
@@ -122,7 +129,7 @@ export const getCurrentSearchPlaylistsSongs = createAsyncThunk(
                 "Content-Type": "application/json"
             }
         })
-        return {data: songsList.data}
+        return {data: songsList.data, id, name, img, description}
     }
     catch(e) {
         console.log(e);

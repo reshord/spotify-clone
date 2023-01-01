@@ -10,13 +10,13 @@ import { setCurrentSection } from '../../../rtk/slices/SpotifyPlaylists';
 
 
 interface IProps {
-    title: string
+    name: string
     token?: string
     playlist: IPlaylist[]
     type: string
 }
 
-const MusicContainer: React.FC<IProps> = ({title, playlist, token, type}) => {
+const MusicContainer: React.FC<IProps> = ({name, playlist, token, type}) => {
 
     const {playlists} = useAppSelector<RootState>(store.getState) 
     const [currentTitle, setCurrentTitle] = useState<string>()
@@ -25,12 +25,12 @@ const MusicContainer: React.FC<IProps> = ({title, playlist, token, type}) => {
     const shortlyPlaylist = playlist.length > 6 ? playlist.slice(0,6) : playlist
     
     const deleteSpaces = () => {
-        const newTitle = title.split(' ')
+        const newTitle = name.split(' ')
         setCurrentTitle(`${newTitle[0]}${newTitle[1]}`)
     }
 
     const setSection = (curPlaylist: IPlaylist[]) => {
-        dispatch(setCurrentSection({list: curPlaylist, title}))
+        dispatch(setCurrentSection({list: curPlaylist, name}))
     } 
 
     useEffect(() => {
@@ -45,7 +45,7 @@ const MusicContainer: React.FC<IProps> = ({title, playlist, token, type}) => {
                 <Link 
                     onClick={() => setSection(playlist)} 
                     to={`/section/${currentTitle}`}>
-                        {title}
+                        {name}
                 </Link>
             </div>
             {playlist.length > 6 && <Link 
@@ -61,7 +61,7 @@ const MusicContainer: React.FC<IProps> = ({title, playlist, token, type}) => {
                     <CardMusic 
                         key={el.id} 
                         img={el.img} 
-                        title={el.title} 
+                        name={el.title} 
                         description={el.description} 
                         songs={el.songs} 
                         id={el.id} 

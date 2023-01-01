@@ -40,9 +40,6 @@ function App() {
               {!auth.token && (
                 <BannerToAuth />
               )}
-              {auth.token && (
-                <MobileFooter />
-              )}
               {Modals.mobileModal && (
                 <MobileModal />
               )}
