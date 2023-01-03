@@ -1,15 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { getCurrentSearchPlaylistsSongs } from "../../../rtk/axios";
-import { useAppDispatch } from "../../../rtk/hooks/RTKHook";
+import { useAppDispatch, useAppSelector } from "../../../rtk/hooks/RTKHook";
+import { deleteCurrentPlaylist, setCurrentPlaylist } from "../../../rtk/slices/SpotifyPlaylists";
+import { RootState, store } from "../../../rtk/store";
 import { ISearchedPlaylists } from "../../../types/types";
 
 const SearchedPlaylistsCard: React.FC<ISearchedPlaylists> = ({image, name, id, description}) => {
 
     const dispatch = useAppDispatch()
+    const {search} = useAppSelector<RootState>(store.getState)
 
     const getSearchedPlaylistsTracks = () => {
+        dispatch(deleteCurrentPlaylist())
         dispatch(getCurrentSearchPlaylistsSongs({id, name, img: image, description}))
+            .then(() => {
+                dispatch(setCurrentPlaylist({songs: search.currentSearchPlaylist.songs, title: name, img: image, description}))
+            })
+        
     }
 
     return ( 

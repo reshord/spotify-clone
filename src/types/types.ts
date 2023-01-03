@@ -56,13 +56,18 @@ export interface IShowList {
 }
 
 export interface ISearchedTracks {
-    name: string,
-    id: string,
-    albumName: string,
+    // name: string,
+    // id: string,
+    // albumName: string,
+    // author: string,
+    // image: string
+    songs: ISongInfo[] | undefined
+    name: string | undefined
+    description: string
+    img: string | undefined
+    id: string
     author: string,
-    image: {
-        url: string
-    },
+    albumName: string,
 }
 export interface ISearchedAlbums {
     image: string,

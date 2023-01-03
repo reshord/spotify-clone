@@ -58,6 +58,59 @@
     cursor: default;
 } 
 
+.searchHistory {
+    margin-top: 20px;
+}
+
+.searchHistoryHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.showAllSearchHistory {
+    font-size: 0.85rem;
+    color: white;
+    opacity: 0.7;
+    letter-spacing: 1.3px;
+}
+
+.showAllSearchHistory:hover {
+    text-decoration: underline;
+}
+
+.searchHistoryLink {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.searchHistoryTitle {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.searchHistoryLink:hover {
+    text-decoration: underline;
+}
+
+.searchHistoryList {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 20px;
+    --column-width: 185px;
+    --grid-gap: 24px;
+    --column-count: 6;
+    grid-template-rows: 1fr;
+    grid-gap: var(--grid-gap);
+    display: grid;
+    grid-template-columns: repeat(var(--column-count),minmax(0,1fr));   
+    overflow: hidden;
+    height: 290px;
+}
+
 .defaultSearchSection {
     color: white;
     --background-tinted-base: hsla(0,0%,100%,.1);
@@ -73,6 +126,7 @@
     font-weight: 700;
     font-size: 1.5rem;
 }
+
 
 .searchResults {
     width: 95%;
@@ -170,13 +224,22 @@
     display: flex;
     flex-direction: column;
     margin-left: 15px;
-    color: white;
-    font-weight: 600;
 }
 
 .searchedSongAuthor {
-    opacity: 0.7;
+    opacity: 0.6;
     font-size: 14px;
+    color: white;
+    font-weight: 600;
+    
+}
+
+.searchedSongTitle {
+    font-weight: 600;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .allSearchedTracksList {
@@ -199,25 +262,47 @@
     display: none;
 }
 
+@media (max-width: 1525px) {
+    .searchResultsTracksBlock {
+        width: 700px;
+        margin-left: 20px;
+    }
+}
 @media (max-width: 1450px) {
     .genresList {
         --column-width: 180px;
         --column-count: 5;
-
+    }
+    .searchHistoryList  {
+        --column-count: 5;
     }
     .allSearchedPlaylistsList {
         --column-count: 5;
+    }
+    .searchResultsTracksBlock {
+        width: 550px;
     }
 }
 @media (max-width: 1250px) {
     .genresList {
         --column-count: 4;
     }
+    .searchHistoryList  {
+        --column-count: 4;
+    }
     .allSearchedPlaylistsList {
         --column-count: 4;
     }
+    .searchResultsTracksBlock {
+        width: 450px;
+    }
 }
 
+@media (max-width: 1100px) {
+    .bestResultBlock {
+        width: 290px;
+    }
+}
 @media (max-width: 910px) {
     .genresList {
         --column-count: 3;
@@ -225,12 +310,62 @@
     .allSearchedPlaylistsList {
         --column-count: 3;
     }
+    .searchHistoryList  {
+        --column-count: 3;
+    }
+    .bestResultBlock {
+        width: 100%;
+        justify-content: center;
+    }
+    .searchResultsTracksBlock {
+        width: 370px;
+    }
+    .bestResultTitle {
+        font-size: 1.2rem;
+    }
+    .bestResultName {
+        font-size: 1rem;
+        text-align: center;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .bestResultBlock {
+        align-items: center;
+        height: 210px;
+    }
+    .bestResultImage {
+        margin: 10px 0px;
+    }
+    .executorTitle {
+        margin: 15px 0px;
+    }
+    .searchResults {
+        width: 85%;
+    }
+    .searchResultsTracksTitle {
+        font-size: 1.2rem;
+    }
+    .searchedSongTitle {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 180px;
+    }
+}
+
+@media (max-width: 760px) {
+    .searchResultsTracksBlock {
+        width: 300px;
+    }
 }
 
 @media (max-width: 631px) {
     .genresList {
         --column-count: 2;
         padding-left: 30px;
+    }
+    .searchHistoryList  {
+        --column-count: 2;
     }
     .SearchBlockContent span {
         padding-left: 30px;
@@ -240,10 +375,22 @@
         width: 450px;
         margin: 0 auto;
     }
+    .searchResults {
+        width: 90%;
+    }
+    .searchHistoryList {
+        width: 80%;
+    }
+    .searchHistoryHeader {
+        width: 80%;
+    }
 }
 @media (max-width: 590px) {
     .allSearchedPlaylistsList {
         width: 350px;
+    }
+    .searchResultsTracksBlock {
+        width: 260px;
     }
 }
 @media (max-width: 540px) {
@@ -252,6 +399,12 @@
     }
     .SearchBlockContent span {
         padding-left: 20px;
+    }
+    .searchResultsTracks {
+        margin-top: 10px;
+    }
+    .searchResultsTracksBlock {
+        width: 230px;
     }
 }
 @media (max-width: 500px) {
@@ -365,6 +518,7 @@
         display: flex;
         align-items: center;
         margin-bottom: 15px;
+        margin-top: 10px;
     }
     .searchedAuthorInfo {
         margin-left: 15px;

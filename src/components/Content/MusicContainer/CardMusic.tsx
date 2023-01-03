@@ -3,10 +3,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { getCurrentSearchPlaylistsSongs, getPlaylistsSongs } from '../../../rtk/axios';
 import { useAppDispatch, useAppSelector } from '../../../rtk/hooks/RTKHook';
 import { setModalToAuth } from '../../../rtk/slices/modals';
+import { deleteItemSearchHistory, setItemToSearchHistory } from '../../../rtk/slices/Search';
 import { setCurrentPlaylist } from '../../../rtk/slices/SpotifyPlaylists';
 import { RootState, store } from '../../../rtk/store';
 import '../../../styles/Content/Music/CardMusic.css'
 import { IPlaylist, ISongInfo } from '../../../types/types';
+import {IoMdClose} from 'react-icons/io'
 
 interface IProps {
     img: string | undefined
@@ -30,8 +32,21 @@ const CardMusic: React.FC<IProps> = ({img, name, description, songs, id, type,})
         dispatch(getPlaylistsSongs({id, type}))
 
         if(type === 'searchedPlaylist') {
-            dispatch(getCurrentSearchPlaylistsSongs({id, name, img, description}))
+            dispatch(getCurrentSearchPlaylistsSongs({id, name, img, description})).then(() => {
+                dispatch(setCurrentPlaylist({songs: search.currentSearchPlaylist.songs, name, description, img}))
+            })
+            dispatch(setItemToSearchHistory({img, name, description, songs, id, type}))
         }
+        if(type === 'searchHistoryItem') {
+   dispatch(setCurrentPlaylist({songs: search.currentSearchPlaylist.songs, name, description, img}))
+        }
+    }
+
+    const deleteItemHistory = (e: React.MouseEvent) => {
+        e.preventDefault()
+        e.stopPropagation();
+        e.nativeEvent.stopImmediatePropagation()
+        dispatch(deleteItemSearchHistory({img, name, description, songs, id, type}))
     }
 
     const activeToAuthModal = (img: string | undefined) => {
@@ -39,18 +54,26 @@ const CardMusic: React.FC<IProps> = ({img, name, description, songs, id, type,})
     }
 
     useEffect(() => {
-    }, []);
+        console.log(img);
+        
+    }, [img]);
 
     return ( 
         <>
             {auth.token 
             ? (
-                <Link to={`/playlist/${name}`} className='linkToPlaylist'>
+                <Link to={`/playlist/${id}`} className='linkToPlaylist'>
                 <div onMouseEnter={() => setActivePlayBtn(true)} 
                      onMouseLeave={() => setActivePlayBtn(false)} 
                      className="cardMusic" 
                      onClick={() => addCurrentPlaylist(songs, type)}
                      >
+                    {type === 'searchHistoryItem' && (
+                        <div className='deleteSearchHistoryItem' onClick={(e) => deleteItemHistory(e)}>
+                            <IoMdClose  />
+                        </div>
+                    )}
+                    
                     <div className='blockCardImg'>
                         <img className='cardImg' src={img} alt="" />
                         {activePlayBtn && (

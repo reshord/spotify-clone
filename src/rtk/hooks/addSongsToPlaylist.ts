@@ -54,7 +54,7 @@ export const getNewSearchResultsTracks = (items: any) => {
             name: track.name,
             id: track.id,
             albumName: track.album.name,
-            image: track.album.images[1],
+            img: track.album.images[1].url,
             author: track.artists[0].name
         }
      })

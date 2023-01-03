@@ -16,6 +16,7 @@ interface IState {
         description: string
         image: string | undefined
     }
+    searchHistory: ISearchedTracks[] | []
 }
 
 const initialState: IState = {
@@ -30,7 +31,8 @@ const initialState: IState = {
         songs: [],
         description: '',
         image: ''
-    }
+    },
+    searchHistory: []
 }
 
 const SearchSlice = createSlice({
@@ -46,6 +48,15 @@ const SearchSlice = createSlice({
         setCurrentSearchValue: (state, {payload}: PayloadAction<string>) => {
             state.currentSearchValue = payload
         },
+        setItemToSearchHistory: (state, action) => {
+            const searchedItem = state.searchHistory.filter(el => el.id === action.payload.id)
+            if(!searchedItem.length) {
+                state.searchHistory = [...state.searchHistory, action.payload]
+            }
+        },
+        deleteItemSearchHistory: (state, action) => {
+            state.searchHistory = state.searchHistory.filter(el => el.id !== action.payload.id)
+        }
     },
     extraReducers: {
         // Get Searched
@@ -83,5 +94,10 @@ const SearchSlice = createSlice({
     }
 })
 
-export const {deleteSearchResults, setCurrentSearchValue} = SearchSlice.actions
+export const {
+    deleteSearchResults, 
+    setCurrentSearchValue, 
+    setItemToSearchHistory,
+    deleteItemSearchHistory} = SearchSlice.actions
+
 export default SearchSlice.reducer

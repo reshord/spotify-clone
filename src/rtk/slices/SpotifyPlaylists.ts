@@ -228,6 +228,12 @@ const playlists = createSlice({
             state.currentPlaylist.description = action.payload.description
             state.currentPlaylist.img = action.payload.img
         },
+        deleteCurrentPlaylist: (state) => {
+            state.currentPlaylist.songs = null
+            state.currentPlaylist.title = ''
+            state.currentPlaylist.description = ''
+            state.currentPlaylist.img = ''
+        },
         addSongToFavourites: (state, {payload}: PayloadAction<ISongInfo>) => {
             const foundFavourite = state.favoritesList.filter(el => el.id === payload.id)
 
@@ -310,5 +316,5 @@ const playlists = createSlice({
     }
 })
 
-export const {setCurrentSection, setCurrentPlaylist, addSongToFavourites} = playlists.actions
+export const {setCurrentSection, setCurrentPlaylist, addSongToFavourites, deleteCurrentPlaylist} = playlists.actions
 export default playlists

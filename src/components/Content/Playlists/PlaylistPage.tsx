@@ -118,21 +118,7 @@ const PlaylistPage = () => {
                                     isFavourite={el.isFavourite}
                             />
                             ))}
-                            {search.currentSearchPlaylist.songs?.map((song, index) => (
-                                <SongCard
-                                    img={song.img}
-                                    title={song.title}
-                                    description={song.description}
-                                    id={song.id} 
-                                    number={index + 1}
-                                    songNumber={0} 
-                                    albumName={song.albumName} 
-                                    key={song.number} 
-
-                                    buttonNumber={buttonNumber}
-
-                                />
-                            ))}
+                            
                             {!currentPlaylist.songs || !search.currentSearchPlaylist?.songs && (
                                 <div className="checkInfo">Обрабатываем информацию...</div>
                             )}

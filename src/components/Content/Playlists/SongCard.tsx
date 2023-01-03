@@ -71,14 +71,14 @@ const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, bu
             </div>
                 <span className='songAlbumName'>{albumName}</span>
                 <span className='songDateUpdate'>Soon</span>
-                <div className='songTime'>
+                <div className='songTimeBlock'>
                     {isFavourite ? (
                         <MdFavorite style={{fontSize: 20, marginRight: 20, fill: 'lightgreen'}} onClick={() => deleteFavourite()}/>
                     ) 
                     : (
-                        <MdOutlineFavoriteBorder style={{fontSize: 20, marginRight: 20, }} onClick={() => addToFavourites()}/>
+                        <MdOutlineFavoriteBorder style={{fontSize: 20, marginRight: 20, fill: 'white'}} onClick={() => addToFavourites()}/>
                     )}
-                    <span>2:20</span>
+                    <span className='trackTime'>2:20</span>
                     <div className='moreMenu'>
                         <span></span>
                         <span></span>
