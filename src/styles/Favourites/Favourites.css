@@ -1,7 +1,6 @@
 .favouritesPage {
     display: flex;
     justify-content: space-between;
-    
 }
 
 .favouritesBody {
@@ -245,6 +244,10 @@
     display: none;
 }
 
+.podcastsSection {
+    height: 100%;
+}
+
 @media (max-width: 670px) {
     .authProfile {
         display: none;
@@ -269,6 +272,7 @@
     }
     .favouritesContentMobile {
         display: block;
+        height: 85vh;
     }
     .favoritePodcasts {
         height: 240px;
@@ -333,6 +337,7 @@
         color: white;
         font-weight: 600;
         font-size: 0.8125rem;
+        width: 90vw;
     }
     .mobileSections div {
         margin-right: 10px;
@@ -380,12 +385,61 @@
         height: 200px;
     }
     .blockPlaylistsCards {
-        width: 350px;
+        width: 320px;
     }
 }
 
-@media (max-width: 489px)  {
+@media (max-width: 395px)  {
+    .blockPlaylists {
+       margin-left: 15px;
+    }
     .blockPlaylistsCards {
-        width: 320px;
+        width: 280px;
+        height: 160px;
+    }
+    .favouritesTracksBlock {
+        width: 280px;
+        height: 80px;
+    }
+    .followFavoritePodcasts {
+        font-size: 1rem;
+    }
+    .followPodcastsTitle {
+        font-size: .7rem;
+    }
+    .followFavoriteArtists {
+        font-size: .9rem;
+    }
+    .followArtistsTitle {
+        font-size: .750rem;
+    }
+}
+
+@media (max-width: 330px)  {
+    .followFavoritePodcasts {
+        font-size: .850rem;
+    }
+    .followPodcastsTitle {
+        font-size: .6rem;
+    }
+    .followFavoriteArtists {
+        font-size: .750rem;
+    }
+    .followArtistsTitle {
+        font-size: .650rem;
+    }
+}
+
+@media (max-width: 310px)  {
+    .blockPlaylists {
+       margin-left: 15px;
+    }
+    .blockPlaylistsCards {
+        width: 230px;
+        height: 160px;
+    }
+    .favouritesTracksBlock {
+        width: 230px;
+        height: 80px;
     }
 }

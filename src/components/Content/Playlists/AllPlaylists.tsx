@@ -62,7 +62,6 @@ const Playlists = () => {
 
         </div>
         <BannerToAuth />
-        <MobileFooter />
     </>
      );
 }

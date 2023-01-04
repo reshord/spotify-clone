@@ -102,7 +102,7 @@ const PlaylistPage = () => {
                         </div>
                         <hr style={{opacity: 0.3}}/>
                         <div className="songsContent">
-                            {currentPlaylist.songs?.map((el, index) => (
+                            {!search.currentSearchPlaylist?.songs?.length && currentPlaylist.songs?.map((el, index) => (
                                 <SongCard                                   
                                     setButtonNumber={(num: number) => setButtonNumber(num)}
                                     buttonNumber={buttonNumber}
@@ -118,7 +118,22 @@ const PlaylistPage = () => {
                                     isFavourite={el.isFavourite}
                             />
                             ))}
-                            
+                            {search.currentSearchPlaylist?.songs?.map((el, index) => (
+                                <SongCard                                   
+                                    setButtonNumber={(num: number) => setButtonNumber(num)}
+                                    buttonNumber={buttonNumber}
+                                    index={index}
+                                    key={el.number} 
+                                    number={index + 1}
+                                    img={el.img} 
+                                    songNumber={0} 
+                                    title={el.title} 
+                                    albumName={el.albumName} 
+                                    author={el.author}
+                                    id={el.id}
+                                    isFavourite={el.isFavourite}
+                                />
+                            ))}
                             {!currentPlaylist.songs || !search.currentSearchPlaylist?.songs && (
                                 <div className="checkInfo">Обрабатываем информацию...</div>
                             )}
@@ -129,9 +144,7 @@ const PlaylistPage = () => {
             <hr />
         </div>
             <MobileFooter />
-            {auth.token && (
-                <MobileFooter />
-            )}
+
         </>
      );
 }

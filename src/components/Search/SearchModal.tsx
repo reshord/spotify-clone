@@ -6,13 +6,15 @@ import { GrClose } from "react-icons/gr"
 import { Link } from "react-router-dom"
 import { getSearched } from "../../rtk/axios"
 import { useAppDispatch, useAppSelector } from "../../rtk/hooks/RTKHook"
-import { deleteSearchResults, setCurrentSearchValue } from "../../rtk/slices/Search"
+import { clearHistory, deleteItemSearchHistory, deleteSearchResults, setCurrentSearchValue } from "../../rtk/slices/Search"
 import { RootState, store } from "../../rtk/store"
 import CardMusic from "../Content/MusicContainer/CardMusic"
 import SearchedAlbumCard from "./SearchedCards/SearchedAlbumCard"
 import SearchedArtistsCard from "./SearchedCards/SearchedArtistsCard"
 import SearchedPlaylistsCard from "./SearchedCards/SearchedPlaylistsCard"
 import SearchedTracksCard from "./SearchedCards/SearchedTracks"
+import {IoMdClose} from 'react-icons/io'
+import SearchHistoryCard from "./SearchedCards/SearchHistoryCard"
 
 const SearchModal = () => {
     const {genres, auth, search} = useAppSelector<RootState>(store.getState)
@@ -36,6 +38,12 @@ const SearchModal = () => {
     const spotifySearch = async () => {
         dispatch(getSearched({token: auth.token, value}))
         dispatch(setCurrentSearchValue(value))
+    }
+    
+
+
+    const clearFullHistory = () => {
+        dispatch(clearHistory())
     }
 
     useEffect(() => {
@@ -110,11 +118,24 @@ const SearchModal = () => {
                     )}
             </div>
             <div className="searchModalContent">
-                {!search.currentSearchValue &&  (
+                {!search.currentSearchValue && !search.searchHistory.length && (
                     <div className="withoutInputValue">
                         <span className="withoutInputValueTitle">Слушай то, что нравится</span>
                         <span className="withoutInputValueInfo">Находи исполнителей, треки, подкасты, аудиокниги и не только</span>
                      </div>
+                )}
+                {search.searchHistory.length && !search.currentSearchValue && (
+                    <div className="searchHistoryMobile">
+                        <span className="searchHistoryMobileTitle">История поиска</span>
+                        <div className="searchHistoryMobileList">
+                            {search.searchHistory.map(el => (
+                                <SearchHistoryCard {...el}/>
+                            ))}
+                            <div className="clearHistoryBlock">
+                                <button onClick={clearFullHistory} className="clearSearchHistoryBtn">Очистить историю поиска</button>
+                            </div>
+                        </div>
+                    </div>
                 )}
                 {currentSection === 0 && search.currentSearchValue && (
                     <>

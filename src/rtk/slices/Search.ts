@@ -56,6 +56,9 @@ const SearchSlice = createSlice({
         },
         deleteItemSearchHistory: (state, action) => {
             state.searchHistory = state.searchHistory.filter(el => el.id !== action.payload.id)
+        },
+        clearHistory: (state) => {
+            state.searchHistory = []
         }
     },
     extraReducers: {
@@ -98,6 +101,7 @@ export const {
     deleteSearchResults, 
     setCurrentSearchValue, 
     setItemToSearchHistory,
-    deleteItemSearchHistory} = SearchSlice.actions
+    deleteItemSearchHistory,
+    clearHistory} = SearchSlice.actions
 
 export default SearchSlice.reducer

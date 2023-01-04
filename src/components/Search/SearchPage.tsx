@@ -50,7 +50,10 @@ const SearchPage = () => {
         setCurrentSection(0)
         dispatch(deleteSearchResults())
         dispatch(setCurrentSearchValue(''))
-
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
 
     }, []);
 

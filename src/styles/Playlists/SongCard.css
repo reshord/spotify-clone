@@ -180,6 +180,9 @@
     .songTime {
         display: none;
     }
+    .songTimeBlock {
+        display: none;
+    }
     .moreMenuMobile {
         display: block;
         display: flex;

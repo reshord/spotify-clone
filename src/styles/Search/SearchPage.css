@@ -420,6 +420,9 @@
     .searchHeaderSections {
         display: none;
     }
+    .searchHistory {
+        display: none;
+    }
     .headerSearchBlock {
         display: block;
         display: flex;
@@ -679,6 +682,71 @@
         opacity: 0.6;
         margin-top: 2px;
     }
+    .searchHistoryMobile {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .searchHistoryMobileTitle {
+        color: white;
+        font-weight: 700;
+        font-size: 1.225rem;
+    }
+    .searchHistoryItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+    }
+    .searchHistoryItemInfoBlock {
+        display: flex;
+        align-items: center;
+    }
+    .searchHistoryItemInfo {
+        display: flex;
+        flex-direction: column;
+        margin-left: 15px;
+    }
+    .searchHistoryItemInfo span {
+        color: white;
+    }
+    .searchHistoryItemImage {
+        width: 56px;
+    }
+    .searchHistoryItemTitle {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 180px;
+    }
+    .searchHistoryItemMarker {
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+    .deleteSearchItemMobile {
+        font-size: 35px;
+        fill: white;
+        opacity: 0.6;
+    }
+    .clearHistoryBlock {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .clearSearchHistoryBtn {
+        color: white;
+        font-weight: 700;
+        font-size: 1rem;
+        text-align: center;
+        --essential-subdued: #727272;
+        border: 1px solid var(--essential-subdued,#878787);
+        background-color: transparent;
+        border-radius: 30px;
+        padding: 15px 20px;
+        margin-top: 20px;
+    }
 }
 @media (max-width: 460px) {
     .genresList {
@@ -698,12 +766,42 @@
     .genresList {
         --column-count: 2;
     }
-    
-    
+}
+@media (max-width: 395px) {
+    .SearchBlockContent {
+        padding: 25px 25px;
+    }
+}
+
+@media (max-width: 350px) {
+    .searchHistoryItemTitle {
+        width: 150px;
+    }
+    .searchHistoryItemImage {
+        width: 50px;
+    }
+    .searchHistoryItemTitle {
+        font-size: 1rem;
+    }
+    .deleteSearchItemMobile {
+        font-size: 30px;
+    }
 }
 
 @media (max-width: 340px) {
     .genresList {
         --column-count: 1;
+    }
+    .clearSearchHistoryBtn {
+        font-size: .8rem;
+        padding: 10px 20px;
+    }
+}
+@media (max-width: 305px) {
+    .searchHistoryItemTitle {
+        width: 130px;
+    }
+    .deleteSearchItemMobile {
+        font-size: 25px;
     }
 }

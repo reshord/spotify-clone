@@ -38,7 +38,7 @@ const CardMusic: React.FC<IProps> = ({img, name, description, songs, id, type,})
             dispatch(setItemToSearchHistory({img, name, description, songs, id, type}))
         }
         if(type === 'searchHistoryItem') {
-   dispatch(setCurrentPlaylist({songs: search.currentSearchPlaylist.songs, name, description, img}))
+            dispatch(setCurrentPlaylist({songs: search.currentSearchPlaylist.songs, name, description, img}))
         }
     }
 

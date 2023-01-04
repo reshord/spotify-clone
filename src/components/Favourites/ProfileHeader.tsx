@@ -30,15 +30,17 @@ const ProfileHeader: React.FC<IProps> = (
                             <img className="favoriteHeaderAuthImage" src={`${auth.profile && auth.profile.images && auth.profile?.images[0].url}`} alt="" />
                             <div className="favoriteHeaderTitle">Моя медиатека</div>
                         </div>
-                        <div className="mobileSections">
-                            {sections.map((el, index) => (
-                                <div key={index}
-                                    className={`${mobileSection === index ? 'mobileSection' : 'defaultMobileSection'}`}
-                                    onClick={() => setMobileSection(index)}
-                                    >
-                                        {el}
-                                </div>
-                            ))}
+                        <div style={{overflow: 'scroll'}}>
+                            <div className="mobileSections">
+                                {sections.map((el, index) => (
+                                    <div key={index}
+                                        className={`${mobileSection === index ? 'mobileSection' : 'defaultMobileSection'}`}
+                                        onClick={() => setMobileSection(index)}
+                                        >
+                                            {el}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                     <div className='allSections'>
