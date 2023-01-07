@@ -2,13 +2,20 @@ import '../../styles/Sidebar/Sidebar.css'
 import {RiHome4Line} from 'react-icons/ri'
 import {BiSearch} from 'react-icons/bi'
 import {Link, useLocation} from 'react-router-dom'
-import { useAppSelector } from '../../rtk/hooks/RTKHook'
+import { useAppDispatch, useAppSelector } from '../../rtk/hooks/RTKHook'
 import { RootState, store } from '../../rtk/store'
+import { toggleFavoriteModal } from '../../rtk/slices/modals'
 
 const Sidebar = () => {
 
     const {auth} = useAppSelector<RootState>(store.getState)
     const location = useLocation()
+
+    const dispatch = useAppDispatch()
+
+    const openFavoriteModal = () => {
+        dispatch(toggleFavoriteModal(true))
+    }
 
     return ( 
         <div className="sidebar">
@@ -32,7 +39,7 @@ const Sidebar = () => {
                                 {auth.token ? (
                                     <Link to={'/collection/playlists'}>Моя медиатека</Link>
                                 ) : (
-                                    <span>Моя медиатека</span>
+                                    <span onClick={openFavoriteModal}>Моя медиатека</span>
                                 )}
                             </li>
                         </ul>
@@ -77,9 +84,13 @@ const Sidebar = () => {
                          </Link>
                       </li>   
                       <li className='mediateka'>
-                        <Link to={'/collection/playlists'}>
-                            <svg role="img" height="30" width="30" aria-hidden="true" className="Svg-sc-ytk21e-0 uPxdw collection-icon" viewBox="0 0 24 24"><path d="M14.5 2.134a1 1 0 011 0l6 3.464a1 1 0 01.5.866V21a1 1 0 01-1 1h-6a1 1 0 01-1-1V3a1 1 0 01.5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm6 0a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1z"></path></svg>
-                        </Link>
+                        {auth.token ? (
+                            <Link to={'/collection/playlists'}>
+                                <svg role="img" height="30" width="30" aria-hidden="true" className="Svg-sc-ytk21e-0 uPxdw collection-icon" viewBox="0 0 24 24"><path d="M14.5 2.134a1 1 0 011 0l6 3.464a1 1 0 01.5.866V21a1 1 0 01-1 1h-6a1 1 0 01-1-1V3a1 1 0 01.5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm6 0a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1z"></path></svg>
+                            </Link>
+                        ) : (
+                            <svg onClick={openFavoriteModal} role="img" height="30" width="30" aria-hidden="true" className="Svg-sc-ytk21e-0 uPxdw collection-icon" viewBox="0 0 24 24"><path d="M14.5 2.134a1 1 0 011 0l6 3.464a1 1 0 01.5.866V21a1 1 0 01-1 1h-6a1 1 0 01-1-1V3a1 1 0 01.5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm6 0a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1z"></path></svg>
+                        )}
                       </li>
                  </ul>
                  <div className="blockMusicMobile">

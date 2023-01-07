@@ -19,7 +19,7 @@ interface IProps {
     type: string
 }
 
-const CardMusic: React.FC<IProps> = ({img, name, description, songs, id, type,}) => {
+const CardMusic: React.FC<IProps> = ({img, name, description, songs, id, type}) => {
 
     const dispatch = useAppDispatch()
     const [activePlayBtn, setActivePlayBtn] = useState<boolean>(false)
@@ -28,11 +28,19 @@ const CardMusic: React.FC<IProps> = ({img, name, description, songs, id, type,})
     const location = useLocation()
 
     const addCurrentPlaylist = (currentPlaylist: ISongInfo[] | undefined, type: string) => {
-        dispatch(setCurrentPlaylist({songs: currentPlaylist, name, description, img}))
+        dispatch(getCurrentSearchPlaylistsSongs({
+            id, name, img, description,
+            songAuthorId: undefined
+        }))
+        dispatch(setCurrentPlaylist({songs: currentPlaylist, title: name, description, img}))
         dispatch(getPlaylistsSongs({id, type}))
+        
 
         if(type === 'searchedPlaylist') {
-            dispatch(getCurrentSearchPlaylistsSongs({id, name, img, description})).then(() => {
+            dispatch(getCurrentSearchPlaylistsSongs({
+                id, name, img, description,
+                songAuthorId: undefined
+            })).then(() => {
                 dispatch(setCurrentPlaylist({songs: search.currentSearchPlaylist.songs, name, description, img}))
             })
             dispatch(setItemToSearchHistory({img, name, description, songs, id, type}))
@@ -52,11 +60,6 @@ const CardMusic: React.FC<IProps> = ({img, name, description, songs, id, type,})
     const activeToAuthModal = (img: string | undefined) => {
         dispatch(setModalToAuth({toggle: true, img}))
     }
-
-    useEffect(() => {
-        console.log(img);
-        
-    }, [img]);
 
     return ( 
         <>

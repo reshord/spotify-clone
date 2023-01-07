@@ -12,11 +12,13 @@ import { getPlaylistsSongs } from './rtk/axios';
 import ModalToAuth from './components/ModalToAuth';
 import PlayerTrack from './components/PlayerTrack/PlayerTrack';
 import SearchModal from './components/Search/SearchModal';
+import FavoriteModal from './components/Favourites/FavoriteModal';
+import { Modal } from '@mui/material';
 
 
 function App() {
 
-  const {Modals, auth, player} = useAppSelector<RootState>(store.getState)
+  const {Modals, auth, player, favourites} = useAppSelector<RootState>(store.getState)
 
   const dispatch = useAppDispatch()
 
@@ -35,16 +37,22 @@ function App() {
               <div className="App" >
                 <Sidebar />
                 <Content />
+                {auth.token && (
+                  <MobileFooter />
+                )}                
               </div>
 
               {!auth.token && (
                 <BannerToAuth />
               )}
+              {Modals.modalToAuth.toggle && (
+                  <ModalToAuth />
+              )}
               {Modals.mobileModal && (
                 <MobileModal />
               )}
-              {Modals.modalToAuth.toggle && (
-                <ModalToAuth />
+              {Modals.favoriteModal && (
+                  <FavoriteModal />
               )}
          </>
   );

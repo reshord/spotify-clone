@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../rtk/hooks/RTKHook';
 import { RootState, store } from '../../rtk/store';
 import '../../styles/Favourites/Favourites.css'
@@ -19,16 +19,20 @@ const FavouritesPage = () => {
     const [currSection, setCurrSection] = useState<number>(0)
     const [mobileSection, setMobileSection] = useState<number>(0)
 
-    const navigation = useNavigate()
+    const navigate = useNavigate()
+
+    const exit = () => {
+        window.location.href = '/'
+    }
 
     React.useEffect(() => {
-        if(!auth.token) navigation('/')
+        if(!auth.token) navigate('/')
         console.log(mobileSection);
         
     }, [auth.profile, mobileSection]);
 
     return ( 
-        <>
+        <div>
             <div className="favouritesPage">
             <Sidebar />
             <div className="favouritesBody">
@@ -59,7 +63,7 @@ const FavouritesPage = () => {
                                     <Link to={'/'}>Справка</Link>
                                 </li>
                                 <li  className='exitBtn'>
-                                    <span onClick={() => window.location.href = '/'}>Выйти</span>
+                                    <span onClick={exit}>Выйти</span>
                                 </li>
                             </ul>
                         </div>
@@ -78,8 +82,9 @@ const FavouritesPage = () => {
                     </div>
                 </div>
             </div>
+
             <MobileFooter />
-        </>
+        </div>
         
         
      );

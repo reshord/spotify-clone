@@ -1,6 +1,7 @@
 .favouritesPage {
     display: flex;
     justify-content: space-between;
+    height: 100%;
 }
 
 .favouritesBody {
@@ -272,7 +273,7 @@
     }
     .favouritesContentMobile {
         display: block;
-        height: 85vh;
+        height: 100%;
     }
     .favoritePodcasts {
         height: 240px;

@@ -65,6 +65,7 @@
     font-size: 40px;
     background-color: black;
     cursor: pointer;
+    font-size: 45px;
 }
 
 .blockInfoAuth {
@@ -228,6 +229,7 @@
     box-sizing: border-box;
     padding-top: 5px;
     padding-bottom: 5px;
+    z-index: 999;
 }
 
 .profileModal li {
@@ -308,7 +310,7 @@
         width: 130px;
         margin-right: 20px;
     }
-    .navArrow {
+    .navigateBtn {
         display: none;
     }
 }
@@ -344,6 +346,7 @@
     .navigation {
         justify-content: space-between;
     }
+
     .header {
 
         opacity: 1;

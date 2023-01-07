@@ -34,6 +34,7 @@ export interface ISongInfo {
     title?: string | undefined
     albumName?: string
     isFavourite?: boolean
+    songAuthorId: string
 }
 
 export interface IPlaylist {
@@ -68,6 +69,7 @@ export interface ISearchedTracks {
     id: string
     author: string,
     albumName: string,
+    songAuthorId: string
 }
 export interface ISearchedAlbums {
     image: string,
@@ -88,4 +90,14 @@ export interface ISearchedArtists {
     },
     name: string,
     id: string,
+}
+
+export interface ISearchedArtist {
+    image: string
+    id: string
+    name: string
+}
+
+export interface ICurrentArtistTopTracks {
+
 }

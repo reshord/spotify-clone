@@ -11,6 +11,7 @@ interface IAction {
 interface IState {
     favouritesList: IAction[] | []
     messages: string
+    
 }
 
 const initialState: IState = {

@@ -15,6 +15,7 @@ import SearchedPlaylistsCard from "./SearchedCards/SearchedPlaylistsCard"
 import SearchedTracksCard from "./SearchedCards/SearchedTracks"
 import {IoMdClose} from 'react-icons/io'
 import SearchHistoryCard from "./SearchedCards/SearchHistoryCard"
+import sdfgdfg from '../../images/SpinnerLoader.svg'
 
 const SearchModal = () => {
     const {genres, auth, search} = useAppSelector<RootState>(store.getState)

@@ -44,8 +44,8 @@ const PodcastsCard: React.FC<IShowList> =
                 </div>
             </div>
             <div className='podcastCardMobile' onClick={() => addCurrentPodcast()}> 
-                <img className='podcastCardImgMobile' src={'img'} alt="" />
-                <span className='podcastCardTitleMobile'>{'title'}</span> 
+                <img className='podcastCardImgMobile' src={image} alt="" />
+                <span className='podcastCardTitleMobile'>{title}</span> 
             </div>
         </Link>
      );

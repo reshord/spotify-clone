@@ -9,6 +9,7 @@ import {useEffect, useRef, useState} from 'react'
 import MobileFooter from "../../Footer/MobileFooter";
 import { useNavigate } from "react-router-dom";
 import {MdOutlineFavoriteBorder} from 'react-icons/md'
+import SpinnerLoader from '../../../images/SpinnerLoader.svg'
 
 const PlaylistPage = () => {
 
@@ -62,7 +63,7 @@ const PlaylistPage = () => {
             <div className="playlistBody">
                 <HeaderContent />
                 <div className="headerBlock">
-                    <img className="playlistImage" src={currentPlaylist.img || search.currentSearchPlaylist.image} alt="" />
+                    <img className="playlistImage" src={currentPlaylist.img || search.currentSearchPlaylist.image} alt="img" />
                     <div className="AllPlaylistInfo">
                         <span className='headerPlaylistTitle'>ПЛЕЙЛИСТ</span>
                         <span className="playlistTitle">{currentPlaylist.title || search.currentSearchPlaylist.name}</span>
@@ -116,6 +117,7 @@ const PlaylistPage = () => {
                                     author={el.author}
                                     id={el.id}
                                     isFavourite={el.isFavourite}
+                                    songAuthorId={el.songAuthorId}
                             />
                             ))}
                             {search.currentSearchPlaylist?.songs?.map((el, index) => (
@@ -132,10 +134,13 @@ const PlaylistPage = () => {
                                     author={el.author}
                                     id={el.id}
                                     isFavourite={el.isFavourite}
+                                    songAuthorId={el.songAuthorId}
                                 />
                             ))}
                             {!currentPlaylist.songs || !search.currentSearchPlaylist?.songs && (
-                                <div className="checkInfo">Обрабатываем информацию...</div>
+                                <div>
+                                    <img src={SpinnerLoader} alt="" />
+                                </div>
                             )}
                         </div>
                     </div>

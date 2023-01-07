@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ISearchedAlbums, ISearchedArtists, ISearchedPlaylists, ISearchedTracks, ISongInfo } from "../../types/types";
-import { getCurrentSearchPlaylistsSongs, getSearched } from "../axios";
-import { addSongsToPlaylist, getNewSearchResultsAlbums, getNewSearchResultsArtists, getNewSearchResultsPlaylists, getNewSearchResultsTracks } from "../hooks/addSongsToPlaylist";
+import { ICurrentArtistTopTracks, ISearchedAlbums, ISearchedArtist, ISearchedArtists, ISearchedPlaylists, ISearchedTracks, ISongInfo } from "../../types/types";
+import { getCurrentArtistTopTracks, getCurrentSearchArtist, getCurrentSearchPlaylistsSongs, getSearched } from "../axios";
+import { addSongsToPlaylist, getNewSearchResultsAlbums, getNewSearchResultsArtists, getNewSearchResultsPlaylists, getNewSearchResultsTracks, getSearchArtistTopTracks } from "../hooks/addSongsToPlaylist";
 
 interface IState {
     searchedTracks: null | ISearchedTracks[]
@@ -17,6 +17,9 @@ interface IState {
         image: string | undefined
     }
     searchHistory: ISearchedTracks[] | []
+    isLoading: boolean
+    currentSearchedArtist: ISearchedArtist | null
+    currentArtistTopTracks: ISongInfo[] | null
 }
 
 const initialState: IState = {
@@ -32,7 +35,10 @@ const initialState: IState = {
         description: '',
         image: ''
     },
-    searchHistory: []
+    searchHistory: [],
+    isLoading: false,
+    currentSearchedArtist: null,
+    currentArtistTopTracks: null
 }
 
 const SearchSlice = createSlice({
@@ -81,6 +87,8 @@ const SearchSlice = createSlice({
         // Get Current Search Playlists Songs
         [getCurrentSearchPlaylistsSongs.pending.toString()]: (state) => {
             state.messages = 'process..'
+            state.isLoading = true
+
         },
         [getCurrentSearchPlaylistsSongs.fulfilled.toString()]: (state, action) => {
             state.messages = 'fulfilled'
@@ -90,9 +98,35 @@ const SearchSlice = createSlice({
             state.currentSearchPlaylist.image = action.payload.img
             state.currentSearchPlaylist.name = action.payload.name
             state.currentSearchPlaylist.description = action.payload.description
+            state.isLoading = false
         },
         [getCurrentSearchPlaylistsSongs.pending.toString()]: (state) => {
+            state.isLoading = false
+        },
+        // Get Current Search Artist
+        [getCurrentSearchArtist.pending.toString()]: (state, action) => {
 
+        },
+        [getCurrentSearchArtist.fulfilled.toString()]: (state, action) => {
+            let currentArtist: ISearchedArtist = {
+                image: action.payload.data.images[1].url,
+                name: action.payload.data.name,
+                id: action.payload.data.id
+            }
+            state.currentSearchedArtist = currentArtist
+        },
+        [getCurrentSearchArtist.rejected.toString()]: () => {
+
+        },
+        // Get Current Seach Artist Top Tracks
+        [getCurrentArtistTopTracks.pending.toString()]: (state) => {
+
+        },
+        [getCurrentArtistTopTracks.fulfilled.toString()]: (state, action) => {
+            state.currentArtistTopTracks = getSearchArtistTopTracks(action.payload.data.tracks)
+
+        },
+        [getCurrentArtistTopTracks.rejected.toString()]: (state) => {
         },
     }
 })

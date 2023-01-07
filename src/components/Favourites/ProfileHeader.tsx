@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { MdKeyboardArrowLeft } from "react-icons/md";
-import { Link, useLocation } from "react-router-dom";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../rtk/hooks/RTKHook";
 import { RootState, store } from "../../rtk/store";
 
@@ -22,6 +22,16 @@ const ProfileHeader: React.FC<IProps> = (
     const {auth} = useAppSelector<RootState>(store.getState)
 
     const location = useLocation()
+    const navigate = useNavigate()
+
+    
+    const goBack = () => {
+        navigate(-1)
+    }
+
+    const goAhead = () => {
+        navigate(1)
+    }
 
     return ( 
         <div className="favouriteHeaderContent">
@@ -44,12 +54,8 @@ const ProfileHeader: React.FC<IProps> = (
                         </div>
                     </div>
                     <div className='allSections'>
-                            <Link to={'/'}>
-                                <MdKeyboardArrowLeft 
-                                    className='arrowBack' 
-                                    style={{fill: 'white', fontSize: 35}}
-                                />
-                            </Link>
+                    <MdKeyboardArrowLeft onClick={goBack} style={{background: `${location.pathname === '/search' ? 'rgb(18, 18, 18)' : ''}`, fontSize: 45, fill: 'white'}}/>
+                    <MdKeyboardArrowRight onClick={goAhead} style={{background: `${location.pathname === '/search' ? 'rgb(18, 18, 18)' : ''}`, fontSize: 45, fill: 'white'}}/>
                             {sections.map((el, index) => (
                                 <div key={index}
                                     className={`${currSection === index ? 'currentSection' : 'section'}`}

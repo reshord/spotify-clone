@@ -1,6 +1,12 @@
 .mobileFooter {
     display: none;
-    opacity: 0.9;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.mobileFooter a {
+    margin-top: 7px;
 }
 
 .toHomeBtn {
@@ -26,19 +32,16 @@
     color: #ffffff;
     font-size: 12px;
     font-weight: 600;
-    padding-top: 3px;
 }
 .toMediatekaBtn div {
     color: white;
     font-size: 12px;
     font-weight: 600;
-    padding-top: 3px;
 }
 .toHomeBtn span {
     color: white;
     font-size: 12px;
     font-weight: 600;
-    padding-top: 3px;
 }
 
 .toSearchBtn svg {
@@ -60,11 +63,11 @@
         width: 100%;
         display: flex;
         justify-content: space-around;
-        position: sticky;
+        position: fixed;
         bottom: 0;
+        left: 0;
         background: black;
         height: 65px;
         box-sizing: border-box;
-        padding-top: 8px;
     }
 }

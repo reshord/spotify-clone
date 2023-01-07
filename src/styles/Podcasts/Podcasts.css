@@ -92,4 +92,27 @@
     .podcastsContainer {
         width: 90%;
     }
+    .podcastCard {
+        display: none;
+    }
+    .podcastCardMobile {
+        display: block;
+        height: 202px;
+        width: 160px;
+        display: flex;
+        flex-direction: column;
+    }
+    .podcastCardTitleMobile {
+        color: white;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 5px;
+        width: 150px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .podcastCardImgMobile {
+        border-radius: 5px;
+    }
 }

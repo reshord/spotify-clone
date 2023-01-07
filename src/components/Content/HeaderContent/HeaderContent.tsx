@@ -1,6 +1,6 @@
 import '../../../styles/Content/HeaderContent.css'
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from 'react-icons/md'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {BiSearch} from 'react-icons/bi'
 import MenuItem from '@mui/material/MenuItem';
 import React, { useEffect, useState } from 'react';
@@ -21,6 +21,7 @@ const HeaderContent = () => {
 
 
     const location = useLocation()
+    const navigate = useNavigate()
     
     const [currSelect, setCurrSelect] = useState<string>('Премиум')
 
@@ -56,6 +57,7 @@ const HeaderContent = () => {
 
     const Exit = () => {
         window.location.href = '/'
+        navigate(0)
     }
     
     const dispatch = useAppDispatch()
@@ -64,13 +66,21 @@ const HeaderContent = () => {
         dispatch(setToggleModal(true))
     }
 
+    const goBack = () => {
+        navigate(-1)
+    }
+
+    const goAhead = () => {
+        navigate(1)
+    }
+
     const toEmptyValue = () => {
         dispatch(deleteSearchResults())
         dispatch(setCurrentSearchValue(''))
         setValue('')
     }
-    
-    const search = async () => {
+
+    const searchFunc = async () => {
         dispatch(getSearched({token: auth.token, value}))
         dispatch(setCurrentSearchValue(value))
     }
@@ -83,19 +93,17 @@ const HeaderContent = () => {
     return ( 
         <header className="header" style={{background: `${location.pathname === '/search' ? 'rgb(18, 18, 18)' : ''}`}}>
             <div className='navigation' style={{maxWidth: `${location.pathname === '/search' ? '380px' : ''}`,}}>
-                <Link to={'/'}>
-                    <MdKeyboardArrowLeft className='navArrow' style={{background: `${location.pathname === '/search' ? 'rgb(18, 18, 18)' : ''}`}}/>
-                </Link>
-                <AiOutlineArrowLeft 
-                            className='arrowToBack'
-                            style={{backgroundColor: 'var(--background-color)', }}
-                        />
+                <MdKeyboardArrowLeft className='navigateBtn' onClick={goBack} style={{background: `${location.pathname === '/search' ? 'rgb(18, 18, 18)' : ''}`}}/>
+                <MdKeyboardArrowRight className='navigateBtn' onClick={goAhead} style={{background: `${location.pathname === '/search' ? 'rgb(18, 18, 18)' : ''}`}}/>
+                
                 <Link to={'/'}>
                     <img className='headerLogoImg' src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_White.png" alt="" />
                 </Link>
+
                 <Link to={'/search'}>
                     <BiSearch style={{backgroundColor: 'var(--background-color)', display: `${location.pathname === '/search' && 'none'}`}} className='headerSearch'/>
                 </Link>
+
                 {location.pathname === '/search' && (
                     <div className='searchBlock'>
                         <BiSearch 
@@ -113,7 +121,7 @@ const HeaderContent = () => {
                                onChange={e => setValue(e.target.value)}
                                onKeyUp={event => {
                                 if(event.key === 'Enter') {
-                                    search()
+                                    searchFunc()
                                 }
                                }}
                             />
@@ -227,8 +235,8 @@ const HeaderContent = () => {
                                 <li>
                                     <Link to={'/'}>Справка</Link>
                                 </li>
-                                <li  className='exitBtn'>
-                                    <span onClick={() => window.location.href = '/'}>Выйти</span>
+                                <li className='exitBtn'>
+                                    <span onClick={Exit}>Выйти</span>
                                 </li>
                             </ul>
                         </div>

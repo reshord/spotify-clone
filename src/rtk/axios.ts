@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
+import { ICurrentArtistTopTracks } from "../types/types";
 
 interface IParams {
     id: string | undefined
@@ -24,6 +25,10 @@ interface SearchPlaylistSongsParams {
     name: string | undefined
     description: string | undefined
     img: string | undefined
+    songAuthorId: string | undefined
+}
+interface SearchArtistParams {
+    id: string | undefined
 }
 
 export const getPlaylistsSongs = createAsyncThunk(
@@ -130,6 +135,44 @@ export const getCurrentSearchPlaylistsSongs = createAsyncThunk(
             }
         })
         return {data: songsList.data, id, name, img, description}
+    }
+    catch(e) {
+        console.log(e);
+    }
+})
+export const getCurrentSearchArtist = createAsyncThunk(
+    'getCurrentSearchArtist', 
+    async ({id}: SearchArtistParams) => {
+    
+    const token = localStorage.getItem('token')
+
+    try {
+        const foundArtist = await axios.get(`https://api.spotify.com/v1/artists/${id}`, {
+            headers: {
+                Authorization: "Bearer " + token,
+                "Content-Type": "application/json"
+            }
+        })
+        return {data: foundArtist.data}
+    }
+    catch(e) {
+        console.log(e);
+    }
+})
+export const getCurrentArtistTopTracks = createAsyncThunk(
+    'getCurrentArtistTopTracks', 
+    async (id: string) => {
+    
+    const token = localStorage.getItem('token')
+
+    try {
+        const foundArtistToptTracks = await axios.get(`https://api.spotify.com/v1/artists/${id}/top-tracks?market=ES`, {
+            headers: {
+                Authorization: "Bearer " + token,
+                "Content-Type": "application/json"
+            }
+        })
+        return {data: foundArtistToptTracks.data}
     }
     catch(e) {
         console.log(e);

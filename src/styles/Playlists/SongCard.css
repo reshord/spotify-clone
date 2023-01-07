@@ -61,7 +61,11 @@
     opacity: 0.6;
     width: 300px;
     font-size: 0.875rem;
+    color: white;
+}
 
+.songAuthor:hover {
+    text-decoration: underline;
 }
 
 .songCardBody span {

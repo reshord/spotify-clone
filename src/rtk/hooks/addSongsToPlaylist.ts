@@ -6,6 +6,7 @@ export const addSongsToPlaylist = (items: any) => {
             img: song.track ? song.track.album.images[2].url : 'cannot found',
             albumName: song.track ? song.track.album.name : 'cannot found',
             author: song.track ? song.track.artists[0].name : 'cannot found',
+            songAuthorId: song.track ? song.track.artists[0].id : 'cannot found',
             isFavourite: false
         }
      })
@@ -52,6 +53,17 @@ export const getNewSearchResultsTracks = (items: any) => {
     return items.map((track: any) => {
         return {
             name: track.name,
+            id: track.id,
+            albumName: track.album.name,
+            img: track.album.images[1].url,
+            author: track.artists[0].name
+        }
+     })
+}
+export const getSearchArtistTopTracks = (items: any) => {
+    return items.map((track: any) => {
+        return {
+            title: track.name,
             id: track.id,
             albumName: track.album.name,
             img: track.album.images[1].url,

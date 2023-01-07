@@ -86,13 +86,7 @@ const initialState: IState = {
                     description: "Kick back to the best new and recent chill hits.",
                     songs: []
                 },
-                {
-                    id: '37i9dQZF1DX4WYpdgoIcn6',
-                    img: "https://i.scdn.co/image/ab67706f0000000208ca740941aa65b5e205c361",
-                    title: "Chill Hits",
-                    description: "Kick back to the best new and recent chill hits.",
-                    songs: []
-                },
+
         ],
         Mood: [
                 {

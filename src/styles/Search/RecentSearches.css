@@ -1,0 +1,47 @@
+.recentSearchesPage {
+    display: flex;
+    justify-content: space-between;
+}
+
+.recentSearchesBody {
+    width: 100%;
+}
+
+.recentSearchesContent {
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.recentSearchesList {
+    margin-top: 20px;
+}
+
+.recentSearchesList {
+    --column-width: 185px;
+    --column-count: 6;
+    --grid-gap: 24px;
+    grid-auto-rows: auto;
+    grid-template-rows: 1fr;
+    grid-gap: var(--grid-gap);
+    display: grid;
+    grid-template-columns: repeat(var(--column-count), minmax(0, 1fr));
+}
+
+.recentSearchesBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recentSearchesBlock span {
+    color: white;
+}
+
+.clearRecentSearches {
+    font-size: 13px;
+    font-weight: 700;
+    opacity: 0.7;
+    letter-spacing: 1.2px;
+    cursor: default;
+}

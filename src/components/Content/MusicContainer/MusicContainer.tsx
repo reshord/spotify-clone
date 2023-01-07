@@ -42,11 +42,16 @@ const MusicContainer: React.FC<IProps> = ({name, playlist, token, type}) => {
         <div className="cardContainer">
         <div className="headerContainer">
             <div className="ContainerTitle">
-                <Link 
-                    onClick={() => setSection(playlist)} 
-                    to={`/section/${currentTitle}`}>
-                        {name}
-                </Link>
+                {playlist.length > 6 ? (
+                    <Link 
+                        onClick={() => setSection(playlist)} 
+                        to={`/section/${currentTitle}`}>
+                            {name}
+                    </Link>
+                ) : (
+                    <span>{name}</span>
+                )}
+                
             </div>
             {playlist.length > 6 && <Link 
                                         onClick={() => setSection(playlist)} 

@@ -8,6 +8,8 @@ interface IState {
     }
     aboutAuthorModal: boolean,
     searchMobileModal: boolean
+    favoriteModal: boolean
+
 }
 
 const initialState: IState = {
@@ -17,7 +19,9 @@ const initialState: IState = {
         toggle: false
     },
     aboutAuthorModal: false,
-    searchMobileModal: true
+    searchMobileModal: false,
+    favoriteModal: false
+
 }
 
 const Modals = createSlice({
@@ -36,9 +40,12 @@ const Modals = createSlice({
         },
         setSearchMobileModal: (state, action) => {
             state.searchMobileModal = action.payload
+        },
+        toggleFavoriteModal: (state, action) => {
+            state.favoriteModal = action.payload
         }
     }
 })
 
-export const {setToggleModal, setModalToAuth, aboutAuthorModal} = Modals.actions
+export const {setToggleModal, setModalToAuth, aboutAuthorModal, toggleFavoriteModal} = Modals.actions
 export default Modals.reducer

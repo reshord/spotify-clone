@@ -6,14 +6,18 @@ import { RootState, store } from '../../../rtk/store';
 import React, {useEffect} from 'react'
 import {MdOutlineFavoriteBorder, MdFavorite} from 'react-icons/md'
 import { addSongToFavourites } from '../../../rtk/slices/SpotifyPlaylists';
+import { Link } from 'react-router-dom';
+import { getCurrentArtistTopTracks, getCurrentSearchArtist } from '../../../rtk/axios';
 
-const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, buttonNumber, index, author, title, albumName, img, id}) => {
+const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, buttonNumber, index, author, title, albumName, img, id, songAuthorId}) => {
     
     const [buttonPlay, setButtonPlay] = useState<boolean>()
-    // const [isFavourite, setFavourite] = useState<boolean>(false)
+    // const [currentFavorite, setCurrentFavorite] = useState<boolean>(false)
 
-    const {favourites} =  useAppSelector<RootState>(store.getState)    
+    const {favourites, playlists} =  useAppSelector<RootState>(store.getState)    
     const dispatch = useAppDispatch()
+
+    let currentFavorite = playlists.favoritesList.length && playlists.favoritesList.filter(el => el.id === id)
 
     const addToFavourites = () => {
         // setFavourite(true)
@@ -23,9 +27,16 @@ const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, bu
             img: '',
             songNumber: 0,
             albumName: '',
-            isFavourite: false
+            isFavourite: false,
+            songAuthorId: ''
         }))
     }
+
+    const getArtist = () => {
+        dispatch(getCurrentSearchArtist({id: songAuthorId}))
+        dispatch(getCurrentArtistTopTracks(songAuthorId))
+    }
+
     const deleteFavourite = () => {
         // setFavourite(false)
         // dispatch(deleteSongFavourites({id, title, author, isFavourite}))
@@ -35,7 +46,9 @@ const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, bu
     //    if(favourites.favouritesList.length && favourites.favouritesList.filter(el => el.id === id)[0].isFavourite) {
     //         setFavourite(true)
     //    }
-    },[]);
+    console.log(currentFavorite);
+    
+    },[playlists.favoritesList.length]);
 
     return ( 
         <div
@@ -64,7 +77,7 @@ const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, bu
                     <img className="songImg" src={img}></img>
                     <div className="aboutSong">
                         <div className="songTitle">{title}</div>    
-                        <div className="songAuthor">{author}</div>    
+                        <Link onClick={getArtist} to={`/artist/${id}`} className="songAuthor">{author}</Link>    
                     </div>                    
                 </div>
                 

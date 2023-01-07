@@ -46,11 +46,17 @@
 .headerPlaylistTitle {
     font-size: .75rem;
     font-weight: 600;
+
 }
 
 .playlistTitle {
     font-size: 6rem;
     font-weight: 700;
+    width: 50vw;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .playlistDescription {
@@ -176,7 +182,8 @@
 }
 
 .mobileImage img {
-    width: 100%;
+    width: 140px;
+    height: 140px;
     border-radius: 5px;
 }
 
@@ -221,6 +228,17 @@
     transform: scale(1.05);
 }
 
+/* @media (max-width: 1330px) {
+    .playlistTitle {
+        font-size: 4rem;
+    }
+    .songNameBlock {
+        width: 330px;
+    }
+    .albumInfo {
+        width: 140px;
+    }
+} */
 @media (max-width: 1250px) {
     .playlistTitle {
         font-size: 4rem;

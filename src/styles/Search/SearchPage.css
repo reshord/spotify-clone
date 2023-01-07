@@ -41,7 +41,7 @@
 .searchHeaderSections {
     position: sticky;
     top: 65px;
-    z-index: 999;
+    z-index: 1;
     background: rgb(18, 18, 18);
     height: 60px;
     display: flex;
@@ -262,6 +262,77 @@
     display: none;
 }
 
+.allSearchedArtistsList {
+    --column-width: 185px;
+    --column-count: 6;
+    --grid-gap: 24px;
+    grid-auto-rows: auto;
+    grid-template-rows: 1fr;
+    grid-gap: var(--grid-gap);
+    display: grid;
+    grid-template-columns: repeat(var(--column-count), minmax(0, 1fr));
+}
+
+.searchedArtistsBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    background: #181818;
+    width: 183px;
+    height: 263px;
+    border-radius: 10px;
+}
+
+.searchedArtistWithoutImage {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--card-color,#333);
+    border-radius: 50%;
+    margin-top: 15px;
+}
+
+.searchedArtistWithoutImage svg {
+    fill: white;
+    opacity: 0.6;
+}
+
+.searchedArtistsBody img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 15px;
+}
+
+.searchedArtistsInfo {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 8px;
+}
+
+.searchedArtistsInfo span {
+    color: white;
+    margin-top: 7px;
+}
+
+.searchedArtistsTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 140px;
+}
+
+.searchedArtistsAbout {
+    opacity: 0.6;
+    font-size: .9rem;
+}
+
 @media (max-width: 1525px) {
     .searchResultsTracksBlock {
         width: 700px;
@@ -271,6 +342,9 @@
 @media (max-width: 1450px) {
     .genresList {
         --column-width: 180px;
+        --column-count: 5;
+    }
+    .allSearchedArtistsList {
         --column-count: 5;
     }
     .searchHistoryList  {
@@ -288,6 +362,9 @@
         --column-count: 4;
     }
     .searchHistoryList  {
+        --column-count: 4;
+    }
+    .allSearchedArtistsList {
         --column-count: 4;
     }
     .allSearchedPlaylistsList {
@@ -308,6 +385,9 @@
         --column-count: 3;
     }
     .allSearchedPlaylistsList {
+        --column-count: 3;
+    }
+    .allSearchedArtistsList {
         --column-count: 3;
     }
     .searchHistoryList  {
@@ -364,6 +444,11 @@
         --column-count: 2;
         padding-left: 30px;
     }
+    .allSearchedArtistsList {
+        --column-count: 2;
+        width: 70%;
+        margin: 0 auto;
+    }
     .searchHistoryList  {
         --column-count: 2;
     }
@@ -392,6 +477,9 @@
     .searchResultsTracksBlock {
         width: 260px;
     }
+    .allSearchedArtistsList {
+        width: 80%;
+    }
 }
 @media (max-width: 540px) {
     .genresList {
@@ -405,6 +493,9 @@
     }
     .searchResultsTracksBlock {
         width: 230px;
+    }
+    .allSearchedArtistsList {
+        width: 90%;
     }
 }
 @media (max-width: 500px) {
@@ -583,6 +674,7 @@
     }
     .searchedTrackBody img {
         width: 56px;
+        height: 56px;
         border-radius: 5px;
     }
     .searchedPlaylistBody{
@@ -610,6 +702,7 @@
     }
     .searchedPlaylistBody img {
         width: 56px;
+        height: 56px;
         border-radius: 5px;
     }
     .searchedPlaylistInfo span {
@@ -622,13 +715,29 @@
     .shortlySearchedTracksList {
         margin-top: 15px;
     }
+    .allSearchedArtistsList {
+        display: flex;
+        flex-direction: column;
+    }
     .searchedArtistsBody {
         display: flex;
         align-items: center;
         margin-bottom: 10px;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 0;
+    }
+    .searchedArtistWithoutImage {
+        width: 56px;
+        height: 56px;
+    }
+    .searchedArtistWithoutImage svg {
+        width: 25px;
     }
     .searchedArtistsBody img {
         width: 56px;
+        height: 56px;
         border-radius: 5px;
     }
     .searchedArtistsInfo {
@@ -659,6 +768,7 @@
     }
     .searchedAlbumBody img {
         width: 56px;
+        height: 56px;
         border-radius: 5px;
     }
     .searchedAlbumInfo {
@@ -712,6 +822,7 @@
     }
     .searchHistoryItemImage {
         width: 56px;
+        height: 56px;
     }
     .searchHistoryItemTitle {
         font-size: 1.1rem;

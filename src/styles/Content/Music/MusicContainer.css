@@ -19,6 +19,13 @@
     text-decoration: none;
 }
 
+.ContainerTitle span {
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
 .ContainerTitle a:hover {
     text-decoration: 2px underline;
 }

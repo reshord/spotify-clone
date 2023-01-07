@@ -15,6 +15,8 @@ import CardMusic from "../Content/MusicContainer/CardMusic";
 import { deleteSearchResults, setCurrentSearchValue } from "../../rtk/slices/Search";
 import { getSearched } from "../../rtk/axios";
 import SearchModal from "./SearchModal";
+import SearchedArtistsCard from '../Search/SearchedCards/SearchedArtistsCard'
+import SpinnerLoader from '../../images/SpinnerLoader.svg'
 
 const SearchPage = () => {
 
@@ -54,7 +56,7 @@ const SearchPage = () => {
             top: 0,
             behavior: 'smooth'
         })
-
+        const test = window.document.querySelector('#text')
     }, []);
 
     return ( 
@@ -63,7 +65,7 @@ const SearchPage = () => {
                 <Sidebar />
                 <main className="SearchPageContent">
                     <HeaderContent />
-                    {search.searchHistory.length && !search.currentSearchValue &&  (
+                    {search.searchHistory.length !== 0 && !search.currentSearchValue &&  (
                         <div className="searchHistory">
                             <div className="searchHistoryHeader">
                                 {search.searchHistory.length > 6 ? (
@@ -71,15 +73,15 @@ const SearchPage = () => {
                                 ) : (
                                     <span className="searchHistoryTitle">История поиска</span>
                                 )}
-                                {search.searchHistory.length > 6 && (
-                                    <Link to={''} className="showAllSearchHistory">ПОКАЗАТЬ ВСЕ</Link>
+                                {search.searchHistory.length > 1 && (
+                                    <Link to={'/search/history'} className="showAllSearchHistory">ПОКАЗАТЬ ВСЕ</Link>
                                 )}
                             </div>
                             <div className="searchHistoryList">
                                 {shortlyHistoryPlaylists.map(el => (
                                     <CardMusic img={el.img} description={undefined} songs={search.currentSearchPlaylist.songs} type={"searchHistoryItem"} name={el.name} id={el.id}/>
                                 ))}
-                        </div>
+                            </div>
                         </div>
                     )}
                     {search.currentSearchValue && (
@@ -131,38 +133,51 @@ const SearchPage = () => {
                         </div>
                     </Link>
                     <div className="searchResults">
-                        {currentSection === 0 && search.currentSearchValue && (
-                            <div className="allSearchSection">
-                                {searchedArtists && (
-                                    <div className="bestSearchResult">
-                                        <span className="bestResultTitle">Лучший результат</span>
-                                        <div className="bestResultBlock">
-                                            <img className="bestResultImage" src={searchedArtists[0].image.url} alt="" />
-                                            <span className="bestResultName">{searchedArtists[0].name}</span>
-                                            <span className="executorTitle">ИСПОЛНИТЕЛЬ</span>
+
+                            {currentSection === 0 && search.currentSearchValue && (
+                                <div className="allSearchSection">
+                                    {searchedArtists && (
+                                        <div className="bestSearchResult">
+                                            <span className="bestResultTitle">Лучший результат</span>
+                                            <div className="bestResultBlock">
+                                                <img className="bestResultImage" src={searchedArtists[0].image.url} alt="" />
+                                                <span className="bestResultName">{searchedArtists[0].name}</span>
+                                                <span className="executorTitle">ИСПОЛНИТЕЛЬ</span>
+                                            </div>
+                                            {search.isLoading && (
+                                                <div>
+                                                    <img src={SpinnerLoader} alt="" />
+                                                </div>
+                                                )}
                                         </div>
-                                    </div>
-                                )}
-                            {searchedTracks && (
-                                <div className="searchResultsTracksBlock">
-                                    <span className="searchResultsTracksTitle">Треки</span>
-                                    <div className="searchResultsTracks">
-                                        {shortlyTracksList?.map(track => (
-                                            <div className="searchedSongCard">
-                                                <div className="searchedSongCardInfo">
-                                                    <img className="searchedSongImage" src={track.img} alt="" />
-                                                    <div className="searchedSongInfo">
-                                                        <div className="searchedSongTitle">{track.name}</div>
-                                                        <div className="searchedSongAuthor">{track.author}</div>
+                                    )}
+                                {searchedTracks && (
+                                    <div className="searchResultsTracksBlock">
+                                        <span className="searchResultsTracksTitle">Треки</span>
+                                        <div className="searchResultsTracks">
+                                            {shortlyTracksList?.map(track => (
+                                                <div className="searchedSongCard">
+                                                    <div className="searchedSongCardInfo">
+                                                        <img className="searchedSongImage" src={track.img} alt="" />
+                                                        <div className="searchedSongInfo">
+                                                            <div className="searchedSongTitle">{track.name}</div>
+                                                            <div className="searchedSongAuthor">{track.author}</div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        ))}
+                                            ))}
+                                        </div>
                                     </div>
+                                )}    
                                 </div>
-                            )}    
-                            </div>
-                        )}
+                            )}
+                            {currentSection === 3 && (
+                                <div className="allSearchedArtistsList">
+                                    {searchedArtists?.map((artist, index) => (
+                                        <SearchedArtistsCard {...artist} />
+                                    ))}
+                                </div>
+                            )}
                             {currentSection === 1 && (
                                 <div className="allSearchedTracksList">
                                     {searchedTracks?.map((track, index) => (
@@ -175,7 +190,7 @@ const SearchPage = () => {
                                             songNumber={0} 
                                             albumName={track.albumName} 
                                             key={index} 
-        
+                                            songAuthorId={track.songAuthorId}
                                             buttonNumber={buttonNumber}
                                         />
                                     ))}
@@ -189,7 +204,7 @@ const SearchPage = () => {
                                 </div>
                             )}
                     </div>
-                    {currentSection === 0 && (
+                    {!search.currentSearchValue && (
                         <div className="SearchBlockContent">
                             <span>Все остальное</span>
                             <div className="genresList">
