@@ -161,7 +161,7 @@ export const getCurrentSearchArtist = createAsyncThunk(
 })
 export const getCurrentArtistTopTracks = createAsyncThunk(
     'getCurrentArtistTopTracks', 
-    async (id: string) => {
+    async (id: string | undefined) => {
     
     const token = localStorage.getItem('token')
 
@@ -173,6 +173,25 @@ export const getCurrentArtistTopTracks = createAsyncThunk(
             }
         })
         return {data: foundArtistToptTracks.data}
+    }
+    catch(e) {
+        console.log(e);
+    }
+})
+export const getRelatedArtists = createAsyncThunk(
+    'getRelatedArtists', 
+    async (id: string | undefined) => {
+    
+    const token = localStorage.getItem('token')
+
+    try {
+        const relatedArtistsList = await axios.get(`https://api.spotify.com/v1/artists/${id}/related-artists`, {
+            headers: {
+                Authorization: "Bearer " + token,
+                "Content-Type": "application/json"
+            }
+        })
+        return {data: relatedArtistsList.data.artists}
     }
     catch(e) {
         console.log(e);

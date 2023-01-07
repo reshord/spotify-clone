@@ -101,3 +101,15 @@ export interface ISearchedArtist {
 export interface ICurrentArtistTopTracks {
 
 }
+
+export interface IRelatedArtist {
+    authorId: string
+    image: {
+        url: string
+    }
+    name: string
+}
+
+// let INewRelatedArtist = {
+
+// }

@@ -1,4 +1,5 @@
 export const addSongsToPlaylist = (items: any) => {
+    debugger
     return items.map((song: any) => {
         return {
             title: song.track ? song.track.name : 'cannot found',
@@ -56,7 +57,8 @@ export const getNewSearchResultsTracks = (items: any) => {
             id: track.id,
             albumName: track.album.name,
             img: track.album.images[1].url,
-            author: track.artists[0].name
+            author: track.artists[0].name,
+            songAuthorId: track.artists[0].id
         }
      })
 }
@@ -68,6 +70,15 @@ export const getSearchArtistTopTracks = (items: any) => {
             albumName: track.album.name,
             img: track.album.images[1].url,
             author: track.artists[0].name
+        }
+     })
+}
+export const getRelatedArtistsList = (items: any) => {
+    return items.map((artist: any) => {
+        return {
+            authorId: artist.id,
+            image: artist.images[1],
+            name: artist.name,
         }
      })
 }

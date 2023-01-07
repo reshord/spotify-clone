@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ICurrentArtistTopTracks, ISearchedAlbums, ISearchedArtist, ISearchedArtists, ISearchedPlaylists, ISearchedTracks, ISongInfo } from "../../types/types";
-import { getCurrentArtistTopTracks, getCurrentSearchArtist, getCurrentSearchPlaylistsSongs, getSearched } from "../axios";
-import { addSongsToPlaylist, getNewSearchResultsAlbums, getNewSearchResultsArtists, getNewSearchResultsPlaylists, getNewSearchResultsTracks, getSearchArtistTopTracks } from "../hooks/addSongsToPlaylist";
+import { ICurrentArtistTopTracks, IRelatedArtist, ISearchedAlbums, ISearchedArtist, ISearchedArtists, ISearchedPlaylists, ISearchedTracks, ISongInfo } from "../../types/types";
+import { getCurrentArtistTopTracks, getCurrentSearchArtist, getCurrentSearchPlaylistsSongs, getRelatedArtists, getSearched } from "../axios";
+import { addSongsToPlaylist, getNewSearchResultsAlbums, getNewSearchResultsArtists, getNewSearchResultsPlaylists, getNewSearchResultsTracks, getRelatedArtistsList, getSearchArtistTopTracks } from "../hooks/addSongsToPlaylist";
 
 interface IState {
     searchedTracks: null | ISearchedTracks[]
@@ -20,6 +20,7 @@ interface IState {
     isLoading: boolean
     currentSearchedArtist: ISearchedArtist | null
     currentArtistTopTracks: ISongInfo[] | null
+    relatedArtists: IRelatedArtist[] | null
 }
 
 const initialState: IState = {
@@ -38,7 +39,8 @@ const initialState: IState = {
     searchHistory: [],
     isLoading: false,
     currentSearchedArtist: null,
-    currentArtistTopTracks: null
+    currentArtistTopTracks: null,
+    relatedArtists: null
 }
 
 const SearchSlice = createSlice({
@@ -127,6 +129,15 @@ const SearchSlice = createSlice({
 
         },
         [getCurrentArtistTopTracks.rejected.toString()]: (state) => {
+        },
+        // Get Related Artists
+        [getRelatedArtists.pending.toString()]: (state) => {
+            
+        },
+        [getRelatedArtists.fulfilled.toString()]: (state, action) => {
+            state.relatedArtists = getRelatedArtistsList(action.payload.data)
+        },
+        [getRelatedArtists.rejected.toString()]: (state) => {
         },
     }
 })

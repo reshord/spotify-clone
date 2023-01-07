@@ -7,6 +7,7 @@ import HeaderContent from "../../Content/HeaderContent/HeaderContent";
 import Sidebar from "../../Sidebar/Sidebar";
 import '../../../styles/Search/SearchedArtistPage.css'
 import SongCard from "../../Content/Playlists/SongCard";
+import RelatedArtistsContainer from "../SearchContainers/SearchedArtistsContainer";
 
 const SearchedArtistPage = () => {
 
@@ -22,10 +23,12 @@ const SearchedArtistPage = () => {
 
     const navigate = useNavigate()
 
-
     useEffect(() => {
-
-    }, []);
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }, [search.currentSearchedArtist]);
 
     return ( 
         <div className="searchedArtistPage">
@@ -84,6 +87,7 @@ const SearchedArtistPage = () => {
                             <span className="allTracksBtn" onClick={() => setShowAllTracks(true)}>ЕЩЕ</span>
                         )}
                     </div>
+                    <RelatedArtistsContainer items={search.relatedArtists} title={'Поклонникам также нравится'}/>
                 </div>
             </div>
         </div>

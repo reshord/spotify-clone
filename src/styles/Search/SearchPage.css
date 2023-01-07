@@ -234,6 +234,10 @@
     
 }
 
+.searchedSongAuthor:hover {
+    text-decoration: underline;
+}
+
 .searchedSongTitle {
     font-weight: 600;
     color: white;

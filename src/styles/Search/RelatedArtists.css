@@ -1,0 +1,47 @@
+.relatedArtistsContainer {
+    margin-top: 20px;
+}
+
+.relatedArtistsList {
+    --column-width: 185px;
+    --grid-gap: 24px;
+    --column-count: 6;
+    grid-template-rows: 1fr;
+    grid-gap: var(--grid-gap);
+    display: grid;
+    grid-template-columns: repeat(var(--column-count),minmax(0,1fr));
+    width: 95%;
+    margin: 0 auto;
+}
+
+.relatedArtistsHeaderBlock {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.relatedArtistsContent {
+    margin-top: 25px;
+}
+
+.relatedArtistsHeaderBlock a {
+    color: white;
+}
+
+.relatedArtistsHeaderBlock a:hover {
+    text-decoration: underline;
+}
+
+.showAllRelatedArtists {
+    font-size: .775rem;
+    opacity: 0.6;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.relatedArtistsTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+}

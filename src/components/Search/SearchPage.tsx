@@ -13,10 +13,11 @@ import SongCard from "../Content/Playlists/SongCard";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import CardMusic from "../Content/MusicContainer/CardMusic";
 import { deleteSearchResults, setCurrentSearchValue } from "../../rtk/slices/Search";
-import { getSearched } from "../../rtk/axios";
+import { getCurrentArtistTopTracks, getCurrentSearchArtist, getSearched } from "../../rtk/axios";
 import SearchModal from "./SearchModal";
 import SearchedArtistsCard from '../Search/SearchedCards/SearchedArtistsCard'
 import SpinnerLoader from '../../images/SpinnerLoader.svg'
+import SearchedSongCard from "./SearchedCards/SearchedSongCard";
 
 const SearchPage = () => {
 
@@ -37,6 +38,8 @@ const SearchPage = () => {
                     ? search.searchHistory.slice(0, 6) 
                     : search.searchHistory
 
+    
+    
     const toEmptyValue = () => {
         dispatch(deleteSearchResults())
         dispatch(setCurrentSearchValue(''))
@@ -156,28 +159,14 @@ const SearchPage = () => {
                                         <span className="searchResultsTracksTitle">Треки</span>
                                         <div className="searchResultsTracks">
                                             {shortlyTracksList?.map(track => (
-                                                <div className="searchedSongCard">
-                                                    <div className="searchedSongCardInfo">
-                                                        <img className="searchedSongImage" src={track.img} alt="" />
-                                                        <div className="searchedSongInfo">
-                                                            <div className="searchedSongTitle">{track.name}</div>
-                                                            <div className="searchedSongAuthor">{track.author}</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <SearchedSongCard img={track.img} name={track.name} songAuthorId={track.songAuthorId} author={track.author}/>
                                             ))}
                                         </div>
                                     </div>
                                 )}    
                                 </div>
                             )}
-                            {currentSection === 3 && (
-                                <div className="allSearchedArtistsList">
-                                    {searchedArtists?.map((artist, index) => (
-                                        <SearchedArtistsCard {...artist} />
-                                    ))}
-                                </div>
-                            )}
+
                             {currentSection === 1 && (
                                 <div className="allSearchedTracksList">
                                     {searchedTracks?.map((track, index) => (
@@ -193,6 +182,13 @@ const SearchPage = () => {
                                             songAuthorId={track.songAuthorId}
                                             buttonNumber={buttonNumber}
                                         />
+                                    ))}
+                                </div>
+                            )}
+                            {currentSection === 3 && (
+                                <div className="allSearchedArtistsList">
+                                    {searchedArtists?.map((artist, index) => (
+                                        <SearchedArtistsCard {...artist} />
                                     ))}
                                 </div>
                             )}
