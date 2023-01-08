@@ -191,6 +191,7 @@ export const getRelatedArtists = createAsyncThunk(
                 "Content-Type": "application/json"
             }
         })
+        // debugger
         return {data: relatedArtistsList.data.artists}
     }
     catch(e) {

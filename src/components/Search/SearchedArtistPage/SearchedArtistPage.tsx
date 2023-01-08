@@ -7,7 +7,7 @@ import HeaderContent from "../../Content/HeaderContent/HeaderContent";
 import Sidebar from "../../Sidebar/Sidebar";
 import '../../../styles/Search/SearchedArtistPage.css'
 import SongCard from "../../Content/Playlists/SongCard";
-import RelatedArtistsContainer from "../SearchContainers/SearchedArtistsContainer";
+import RelatedArtistsContainer from "../RelatedArtistsContainers/RelatedArtistsContainer";
 
 const SearchedArtistPage = () => {
 
@@ -38,7 +38,7 @@ const SearchedArtistPage = () => {
                 <div className="searchedArtistContent">
                     <div className="searchedArtistHeaderContent">
                             <img className="searchedArtistImage" src={search.currentSearchedArtist?.image} alt="" />
-                            <span className="searchedArtisTitle">{search.currentSearchedArtist?.name}</span>
+                            <span className="searchedArtistTitle">{search.currentSearchedArtist?.name}</span>
                     </div>
                     <div className="popularTracksSection">
                         <span className="popularTracksSectionTitle">Популярные треки</span>

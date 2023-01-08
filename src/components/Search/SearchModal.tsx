@@ -10,7 +10,7 @@ import { clearHistory, deleteItemSearchHistory, deleteSearchResults, setCurrentS
 import { RootState, store } from "../../rtk/store"
 import CardMusic from "../Content/MusicContainer/CardMusic"
 import SearchedAlbumCard from "./SearchedCards/SearchedAlbumCard"
-import SearchedArtistsCard from "./SearchedCards/SearchedArtistsCard"
+import SearchedArtistsCard from "./SearchedCards/RelatedArtistsCard"
 import SearchedPlaylistsCard from "./SearchedCards/SearchedPlaylistsCard"
 import SearchedTracksCard from "./SearchedCards/SearchedTracks"
 import {IoMdClose} from 'react-icons/io'

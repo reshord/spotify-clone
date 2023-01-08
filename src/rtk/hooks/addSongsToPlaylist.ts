@@ -1,5 +1,4 @@
 export const addSongsToPlaylist = (items: any) => {
-    debugger
     return items.map((song: any) => {
         return {
             title: song.track ? song.track.name : 'cannot found',

@@ -136,6 +136,7 @@ const SearchSlice = createSlice({
         },
         [getRelatedArtists.fulfilled.toString()]: (state, action) => {
             state.relatedArtists = getRelatedArtistsList(action.payload.data)
+            // debugger
         },
         [getRelatedArtists.rejected.toString()]: (state) => {
         },

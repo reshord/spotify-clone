@@ -15,7 +15,7 @@ import CardMusic from "../Content/MusicContainer/CardMusic";
 import { deleteSearchResults, setCurrentSearchValue } from "../../rtk/slices/Search";
 import { getCurrentArtistTopTracks, getCurrentSearchArtist, getSearched } from "../../rtk/axios";
 import SearchModal from "./SearchModal";
-import SearchedArtistsCard from '../Search/SearchedCards/SearchedArtistsCard'
+import SearchedArtistsCard from './SearchedCards/RelatedArtistsCard'
 import SpinnerLoader from '../../images/SpinnerLoader.svg'
 import SearchedSongCard from "./SearchedCards/SearchedSongCard";
 

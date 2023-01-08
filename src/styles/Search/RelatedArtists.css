@@ -1,29 +1,30 @@
 .relatedArtistsContainer {
-    margin-top: 20px;
+    margin-left: 20px;
+    margin-top: 35px;
 }
 
 .relatedArtistsList {
     --column-width: 185px;
-    --grid-gap: 24px;
     --column-count: 6;
+    --grid-gap: 24px;
+    grid-auto-rows: 0;
     grid-template-rows: 1fr;
     grid-gap: var(--grid-gap);
     display: grid;
     grid-template-columns: repeat(var(--column-count),minmax(0,1fr));
-    width: 95%;
-    margin: 0 auto;
+    margin-top: 25px;
+    overflow: hidden;
+    width: 1245px;
 }
 
 .relatedArtistsHeaderBlock {
-    width: 95%;
-    margin: 0 auto;
+    width: 98%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .relatedArtistsContent {
-    margin-top: 25px;
 }
 
 .relatedArtistsHeaderBlock a {
@@ -44,4 +45,29 @@
 .relatedArtistsTitle {
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+
+
+
+
+@media (max-width: 620px) {
+    .relatedArtistsTitle {
+        font-size: 1rem;
+    }
+    .showAllRelatedArtists {
+        font-size: .6rem;
+    }
+}
+
+@media (max-width: 501px) {
+    .relatedArtistsList {
+        width: 1100px;
+    }
+}
+
+@media (max-width: 425px) {
+    .showAllRelatedArtists {
+        display: none;
+    }
 }

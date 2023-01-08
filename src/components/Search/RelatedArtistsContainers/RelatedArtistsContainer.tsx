@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { IRelatedArtist } from "../../../types/types";
-import SearchedArtistsCard from "../SearchedCards/SearchedArtistsCard";
+import SearchedArtistsCard from "../SearchedCards/RelatedArtistsCard";
 import '../../../styles/Search/RelatedArtists.css'
 
 interface IProps {
@@ -25,12 +25,12 @@ const RelatedArtistsContainer: React.FC<IProps> = ({items, title}) => {
                     <Link to={''} className={'showAllRelatedArtists'}>ПОКАЗАТЬ ВСЕ</Link>
                 )}
             </div>
-            <div className="relatedArtistsContent" style={{overflow: 'hidden'}}>
-                    <div className="relatedArtistsList">
-                        {shortlyRelatedArtists?.map(el => (
+            <div style={{overflowY: 'hidden'}}>
+                <div className="relatedArtistsList">
+                    {shortlyRelatedArtists?.map(el => (
                             <SearchedArtistsCard image={el.image} name={el.name} id={el.authorId}/>
-                        ))}
-                    </div>
+                    ))}
+                </div>
             </div>
         </div>
      );

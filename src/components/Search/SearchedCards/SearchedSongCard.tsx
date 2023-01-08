@@ -24,7 +24,6 @@ const SearchedSongCard: React.FC<IProps> = ({img, name, songAuthorId, author}) =
         dispatch(getCurrentSearchArtist({id}))
         dispatch(getCurrentArtistTopTracks(id))
         dispatch(getRelatedArtists(id))
-
     }
 
     return ( 

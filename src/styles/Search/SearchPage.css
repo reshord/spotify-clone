@@ -277,7 +277,7 @@
     grid-template-columns: repeat(var(--column-count), minmax(0, 1fr));
 }
 
-.searchedArtistsBody {
+.relatedArtistsBody {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -288,7 +288,7 @@
     border-radius: 10px;
 }
 
-.searchedArtistWithoutImage {
+.relatedArtistWithoutImage {
     width: 150px;
     height: 150px;
     display: flex;
@@ -299,31 +299,31 @@
     margin-top: 15px;
 }
 
-.searchedArtistWithoutImage svg {
+.relatedArtistWithoutImage svg {
     fill: white;
     opacity: 0.6;
 }
 
-.searchedArtistsBody img {
+.relatedArtistsBody img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     margin-top: 15px;
 }
 
-.searchedArtistsInfo {
+.relatedArtistsInfo {
     display: flex;
     flex-direction: column;
     width: 80%;
     margin-top: 8px;
 }
 
-.searchedArtistsInfo span {
+.relatedArtistsInfo span {
     color: white;
     margin-top: 7px;
 }
 
-.searchedArtistsTitle {
+.relatedArtistTitle {
     font-size: 1.1rem;
     font-weight: 600;
     white-space: nowrap;
@@ -332,7 +332,7 @@
     width: 140px;
 }
 
-.searchedArtistsAbout {
+.relatedArtistsAbout {
     opacity: 0.6;
     font-size: .9rem;
 }
@@ -723,47 +723,20 @@
         display: flex;
         flex-direction: column;
     }
-    .searchedArtistsBody {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-        flex-direction: row;
-        width: 100%;
+    .relatedArtistsBody {
         height: 100%;
-        margin-bottom: 0;
+        width: 170px;
+        padding-bottom: 15px;
     }
-    .searchedArtistWithoutImage {
-        width: 56px;
-        height: 56px;
+    .relatedArtistsBody img {
+        width: 130px;
+        height: 130px;
     }
-    .searchedArtistWithoutImage svg {
-        width: 25px;
+    .relatedArtistTitle {
+        text-align: center;
     }
-    .searchedArtistsBody img {
-        width: 56px;
-        height: 56px;
-        border-radius: 5px;
-    }
-    .searchedArtistsInfo {
-        display: flex;
-        flex-direction: column;
-        margin-left: 15px;
-    }
-    .searchedArtistsInfo span {
-        color: white;
-    }
-    .searchedArtistsTitle {
-        font-weight: 600;
-        font-size: 17px;
-        width: 70vw;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-    .searchedArtistsAbout {
-        opacity: 0.6;
-        font-size: 12px;
-        margin-top: 2px;
+    .relatedArtistsAbout {
+        display: none;
     }
     .searchedAlbumBody {
         display: flex;

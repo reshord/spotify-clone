@@ -7,7 +7,7 @@ import React, {useEffect} from 'react'
 import {MdOutlineFavoriteBorder, MdFavorite} from 'react-icons/md'
 import { addSongToFavourites } from '../../../rtk/slices/SpotifyPlaylists';
 import { Link } from 'react-router-dom';
-import { getCurrentArtistTopTracks, getCurrentSearchArtist } from '../../../rtk/axios';
+import { getCurrentArtistTopTracks, getCurrentSearchArtist, getRelatedArtists } from '../../../rtk/axios';
 
 const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, buttonNumber, index, author, title, albumName, img, id, songAuthorId}) => {
     
@@ -31,10 +31,13 @@ const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, bu
             songAuthorId: ''
         }))
     }
+    
 
     const getArtist = () => {
         dispatch(getCurrentSearchArtist({id: songAuthorId}))
         dispatch(getCurrentArtistTopTracks(songAuthorId))
+        dispatch(getRelatedArtists(songAuthorId))
+        // debugger
     }
 
     const deleteFavourite = () => {
