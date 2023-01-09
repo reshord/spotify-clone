@@ -47,9 +47,76 @@
     font-weight: 700;
 }
 
+.relatedArtistsPage {
+    display: flex;
+    justify-content: space-between;
+}
 
+.relatedArtistsPageBody {
+    width: 100%;
+    background: rgb(18, 18, 18);
+    height: 100%;
+}
 
+.relatedArtistsPageList {
+    --column-width: 183px;
+    --column-count: 6;
+    --grid-gap: 24px;
+    grid-auto-rows: auto;
+    grid-template-rows: 1fr;
+    grid-gap: var(--grid-gap);
+    display: grid;
+    grid-template-columns: repeat(var(--column-count),minmax(0,1fr));
+    width: 95%;
+    margin: 0 auto;
+    padding: 20px 0px;
 
+}
+
+.relatedArtistPageHeaderBlock {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.relatedArtistPageHeaderBlock svg {
+    fill: white;
+    font-size: 30px;
+    margin-right: 15px;
+    display: none;
+}
+
+.relatedArtistPageTitle {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+@media (max-width: 1415px) {
+    .relatedArtistsPageList {
+        --column-count: 5;
+
+    }
+}
+@media (max-width: 1225px) {
+    .relatedArtistsPageList {
+        --column-count: 4;
+
+    }
+}
+@media (max-width: 865px) {
+    .relatedArtistsPageList {
+        --column-count: 3;
+
+    }
+}
+@media (max-width: 710px) {
+    .relatedArtistPageHeaderBlock svg {
+        display: block;
+    }
+}
 
 @media (max-width: 620px) {
     .relatedArtistsTitle {
@@ -59,15 +126,74 @@
         font-size: .6rem;
     }
 }
+@media (max-width: 580px) {
+    .relatedArtistsPageList {
+        --column-count: 2;
+        width: 75%;
+    }
+}
+
+
 
 @media (max-width: 501px) {
     .relatedArtistsList {
         width: 1100px;
     }
+    .relatedArtistPageTitle {
+        font-size: 1.2rem;
+    }  
+    .relatedArtistPageHeaderBlock {
+        width: 75%;
+        margin: 0 auto;
+    }
+
+}
+@media (max-width: 450px) {
+    .relatedArtistsPageList {
+        width: 85%;
+    }
+    .relatedArtistPageTitle {
+        font-size: 1.2rem;
+    }  
+    .relatedArtistPageHeaderBlock {
+        width: 85%;
+        margin: 0 auto;
+    }
+
 }
 
 @media (max-width: 425px) {
     .showAllRelatedArtists {
         display: none;
+    }
+}
+@media (max-width: 415px) {
+    .relatedArtistsPageList {
+        width: 90%;
+    }
+    .relatedArtistPageTitle {
+        font-size: 1rem;
+    }  
+    .relatedArtistPageHeaderBlock {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .relatedArtistPageHeaderBlock svg {
+        font-size: 25px;
+    }
+}
+@media (max-width: 395px) {
+    .relatedArtistsPageList {
+        width: 93%;
+    }
+    .relatedArtistPageTitle {
+        font-size: 1rem;
+    }  
+    .relatedArtistPageHeaderBlock {
+        width: 93%;
+        margin: 0 auto;
+    }
+    .relatedArtistPageHeaderBlock svg {
+        font-size: 25px;
     }
 }

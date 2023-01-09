@@ -13,7 +13,7 @@ import SongCard from "../Content/Playlists/SongCard";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import CardMusic from "../Content/MusicContainer/CardMusic";
 import { deleteSearchResults, setCurrentSearchValue } from "../../rtk/slices/Search";
-import { getCurrentArtistTopTracks, getCurrentSearchArtist, getSearched } from "../../rtk/axios";
+import { getCurrentArtistTopTracks, getCurrentSearchArtist, getRelatedArtists, getSearched } from "../../rtk/axios";
 import SearchModal from "./SearchModal";
 import SearchedArtistsCard from './SearchedCards/RelatedArtistsCard'
 import SpinnerLoader from '../../images/SpinnerLoader.svg'
@@ -49,6 +49,14 @@ const SearchPage = () => {
     const spotifySearch = async () => {
         dispatch(getSearched({token: auth.token, value}))
         dispatch(setCurrentSearchValue(value))
+    }
+
+    const bestResultAuthorId = searchedArtists && searchedArtists[0].id
+
+    const getArtist = () => {
+        dispatch(getCurrentSearchArtist({id: bestResultAuthorId}))
+        dispatch(getCurrentArtistTopTracks(bestResultAuthorId))
+        dispatch(getRelatedArtists(bestResultAuthorId))
     }
 
     useEffect(() => {
@@ -142,16 +150,13 @@ const SearchPage = () => {
                                     {searchedArtists && (
                                         <div className="bestSearchResult">
                                             <span className="bestResultTitle">Лучший результат</span>
-                                            <div className="bestResultBlock">
-                                                <img className="bestResultImage" src={searchedArtists[0].image.url} alt="" />
-                                                <span className="bestResultName">{searchedArtists[0].name}</span>
-                                                <span className="executorTitle">ИСПОЛНИТЕЛЬ</span>
-                                            </div>
-                                            {search.isLoading && (
-                                                <div>
-                                                    <img src={SpinnerLoader} alt="" />
+                                            <Link to={`/artist/${searchedArtists[0].id}`} onClick={getArtist}>
+                                                <div className="bestResultBlock">
+                                                    <img className="bestResultImage" src={searchedArtists[0].image.url} alt="" />
+                                                    <span className="bestResultName">{searchedArtists[0].name}</span>
+                                                    <span className="executorTitle">ИСПОЛНИТЕЛЬ</span>
                                                 </div>
-                                                )}
+                                            </Link>
                                         </div>
                                     )}
                                 {searchedTracks && (

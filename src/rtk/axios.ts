@@ -28,7 +28,7 @@ interface SearchPlaylistSongsParams {
     songAuthorId: string | undefined
 }
 interface SearchArtistParams {
-    id: string | undefined
+    id: string | undefined | null
 }
 
 export const getPlaylistsSongs = createAsyncThunk(
@@ -161,7 +161,7 @@ export const getCurrentSearchArtist = createAsyncThunk(
 })
 export const getCurrentArtistTopTracks = createAsyncThunk(
     'getCurrentArtistTopTracks', 
-    async (id: string | undefined) => {
+    async (id: string | undefined | null) => {
     
     const token = localStorage.getItem('token')
 
@@ -180,7 +180,7 @@ export const getCurrentArtistTopTracks = createAsyncThunk(
 })
 export const getRelatedArtists = createAsyncThunk(
     'getRelatedArtists', 
-    async (id: string | undefined) => {
+    async (id: string | undefined | null) => {
     
     const token = localStorage.getItem('token')
 

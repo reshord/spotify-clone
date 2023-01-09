@@ -89,7 +89,7 @@ export interface ISearchedArtists {
         url: string
     },
     name: string,
-    id: string,
+    id: string ,
 }
 
 export interface ISearchedArtist {

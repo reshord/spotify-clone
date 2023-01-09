@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../../rtk/hooks/RTKHook";
 import { RootState, store } from "../../../rtk/store";
 import { ISearchedArtists } from "../../../types/types";
 
-const SearchedArtistsCard: React.FC<ISearchedArtists> = ({image, name, id}) => {
+const RelatedArtistsCard: React.FC<ISearchedArtists> = ({image, name, id}) => {
 
     const {auth} = useAppSelector<RootState>(store.getState)
     const dispatch = useAppDispatch()
@@ -15,7 +15,6 @@ const SearchedArtistsCard: React.FC<ISearchedArtists> = ({image, name, id}) => {
         dispatch(getCurrentSearchArtist({id}))
         dispatch(getCurrentArtistTopTracks(id))
         dispatch(getRelatedArtists(id))
-
     }
 
     return ( 
@@ -38,4 +37,4 @@ const SearchedArtistsCard: React.FC<ISearchedArtists> = ({image, name, id}) => {
      );
 }
  
-export default SearchedArtistsCard;
+export default RelatedArtistsCard;

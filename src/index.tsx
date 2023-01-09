@@ -20,6 +20,7 @@ import ShowPage from './components/Podcasts/ShowPage/ShowPage';
 import SearchModal from './components/Search/SearchModal';
 import RecentSearches from './components/Search/RecentSearches';
 import SearchedArtistPage from './components/Search/SearchedArtistPage/SearchedArtistPage';
+import RelatedArtistsPage from './components/Search/RelatedArtistsContainers/RelatedArtistsPage';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -42,6 +43,7 @@ root.render(
               <Route path='/search/recent' element={<SearchModal />}/>
               <Route path='/search/history' element={<RecentSearches />}/>
               <Route path='/artist/:id' element={<SearchedArtistPage />}/>
+              <Route path='/artist/:id/related' element={<RelatedArtistsPage />}/>
 
               <Route path='*' element={<PageNotFound />}/>
           </Routes>
