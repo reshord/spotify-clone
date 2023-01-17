@@ -15,9 +15,10 @@ import CardMusic from "../Content/MusicContainer/CardMusic";
 import { deleteSearchResults, setCurrentSearchValue } from "../../rtk/slices/Search";
 import { getCurrentArtistTopTracks, getCurrentSearchArtist, getRelatedArtists, getSearched } from "../../rtk/axios";
 import SearchModal from "./SearchModal";
-import SearchedArtistsCard from './SearchedCards/RelatedArtistsCard'
+import SearchedArtistsCard from './SearchedCards/SearchedArtistsCard'
 import SpinnerLoader from '../../images/SpinnerLoader.svg'
 import SearchedSongCard from "./SearchedCards/SearchedSongCard";
+import PlayerTrack from "../PlayerTrack/PlayerTrack";
 
 const SearchPage = () => {
 
@@ -67,7 +68,6 @@ const SearchPage = () => {
             top: 0,
             behavior: 'smooth'
         })
-        const test = window.document.querySelector('#text')
     }, []);
 
     return ( 
@@ -152,7 +152,7 @@ const SearchPage = () => {
                                             <span className="bestResultTitle">Лучший результат</span>
                                             <Link to={`/artist/${searchedArtists[0].id}`} onClick={getArtist}>
                                                 <div className="bestResultBlock">
-                                                    <img className="bestResultImage" src={searchedArtists[0].image.url} alt="" />
+                                                    <img className="bestResultImage" src={searchedArtists[0].image} alt="" />
                                                     <span className="bestResultName">{searchedArtists[0].name}</span>
                                                     <span className="executorTitle">ИСПОЛНИТЕЛЬ</span>
                                                 </div>
@@ -186,6 +186,7 @@ const SearchPage = () => {
                                             key={index} 
                                             songAuthorId={track.songAuthorId}
                                             buttonNumber={buttonNumber}
+                                            songUrl={track.songUrl}
                                         />
                                     ))}
                                 </div>
@@ -223,6 +224,9 @@ const SearchPage = () => {
             {auth.token && (
                 <MobileFooter />
             )}
+            {auth.token && (
+                <PlayerTrack />
+            )}    
         </>
      );
 }

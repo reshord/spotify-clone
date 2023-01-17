@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ISongInfo } from "../../types/types";
 import { getCurrentlyPlayingTrack } from "../axios";
 
 export interface ICurrentPlayingTrack {
@@ -9,21 +10,32 @@ export interface ICurrentPlayingTrack {
 }
 
 interface IState {
-    currentlyPlayingTrack: null | ICurrentPlayingTrack
-    playerState: boolean
+    isPlaying: boolean
+    currentPlayingSong: ISongInfo | null
 }
 
 const initialState: IState = {
-    currentlyPlayingTrack: null,
-    playerState: false
+    isPlaying: false,
+    currentPlayingSong: null
 }
 
 const TracksPlayer = createSlice({
     name: 'tracksPlayer',
     initialState,
     reducers: {
-
-    },
+        setCurrentPlayingSong: (state, action) => {
+            state.currentPlayingSong = action.payload
+            state.isPlaying = true
+            // debugger
+        },
+        setStopSong: (state) => {
+            state.isPlaying = false
+        },
+        deleteCurrentPlayingSong: (state) => {
+            state.isPlaying = false
+            state.currentPlayingSong = null
+        }
+    }
     // extraReducers: {
     //     // Get Currently Playing Track
     //     [getCurrentlyPlayingTrack.pending.toString()]: (state) => {
@@ -44,4 +56,5 @@ const TracksPlayer = createSlice({
     // }
 })
 
+export const {setCurrentPlayingSong, setStopSong, deleteCurrentPlayingSong} = TracksPlayer.actions
 export default TracksPlayer.reducer

@@ -2,7 +2,7 @@ import { useAppSelector } from "../../../rtk/hooks/RTKHook";
 import { RootState, store } from "../../../rtk/store";
 import HeaderContent from "../../Content/HeaderContent/HeaderContent";
 import Sidebar from "../../Sidebar/Sidebar";
-import RelatedArtistsCard from "../SearchedCards/RelatedArtistsCard";
+import RelatedArtistsCard from "../SearchedCards/SearchedArtistsCard";
 import {BiArrowBack} from 'react-icons/bi'
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";

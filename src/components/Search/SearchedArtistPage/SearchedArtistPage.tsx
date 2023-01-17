@@ -8,6 +8,8 @@ import Sidebar from "../../Sidebar/Sidebar";
 import '../../../styles/Search/SearchedArtistPage.css'
 import SongCard from "../../Content/Playlists/SongCard";
 import RelatedArtistsContainer from "../RelatedArtistsContainers/RelatedArtistsContainer";
+import MobileFooter from "../../Footer/MobileFooter";
+import PlayerTrack from "../../PlayerTrack/PlayerTrack";
 
 const SearchedArtistPage = () => {
 
@@ -28,9 +30,12 @@ const SearchedArtistPage = () => {
             top: 0,
             behavior: 'smooth'
         })
+        console.log(newArtistTracksList);
+        
     }, [search.currentSearchedArtist]);
 
     return ( 
+        <>
         <div className="searchedArtistPage">
             <Sidebar />
             <div className="searchedArtistBody">
@@ -57,6 +62,7 @@ const SearchedArtistPage = () => {
                                         key={index} 
                                         songAuthorId={track.songAuthorId}
                                         buttonNumber={buttonNumber}
+                                        songUrl={track.songUrl}
                                     />
                                 ))}
                             </div>
@@ -74,23 +80,34 @@ const SearchedArtistPage = () => {
                                         key={index} 
                                         songAuthorId={track.songAuthorId}
                                         buttonNumber={buttonNumber}
+                                        songUrl={track.songUrl}
                                     />
                                 ))}
                             </div>
                             )}
                             
                         </div>
-                        {showAllTracks ? (
-                            <span className="allTracksBtn" onClick={() => setShowAllTracks(false)}>СВЕРНУТЬ</span>
+                            {search.currentArtistTopTracks && search.currentArtistTopTracks?.length > 5 && (
+                                <div>
+                                {showAllTracks ? (
+                                    <span className="allTracksBtn" onClick={() => setShowAllTracks(false)}>СВЕРНУТЬ</span>
 
-                        ) : (
-                            <span className="allTracksBtn" onClick={() => setShowAllTracks(true)}>ЕЩЕ</span>
-                        )}
+                                 ) : (
+                                    <span className="allTracksBtn" onClick={() => setShowAllTracks(true)}>ЕЩЕ</span>
+                                )}
+                                </div>
+                            )}
+                            
                     </div>
+                    <audio src=""/>
                     <RelatedArtistsContainer items={search.relatedArtists} title={'Поклонникам также нравится'}/>
                 </div>
             </div>
         </div>
+
+            <MobileFooter />
+            <PlayerTrack />
+        </>
      );
 }
  

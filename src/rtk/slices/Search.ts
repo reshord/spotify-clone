@@ -120,7 +120,7 @@ const SearchSlice = createSlice({
         [getCurrentSearchArtist.rejected.toString()]: () => {
 
         },
-        // Get Current Seach Artist Top Tracks
+        // Get Current Search Artist Top Tracks
         [getCurrentArtistTopTracks.pending.toString()]: (state) => {
 
         },

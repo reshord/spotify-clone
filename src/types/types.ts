@@ -35,6 +35,7 @@ export interface ISongInfo {
     albumName?: string
     isFavourite?: boolean
     songAuthorId: string
+    songUrl: string
 }
 
 export interface IPlaylist {
@@ -70,6 +71,7 @@ export interface ISearchedTracks {
     author: string,
     albumName: string,
     songAuthorId: string
+    songUrl: string
 }
 export interface ISearchedAlbums {
     image: string,
@@ -85,9 +87,7 @@ export interface ISearchedPlaylists {
     songsList: ISongInfo[] | undefined
 }
 export interface ISearchedArtists {
-    image: {
-        url: string
-    },
+    image: string,
     name: string,
     id: string ,
 }
@@ -104,9 +104,7 @@ export interface ICurrentArtistTopTracks {
 
 export interface IRelatedArtist {
     authorId: string
-    image: {
-        url: string
-    }
+    image: string
     name: string
 }
 

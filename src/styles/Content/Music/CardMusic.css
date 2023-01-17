@@ -20,7 +20,9 @@ a {
 .cardMusic:hover {
     background-color: dimgray;
     transition: 0.4s;
-    opacity: 0.8;
+    --background-tinted-base: hsla(0,0%,100%,.1);
+    background-color: var(--background-tinted-base,rgba(0,0,0,0.6));
+    transition: 0.3s;
 }
 
 .continue {

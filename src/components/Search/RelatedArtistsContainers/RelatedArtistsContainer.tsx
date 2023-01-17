@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { IRelatedArtist } from "../../../types/types";
-import SearchedArtistsCard from "../SearchedCards/RelatedArtistsCard";
+import SearchedArtistsCard from "../SearchedCards/SearchedArtistsCard";
 import '../../../styles/Search/RelatedArtists.css'
-import { useAppSelector } from "../../../rtk/hooks/RTKHook";
+import { useAppDispatch, useAppSelector } from "../../../rtk/hooks/RTKHook";
 import { RootState, store } from "../../../rtk/store";
+import { setItemToSearchHistory } from "../../../rtk/slices/Search";
 
 interface IProps {
     items: IRelatedArtist[] | null,
@@ -15,6 +16,10 @@ const RelatedArtistsContainer: React.FC<IProps> = ({items, title}) => {
 
     const shortlyRelatedArtists = items && items.length > 6 ? items.slice(0, 6) : items
     const {search} = useAppSelector<RootState>(store.getState)
+
+    const dispatch = useAppDispatch()
+
+
 
     return ( 
         <div className="relatedArtistsContainer">
@@ -28,7 +33,7 @@ const RelatedArtistsContainer: React.FC<IProps> = ({items, title}) => {
                     <Link to={`/artist/${search.currentSearchedArtist?.id}/related`} className={'showAllRelatedArtists'}>ПОКАЗАТЬ ВСЕ</Link>
                 )}
             </div>
-            <div style={{overflowY: 'hidden'}}>
+            <div style={{overflowY: 'hidden', width: '100%'}}>
                 <div className="relatedArtistsList">
                     {shortlyRelatedArtists?.map(el => (
                             <SearchedArtistsCard image={el.image} name={el.name} id={el.authorId}/>

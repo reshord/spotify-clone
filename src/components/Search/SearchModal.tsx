@@ -3,14 +3,14 @@ import { useEffect, useState } from "react"
 import { AiOutlineArrowLeft } from "react-icons/ai"
 import { BiSearch } from "react-icons/bi"
 import { GrClose } from "react-icons/gr"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { getSearched } from "../../rtk/axios"
 import { useAppDispatch, useAppSelector } from "../../rtk/hooks/RTKHook"
 import { clearHistory, deleteItemSearchHistory, deleteSearchResults, setCurrentSearchValue } from "../../rtk/slices/Search"
 import { RootState, store } from "../../rtk/store"
 import CardMusic from "../Content/MusicContainer/CardMusic"
 import SearchedAlbumCard from "./SearchedCards/SearchedAlbumCard"
-import SearchedArtistsCard from "./SearchedCards/RelatedArtistsCard"
+import SearchedArtistsCard from "./SearchedCards/SearchedArtistsCard"
 import SearchedPlaylistsCard from "./SearchedCards/SearchedPlaylistsCard"
 import SearchedTracksCard from "./SearchedCards/SearchedTracks"
 import {IoMdClose} from 'react-icons/io'
@@ -29,6 +29,7 @@ const SearchModal = () => {
 
 
     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
 
     const toEmptyValue = () => {
         dispatch(deleteSearchResults())
@@ -41,10 +42,12 @@ const SearchModal = () => {
         dispatch(setCurrentSearchValue(value))
     }
     
-
-
     const clearFullHistory = () => {
         dispatch(clearHistory())
+    }
+
+    const goBack = () => {
+        navigate(-1)
     }
 
     useEffect(() => {
@@ -61,11 +64,10 @@ const SearchModal = () => {
         <div className="searchModalBody" style={{height: `${!search.currentSearchValue ? '100vh' : ''}`}}>
             <div className="searchModalHeader" style={{height: `${search.currentSearchValue ? 140 : 60}`}}>        
                 <div className="headerSearchBlock">
-                        <Link to={'/search'}>
-                            <AiOutlineArrowLeft
-                                    className='closeSearchModal'
-                            />
-                        </Link>
+                        <AiOutlineArrowLeft
+                                className='closeSearchModal'
+                                onClick={goBack}
+                        />
                         <div className="searchBlockInput">
                             <BiSearch
                                 style={{fill: 'black', 
@@ -141,7 +143,7 @@ const SearchModal = () => {
                 {currentSection === 0 && search.currentSearchValue && (
                     <>
                         <div className="searchedAuthor">
-                            <img className="searchedAuthorImage" src={`${search.searchedArtists && search.searchedArtists[0].image.url}`} alt="" />
+                            <img className="searchedAuthorImage" src={`${search.searchedArtists && search.searchedArtists[0].image}`} alt="" />
                             <div className="searchedAuthorInfo">
                                 <div className="searchedAuthorTitle">
                                     {search.searchedArtists && search.searchedArtists[0].name}

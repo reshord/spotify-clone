@@ -6,6 +6,7 @@
 
 .SearchPageContent {
     width: 100%;
+    padding-bottom: 30px;
 }
 
 .SearchBlockContent {
@@ -286,6 +287,14 @@
     width: 183px;
     height: 263px;
     border-radius: 10px;
+    transition: 0.3s;
+
+}
+
+.relatedArtistsBody:hover {
+    --background-tinted-base: hsla(0,0%,100%,.1);
+    background-color: var(--background-tinted-base,rgba(0,0,0,0.6));
+    transition: 0.3s;
 }
 
 .relatedArtistWithoutImage {
@@ -502,7 +511,7 @@
         width: 90%;
     }
 }
-@media (max-width: 500px) {
+@media (max-width: 501px) {
     .genresList {
         padding-left: 10px;
     }

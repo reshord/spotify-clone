@@ -29,7 +29,7 @@ function App() {
           dispatch(setToken(token))
           window.localStorage.setItem('token', token)
       }      
-    }, [auth.token, player.currentlyPlayingTrack]);
+    }, [auth.token]);
 
   
   return (
@@ -39,14 +39,16 @@ function App() {
                 <Content />
                 {auth.token && (
                   <MobileFooter />
-                )}                
+                )}  
+          
               </div>
 
               {!auth.token && (
                 <BannerToAuth />
               )}
+
               {Modals.modalToAuth.toggle && (
-                  <ModalToAuth />
+                <ModalToAuth />
               )}
               {Modals.mobileModal && (
                 <MobileModal />
@@ -54,6 +56,7 @@ function App() {
               {Modals.favoriteModal && (
                   <FavoriteModal />
               )}
+              <PlayerTrack />
          </>
   );
 }

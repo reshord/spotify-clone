@@ -7,7 +7,8 @@ export const addSongsToPlaylist = (items: any) => {
             albumName: song.track ? song.track.album.name : 'cannot found',
             author: song.track ? song.track.artists[0].name : 'cannot found',
             songAuthorId: song.track ? song.track.artists[0].id : 'cannot found',
-            isFavourite: false
+            isFavourite: false,
+            songUrl: song.track.preview_url
         }
      })
 }
@@ -33,7 +34,7 @@ export const getNewSearchResultsAlbums = (items: any) => {
 export const getNewSearchResultsArtists = (items: any) => {
     return items.map((artist: any) => {
         return {
-            image: artist.images[1],
+            image: artist.images.length ? artist.images[1].url : '',
             name: artist.name,
             id: artist.id,
         }
@@ -57,7 +58,9 @@ export const getNewSearchResultsTracks = (items: any) => {
             albumName: track.album.name,
             img: track.album.images[1].url,
             author: track.artists[0].name,
-            songAuthorId: track.artists[0].id
+            songAuthorId: track.artists[0].id,
+            songUrl: track.preview_url,
+            ...track
         }
      })
 }
@@ -68,7 +71,8 @@ export const getSearchArtistTopTracks = (items: any) => {
             id: track.id,
             albumName: track.album.name,
             img: track.album.images[1].url,
-            author: track.artists[0].name
+            author: track.artists[0].name,
+            songUrl: track.preview_url,
         }
      })
 }
@@ -76,7 +80,7 @@ export const getRelatedArtistsList = (items: any) => {
     return items.map((artist: any) => {
         return {
             authorId: artist.id,
-            image: artist.images[1],
+            image: artist.images[1].url,
             name: artist.name,
         }
      })

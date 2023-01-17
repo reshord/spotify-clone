@@ -10,6 +10,7 @@ import MobileFooter from "../../Footer/MobileFooter";
 import { useNavigate } from "react-router-dom";
 import {MdOutlineFavoriteBorder} from 'react-icons/md'
 import SpinnerLoader from '../../../images/SpinnerLoader.svg'
+import PlayerTrack from "../../PlayerTrack/PlayerTrack";
 
 const PlaylistPage = () => {
 
@@ -117,6 +118,7 @@ const PlaylistPage = () => {
                                     author={el.author}
                                     id={el.id}
                                     isFavourite={el.isFavourite}
+                                    songUrl={el.songUrl}
                                     songAuthorId={el.songAuthorId}
                             />
                             ))}
@@ -135,6 +137,7 @@ const PlaylistPage = () => {
                                     id={el.id}
                                     isFavourite={el.isFavourite}
                                     songAuthorId={el.songAuthorId}
+                                    songUrl={el.songUrl}
                                 />
                             ))}
                             {!currentPlaylist.songs || !search.currentSearchPlaylist?.songs && (
@@ -149,8 +152,10 @@ const PlaylistPage = () => {
             <hr />
         </div>
             <MobileFooter />
-
-        </>
+        {auth.token && (
+            <PlayerTrack />
+        )}
+      </>
      );
 }
  

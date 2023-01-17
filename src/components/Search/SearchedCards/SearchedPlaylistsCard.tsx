@@ -21,7 +21,6 @@ const SearchedPlaylistsCard: React.FC<ISearchedPlaylists> = ({image, name, id, d
         })).then(() => {
             dispatch(setCurrentPlaylist({songs: search.currentSearchPlaylist.songs, title: name, img: image, description}))
             dispatch(setItemToSearchHistory({id, name, img: image, description}))
-            debugger
         })
 
     }
