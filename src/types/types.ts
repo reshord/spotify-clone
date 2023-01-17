@@ -89,7 +89,8 @@ export interface ISearchedPlaylists {
 export interface ISearchedArtists {
     image: string,
     name: string,
-    id: string ,
+    id: string
+    type: string
 }
 
 export interface ISearchedArtist {

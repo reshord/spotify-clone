@@ -6,12 +6,9 @@ const PlaylsitsSection = () => {
                     <div className="favouritesTracks">
                         <div className="favouritesTracksBlock">
                             <div className="favouritesTracksInfo">
-                                <span className="favouritesTrackAuthor">Ice Cube</span>
-                                <span className="favouritesTrackTitle">It Was A Good Day</span>
                             </div>
                         </div>
-                        <span className='favouritesTitle'>Любимые треки</span>
-                        <span className='countOfFavouritesTracks'>1 любимые треки</span>
+                        <span className='favouritesTitle'>Нет любимых треков</span>
                     </div>
                 </div>
             </div>

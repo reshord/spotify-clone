@@ -112,9 +112,9 @@
         border-radius: 5px;
     }
     .playerTrackBody {
-        width: 300px;
         margin: 0 auto;
         border-radius: 40px;
+        width: 80%;
         height: 80px;
     }
     .playerControls {
@@ -128,17 +128,16 @@
 @media (max-width: 420px) {
     .playerTrackBody {
         height: 70px;
-        max-width: 230px;
     }
     .playingTrackImg {
         height: 47px;
         width: 47px;
     }
     .currentTrackTitle {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
     .currentTrackAuthor{
-        font-size: .55rem;
+        font-size: .75rem;
     }
     .playerTrackWrapper {
         bottom: 50px;

@@ -1,13 +1,15 @@
 .favouritesPage {
     display: flex;
     justify-content: space-between;
-    height: 100%;
+    height: 100vh;
+
 }
 
 .favouritesBody {
     width: 100%;
-    background: rgb(18, 18, 18);
     padding-bottom: 30px;
+    height: 100%;
+    background: rgb(18, 18, 18);
 
 }
 
@@ -17,7 +19,7 @@
     align-items: center;
     justify-content: space-between;
     padding-top: 5px;
-    margin-left: 20px;
+    padding-left: 20px;
     position: sticky;
     top: 0;
     background: rgb(18, 18, 18);
@@ -86,7 +88,8 @@
 }
 
 .favouritesContent {
-    padding-top: 20px;
+    background: rgb(18, 18, 18);
+
 }
 
 .blockPlaylists {
@@ -156,7 +159,6 @@
     align-items: center;
     justify-content: space-between;
     height: 330px;
-    margin-top: 20px;
 }
 
 .followFavoriteArtists {
@@ -195,7 +197,6 @@
     align-items: center;
     justify-content: space-between;
     height: 330px;
-    margin-top: 20px;
 }
 
 .followFavoritePodcasts {
@@ -239,6 +240,7 @@
 
 .favoriteHeaderBlockMobile {
     display: none;
+
 }
 
 .mobileSections {
@@ -273,7 +275,9 @@
     }
     .favouritesContentMobile {
         display: block;
-        height: 100%;
+        height: 90%;
+        background: rgb(18, 18, 18);
+
     }
     .favoritePodcasts {
         height: 240px;

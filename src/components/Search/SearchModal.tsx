@@ -178,7 +178,7 @@ const SearchModal = () => {
                 )}
                 {currentSection === 3 && (
                     <div className="searchedArtists">
-                        {search.searchedArtists?.map(el => ( <SearchedArtistsCard {...el} /> ))}
+                        {search.searchedArtists?.map(el => ( <SearchedArtistsCard {...el} type="searchedArtists"/> ))}
                     </div>
                 )}
                 {currentSection === 4 && (

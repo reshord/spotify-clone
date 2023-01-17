@@ -24,7 +24,7 @@ const SearchPage = () => {
 
     const searchSections = ['Все', 'Треки', 'Альбомы', 'Исполнители', 'Плейлисты']
 
-    const {genres, auth, search, Modals} = useAppSelector<RootState>(store.getState)
+    const {genres, auth, search, player} = useAppSelector<RootState>(store.getState)
     const [value, setValue] = useState<string>('')
     const [currentSection, setCurrentSection] = useState<number>(0)
     const [buttonNumber, setButtonNumber] = useState<number | undefined>(-1)
@@ -194,7 +194,7 @@ const SearchPage = () => {
                             {currentSection === 3 && (
                                 <div className="allSearchedArtistsList">
                                     {searchedArtists?.map((artist, index) => (
-                                        <SearchedArtistsCard {...artist} />
+                                        <SearchedArtistsCard {...artist} type='' />
                                     ))}
                                 </div>
                             )}
@@ -224,9 +224,9 @@ const SearchPage = () => {
             {auth.token && (
                 <MobileFooter />
             )}
-            {auth.token && (
+            {player.currentPlayingSong && (
                 <PlayerTrack />
-            )}    
+            )}   
         </>
      );
 }

@@ -56,7 +56,9 @@ function App() {
               {Modals.favoriteModal && (
                   <FavoriteModal />
               )}
-              <PlayerTrack />
+              {player.currentPlayingSong && (
+                <PlayerTrack />
+              )}
          </>
   );
 }

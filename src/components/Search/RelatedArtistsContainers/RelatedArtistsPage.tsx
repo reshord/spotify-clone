@@ -39,7 +39,7 @@ const RelatedArtistsPage = () => {
                     </div>
                     <div className="relatedArtistsPageList">
                         {search.relatedArtists?.map(el => (
-                            <RelatedArtistsCard image={el.image} name={el.name} id={el.authorId}/>
+                            <RelatedArtistsCard type="" image={el.image} name={el.name} id={el.authorId}/>
                         ))}
                     </div>
                 </div>

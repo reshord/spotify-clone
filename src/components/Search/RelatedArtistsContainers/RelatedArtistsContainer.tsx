@@ -36,7 +36,7 @@ const RelatedArtistsContainer: React.FC<IProps> = ({items, title}) => {
             <div style={{overflowY: 'hidden', width: '100%'}}>
                 <div className="relatedArtistsList">
                     {shortlyRelatedArtists?.map(el => (
-                            <SearchedArtistsCard image={el.image} name={el.name} id={el.authorId}/>
+                            <SearchedArtistsCard type="" image={el.image} name={el.name} id={el.authorId}/>
                     ))}
                 </div>
             </div>

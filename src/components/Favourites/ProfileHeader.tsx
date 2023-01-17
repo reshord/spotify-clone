@@ -18,7 +18,7 @@ const ProfileHeader: React.FC<IProps> = (
     {currSection, setCurrSection, setProfileModal, profileModal, mobileSection, setMobileSection}
 ) => {
 
-    const sections = ['Плейлисты', 'Подкасты', 'Исполнители', 'Альбомы']
+    const sections = ['Плейлисты', 'Подкасты', 'Исполнители']
     const {auth} = useAppSelector<RootState>(store.getState)
 
     const location = useLocation()

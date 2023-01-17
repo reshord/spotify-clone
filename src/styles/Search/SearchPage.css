@@ -346,6 +346,38 @@
     font-size: .9rem;
 }
 
+.mobileSearchedArtistsBody {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.mobileSearchedArtistsBody img {
+    width: 56px;
+    height: 56px;
+    border-radius: 5px;
+}
+
+.mobileSearchedArtistsInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.mobileSearchedArtistsInfo span {
+    color: white;
+}
+
+.mobileSearchedArtistTitle {
+    font-weight: 600;
+}
+
+.mobileSearchedArtistsAbout {
+    opacity: 0.5;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
 @media (max-width: 1525px) {
     .searchResultsTracksBlock {
         width: 700px;

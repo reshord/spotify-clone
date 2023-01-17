@@ -14,7 +14,7 @@ import PlayerTrack from "../../PlayerTrack/PlayerTrack";
 
 const PlaylistPage = () => {
 
-    const {playlists, auth, search} = useAppSelector<RootState>(store.getState) 
+    const {playlists, auth, search, player} = useAppSelector<RootState>(store.getState) 
     const {currentPlaylist} = playlists
 
 
@@ -62,7 +62,6 @@ const PlaylistPage = () => {
             <div className="playlistPage" >
             <Sidebar />
             <div className="playlistBody">
-                <HeaderContent />
                 <div className="headerBlock">
                     <img className="playlistImage" src={currentPlaylist.img || search.currentSearchPlaylist.image} alt="img" />
                     <div className="AllPlaylistInfo">
@@ -152,9 +151,9 @@ const PlaylistPage = () => {
             <hr />
         </div>
             <MobileFooter />
-        {auth.token && (
-            <PlayerTrack />
-        )}
+            {player.currentPlayingSong && (
+                <PlayerTrack />
+              )}
       </>
      );
 }

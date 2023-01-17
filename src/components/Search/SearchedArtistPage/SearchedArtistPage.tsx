@@ -13,7 +13,7 @@ import PlayerTrack from "../../PlayerTrack/PlayerTrack";
 
 const SearchedArtistPage = () => {
 
-    const {search} = useAppSelector<RootState>(store.getState)
+    const {search, player} = useAppSelector<RootState>(store.getState)
     const [buttonNumber, setButtonNumber] = useState<number | undefined>(-1)
     const [showAllTracks, setShowAllTracks] = useState<boolean>(false)
 
@@ -81,6 +81,7 @@ const SearchedArtistPage = () => {
                                         songAuthorId={track.songAuthorId}
                                         buttonNumber={buttonNumber}
                                         songUrl={track.songUrl}
+                                        
                                     />
                                 ))}
                             </div>
@@ -106,7 +107,9 @@ const SearchedArtistPage = () => {
         </div>
 
             <MobileFooter />
-            <PlayerTrack />
+            {player.currentPlayingSong && (
+                <PlayerTrack />
+            )}
         </>
      );
 }
