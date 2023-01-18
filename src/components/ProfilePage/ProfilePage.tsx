@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import {AiOutlineArrowLeft} from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import { useAppSelector } from "../../rtk/hooks/RTKHook"

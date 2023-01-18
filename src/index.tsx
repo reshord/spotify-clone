@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { StateProvider } from './utils/StateProvider';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import BannerToAuth from './components/BannerToAuth';
 import PageNotFound from './components/PageNotFound';
 import { Provider } from 'react-redux';
 import { store } from './rtk/store';
@@ -12,7 +10,6 @@ import Playlists from './components/Content/Playlists/AllPlaylists';
 import PlaylistPage from './components/Content/Playlists/PlaylistPage';
 import AuthPage from './components/Auth/AuthPage';
 import SearchPage from './components/Search/SearchPage';
-import LoginPage from './components/Auth/LoginPage';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import FavouritesPage from './components/Favourites/Favourites';
 import PodcastsPage from './components/Podcasts/PodcastsPage';
@@ -21,6 +18,7 @@ import SearchModal from './components/Search/SearchModal';
 import RecentSearches from './components/Search/RecentSearches';
 import SearchedArtistPage from './components/Search/SearchedArtistPage/SearchedArtistPage';
 import RelatedArtistsPage from './components/Search/RelatedArtistsContainers/RelatedArtistsPage';
+import FavoritesTracksPage from './components/Favourites/FavoritesTracksPage';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -44,6 +42,7 @@ root.render(
               <Route path='/search/history' element={<RecentSearches />}/>
               <Route path='/artist/:id' element={<SearchedArtistPage />}/>
               <Route path='/artist/:id/related' element={<RelatedArtistsPage />}/>
+              <Route path='/collection/tracks' element={<FavoritesTracksPage />}/>
 
               <Route path='*' element={<PageNotFound />}/>
           </Routes>

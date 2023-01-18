@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ExecOptionsWithStringEncoding } from "child_process";
 import { IPlaylist, ISongInfo } from "../../types/types";
-import { getCurrentlyPlayingTrack, getPlaylistsSongs } from "../axios";
+import { getPlaylistsSongs } from "../axios";
 import { addSongsToPlaylist } from "../hooks/addSongsToPlaylist";
 
 

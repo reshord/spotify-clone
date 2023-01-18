@@ -1,0 +1,105 @@
+.favoritesTracksPage{
+    display: flex;
+    justify-content: space-between;
+}
+
+.favoritesTracksBody {
+    width: 100%;
+    background-color: #181818;
+}
+
+.favoritesTracksHeaderContent {
+    display: flex;
+    align-items: center;
+    background-color: rgb(80, 56, 160);
+    height: 340px;
+    box-sizing: border-box;
+    padding-left: 35px;
+}
+
+.favoritesTracksHeaderContentInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    height: 200px;
+    margin-left: 20px;
+}
+
+.favoritesTracksImage {
+    width: 232px;
+    height: 232px;
+    border-radius: 4px;
+}
+
+.favoritesTrackPageUserInfoBlock img {
+    width: 25px;
+    height: 25px;
+    border-radius: 30px;
+    margin-right: 6px;
+}
+
+.favoritesTrackPageUserInfoBlock {
+    display: flex;
+    align-items: center;
+}
+
+.favoritesTrackPageUserName {
+    color: white;
+    font-weight: 700;
+    font-size: .9rem;
+}
+
+.favoriteTracksHeaderTitle {
+    font-weight: 700;
+    font-size: .75rem;
+}
+
+.favoritesTrackPageTitle {
+    font-weight: 700;
+    font-size: 6rem;
+}
+
+.blockWithoutFavoritesTracks {
+    padding-top: 35px;
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    height: 250px;
+}
+
+.blockWithoutFavoritesTracks span {
+    color: white;
+}
+
+.blockWithoutFavoritesTracksImage svg {
+    fill: white;
+}
+
+.yourFavoritesTracks {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.addTracksToMediateka {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.searchTracksBtn {
+    color: black;
+    text-decoration: none;
+    background: white;
+    font-weight: 700;
+    width: 200px;
+    padding: 10px 0px;
+    border-radius: 30px;
+    margin: 0 auto;
+}
+
+.searchTracksBtn:hover {
+    transform: scale(1.05);
+}

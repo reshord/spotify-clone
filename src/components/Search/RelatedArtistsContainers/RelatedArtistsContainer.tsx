@@ -5,7 +5,6 @@ import SearchedArtistsCard from "../SearchedCards/SearchedArtistsCard";
 import '../../../styles/Search/RelatedArtists.css'
 import { useAppDispatch, useAppSelector } from "../../../rtk/hooks/RTKHook";
 import { RootState, store } from "../../../rtk/store";
-import { setItemToSearchHistory } from "../../../rtk/slices/Search";
 
 interface IProps {
     items: IRelatedArtist[] | null,

@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
-import { ICurrentArtistTopTracks } from "../types/types";
 
 interface IParams {
     id: string | undefined

@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { Link, useLocation, useMatch } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import '../styles/PageNotFound.css'
 
 const PageNotFound = () => {

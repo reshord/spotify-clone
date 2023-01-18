@@ -1,9 +1,7 @@
-import { Card } from "@mui/material";
 import React from "react";
 import { useAppSelector } from "../../rtk/hooks/RTKHook";
 import { RootState, store } from "../../rtk/store";
 import '../../styles/Podcasts/Podcasts.css'
-import CardMusic from "../Content/MusicContainer/CardMusic";
 import PodcastsCard from "./PodcastsCard";
 
 interface IProps {

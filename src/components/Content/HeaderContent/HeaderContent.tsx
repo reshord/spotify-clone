@@ -6,7 +6,6 @@ import MenuItem from '@mui/material/MenuItem';
 import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/system';
 import TextField from '@mui/material/TextField';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { setToggleModal } from '../../../rtk/slices/modals';
 import { useAppDispatch, useAppSelector } from '../../../rtk/hooks/RTKHook';
 import { RootState, store } from '../../../rtk/store';
@@ -14,7 +13,6 @@ import {AiOutlineSetting} from 'react-icons/ai'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import { getProfile, getSearched } from '../../../rtk/axios';
 import {GrClose} from 'react-icons/gr'
-import axios from 'axios';
 import { deleteSearchResults, setCurrentSearchValue } from '../../../rtk/slices/Search';
 
 const HeaderContent = () => {

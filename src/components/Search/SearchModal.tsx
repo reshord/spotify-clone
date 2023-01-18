@@ -6,19 +6,17 @@ import { GrClose } from "react-icons/gr"
 import { Link, useNavigate } from "react-router-dom"
 import { getSearched } from "../../rtk/axios"
 import { useAppDispatch, useAppSelector } from "../../rtk/hooks/RTKHook"
-import { clearHistory, deleteItemSearchHistory, deleteSearchResults, setCurrentSearchValue } from "../../rtk/slices/Search"
+import { clearHistory, deleteSearchResults, setCurrentSearchValue } from "../../rtk/slices/Search"
 import { RootState, store } from "../../rtk/store"
 import CardMusic from "../Content/MusicContainer/CardMusic"
 import SearchedAlbumCard from "./SearchedCards/SearchedAlbumCard"
 import SearchedArtistsCard from "./SearchedCards/SearchedArtistsCard"
 import SearchedPlaylistsCard from "./SearchedCards/SearchedPlaylistsCard"
 import SearchedTracksCard from "./SearchedCards/SearchedTracks"
-import {IoMdClose} from 'react-icons/io'
 import SearchHistoryCard from "./SearchedCards/SearchHistoryCard"
-import sdfgdfg from '../../images/SpinnerLoader.svg'
 
 const SearchModal = () => {
-    const {genres, auth, search} = useAppSelector<RootState>(store.getState)
+    const {auth, search} = useAppSelector<RootState>(store.getState)
 
     const [value, setValue] = useState<string>('')
     const searchSections = ['Топ', 'Треки', 'Альбомы', 'Исполнители', 'Плейлисты']
@@ -142,17 +140,19 @@ const SearchModal = () => {
                 )}
                 {currentSection === 0 && search.currentSearchValue && (
                     <>
-                        <div className="searchedAuthor">
-                            <img className="searchedAuthorImage" src={`${search.searchedArtists && search.searchedArtists[0].image}`} alt="" />
-                            <div className="searchedAuthorInfo">
-                                <div className="searchedAuthorTitle">
-                                    {search.searchedArtists && search.searchedArtists[0].name}
-                                </div>
-                                <div className="searchedAuthorMarker">
-                                    Исполнитель
+                        <Link to={`/artist/${search.searchedArtists && search.searchedArtists[0].id}`}>
+                            <div className="searchedAuthor">
+                                <img className="searchedAuthorImage" src={`${search.searchedArtists && search.searchedArtists[0].image}`} alt="" />
+                                <div className="searchedAuthorInfo">
+                                    <div className="searchedAuthorTitle">
+                                        {search.searchedArtists && search.searchedArtists[0].name}
+                                    </div>
+                                    <div className="searchedAuthorMarker">
+                                        Исполнитель
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                         <span style={{color: 'white', fontSize: '1.25rem', fontWeight: 700}}>{search.searchedArtists && search.searchedArtists[0].name} и не только.</span>
                         <div style={{overflow: 'scroll'}}>
                             <div className="searchedPlaylistsList">

@@ -3,7 +3,7 @@ import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { getCurrentSearchPlaylistsSongs } from "../../../rtk/axios";
 import { useAppDispatch, useAppSelector } from "../../../rtk/hooks/RTKHook";
-import { deleteItemSearchHistory, setItemToSearchHistory } from "../../../rtk/slices/Search";
+import { deleteItemSearchHistory } from "../../../rtk/slices/Search";
 import { setCurrentPlaylist } from "../../../rtk/slices/SpotifyPlaylists";
 import { RootState, store } from "../../../rtk/store";
 import { ISearchedTracks } from "../../../types/types";

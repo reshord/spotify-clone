@@ -6,7 +6,6 @@ import { RootState, store } from '../../../rtk/store';
 import React, {useEffect} from 'react'
 import {MdOutlineFavoriteBorder, MdFavorite} from 'react-icons/md'
 import {BsPauseFill} from 'react-icons/bs'
-import { addSongToFavourites } from '../../../rtk/slices/SpotifyPlaylists';
 import { Link } from 'react-router-dom';
 import { getCurrentArtistTopTracks, getCurrentSearchArtist, getRelatedArtists } from '../../../rtk/axios';
 import { deleteCurrentPlayingSong, setCurrentPlayingSong, setStopSong } from '../../../rtk/slices/TracksPlayer';
@@ -16,10 +15,10 @@ const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, bu
     const [onSongHover, setOnSongHover] = useState<boolean>()
     // const [currentFavorite, setCurrentFavorite] = useState<boolean>(false)
 
-    const {favourites, playlists, player} =  useAppSelector<RootState>(store.getState)    
+    const {player} =  useAppSelector<RootState>(store.getState)    
     const dispatch = useAppDispatch()
 
-    let currentFavorite = playlists.favoritesList.length && playlists.favoritesList.filter(el => el.id === id)
+    // let currentFavorite = playlists.favoritesList.length && playlists.favoritesList.filter(el => el.id === id)
 
     const addToFavourites = () => {
         // setFavourite(true)

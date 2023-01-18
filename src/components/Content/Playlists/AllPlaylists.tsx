@@ -1,14 +1,11 @@
-import { useLocation } from "react-router-dom";
 import { useAppSelector } from "../../../rtk/hooks/RTKHook";
 import { RootState, store } from "../../../rtk/store";
 import Sidebar from "../../Sidebar/Sidebar";
 import HeaderContent from "../HeaderContent/HeaderContent";
 import '../../../styles/Playlists/AllPlaylists.css'
 import BannerToAuth from "../../BannerToAuth";
-import {useState, useEffect} from 'react'
-import { IPlaylist } from "../../../types/types";
+import {useEffect} from 'react'
 import CardMusic from "../MusicContainer/CardMusic";
-import MobileFooter from "../../Footer/MobileFooter";
 import axios from "axios";
 
 const Playlists = () => {
@@ -32,8 +29,6 @@ const Playlists = () => {
             behavior: 'smooth'
         })
         getPlaylist()
-        console.log(search.currentSearchPlaylist.songs);
-        
     }, []);
 
     return ( 

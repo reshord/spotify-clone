@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { getCurrentSearchPlaylistsSongs, getPlaylistsSongs } from '../../../rtk/axios';
 import { useAppDispatch, useAppSelector } from '../../../rtk/hooks/RTKHook';
@@ -7,7 +7,7 @@ import { deleteItemSearchHistory, setItemToSearchHistory } from '../../../rtk/sl
 import { setCurrentPlaylist } from '../../../rtk/slices/SpotifyPlaylists';
 import { RootState, store } from '../../../rtk/store';
 import '../../../styles/Content/Music/CardMusic.css'
-import { IPlaylist, ISongInfo } from '../../../types/types';
+import { ISongInfo } from '../../../types/types';
 import {IoMdClose} from 'react-icons/io'
 
 interface IProps {
@@ -19,7 +19,7 @@ interface IProps {
     type: string
 }
 
-const CardMusic: React.FC<IProps> = ({img, name, description, songs, id, type}) => {
+const СardMusic: React.FC<IProps> = ({img, name, description, songs, id, type}) => {
 
     const dispatch = useAppDispatch()
     const [activePlayBtn, setActivePlayBtn] = useState<boolean>(false)
@@ -50,12 +50,12 @@ const CardMusic: React.FC<IProps> = ({img, name, description, songs, id, type}) 
         }
     }
 
-    const deleteItemHistory = (e: React.MouseEvent) => {
-        e.preventDefault()
-        e.stopPropagation();
-        e.nativeEvent.stopImmediatePropagation()
-        dispatch(deleteItemSearchHistory({img, name, description, songs, id, type}))
-    }
+        const deleteItemHistory = (e: React.MouseEvent) => {
+            e.preventDefault()
+            e.stopPropagation();
+            e.nativeEvent.stopImmediatePropagation()
+            dispatch(deleteItemSearchHistory({img, name, description, songs, id, type}))
+        }
 
     const activeToAuthModal = (img: string | undefined) => {
         dispatch(setModalToAuth({toggle: true, img}))
@@ -141,4 +141,4 @@ const CardMusic: React.FC<IProps> = ({img, name, description, songs, id, type}) 
      );
 }
  
-export default CardMusic;
+export default СardMusic;

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import {useLocation, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../rtk/hooks/RTKHook";
 import { RootState, store } from "../../rtk/store";
 

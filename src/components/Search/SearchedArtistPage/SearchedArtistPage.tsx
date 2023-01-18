@@ -1,7 +1,5 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../../rtk/hooks/RTKHook";
+import { useAppSelector } from "../../../rtk/hooks/RTKHook";
 import { RootState, store } from "../../../rtk/store";
 import HeaderContent from "../../Content/HeaderContent/HeaderContent";
 import Sidebar from "../../Sidebar/Sidebar";
@@ -23,16 +21,12 @@ const SearchedArtistPage = () => {
                                 ? shrotlyListArtistTracks 
                                 : search.currentArtistTopTracks
 
-    const navigate = useNavigate()
-
     useEffect(() => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         })
-        console.log(newArtistTracksList);
-        
-    }, [search.currentSearchedArtist]);
+    }, []);
 
     return ( 
         <>
@@ -52,9 +46,11 @@ const SearchedArtistPage = () => {
                             <div>
                                 {search.currentArtistTopTracks?.map((track, index) => (
                                     <SongCard 
+                                        setButtonNumber={(num: number) => setButtonNumber(num)}
                                         img={track.img}
                                         title={track.title}
                                         description={''}
+                                        index={index}
                                         id={track.id} 
                                         number={index + 1}
                                         songNumber={0} 
@@ -70,11 +66,13 @@ const SearchedArtistPage = () => {
                             <div>
                                 {newArtistTracksList?.map((track, index) => (
                                     <SongCard 
+                                        setButtonNumber={(num: number) => setButtonNumber(num)}
                                         img={track.img}
                                         title={track.title}
                                         description={''}
                                         id={track.id} 
                                         number={index + 1}
+                                        index={index}
                                         songNumber={0} 
                                         albumName={track.albumName} 
                                         key={index} 

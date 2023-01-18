@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getCurrentSearchPlaylistsSongs } from "../../../rtk/axios";
 import { useAppDispatch, useAppSelector } from "../../../rtk/hooks/RTKHook";
-import { deleteItemSearchHistory, setItemToSearchHistory } from "../../../rtk/slices/Search";
-import { deleteCurrentPlaylist, setCurrentPlaylist } from "../../../rtk/slices/SpotifyPlaylists";
+import { setItemToSearchHistory } from "../../../rtk/slices/Search";
+import { setCurrentPlaylist } from "../../../rtk/slices/SpotifyPlaylists";
 import { RootState, store } from "../../../rtk/store";
 import { ISearchedPlaylists } from "../../../types/types";
 
@@ -11,8 +11,6 @@ const SearchedPlaylistsCard: React.FC<ISearchedPlaylists> = ({image, name, id, d
 
     const dispatch = useAppDispatch()
     const {search} = useAppSelector<RootState>(store.getState)
-
-    const location = useLocation()
 
     const getSearchedPlaylistsTracks = () => {
         dispatch(getCurrentSearchPlaylistsSongs({

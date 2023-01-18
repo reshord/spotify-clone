@@ -10,13 +10,11 @@ import MobileFooter from "../Footer/MobileFooter";
 import {GrClose} from 'react-icons/gr'
 import { useEffect, useState } from "react";
 import SongCard from "../Content/Playlists/SongCard";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CardMusic from "../Content/MusicContainer/CardMusic";
 import { deleteSearchResults, setCurrentSearchValue } from "../../rtk/slices/Search";
 import { getCurrentArtistTopTracks, getCurrentSearchArtist, getRelatedArtists, getSearched } from "../../rtk/axios";
-import SearchModal from "./SearchModal";
 import SearchedArtistsCard from './SearchedCards/SearchedArtistsCard'
-import SpinnerLoader from '../../images/SpinnerLoader.svg'
 import SearchedSongCard from "./SearchedCards/SearchedSongCard";
 import PlayerTrack from "../PlayerTrack/PlayerTrack";
 
@@ -29,10 +27,9 @@ const SearchPage = () => {
     const [currentSection, setCurrentSection] = useState<number>(0)
     const [buttonNumber, setButtonNumber] = useState<number | undefined>(-1)
 
-    const navigation = useNavigate()
     const dispatch = useAppDispatch()
 
-    const {searchedAlbums, searchedArtists, searchedPlaylists, searchedTracks, currentSearchValue} = search
+    const {searchedArtists, searchedPlaylists, searchedTracks, currentSearchValue} = search
 
     const shortlyTracksList = searchedTracks?.slice(0, 4)
     const shortlyHistoryPlaylists = search.searchHistory.length > 6 
@@ -176,6 +173,7 @@ const SearchPage = () => {
                                 <div className="allSearchedTracksList">
                                     {searchedTracks?.map((track, index) => (
                                         <SongCard 
+                                            setButtonNumber={(num: number) => setButtonNumber(num)}
                                             img={track.img}
                                             title={track.name}
                                             description={''}
@@ -187,6 +185,8 @@ const SearchPage = () => {
                                             songAuthorId={track.songAuthorId}
                                             buttonNumber={buttonNumber}
                                             songUrl={track.songUrl}
+                                            index={index}
+
                                         />
                                     ))}
                                 </div>

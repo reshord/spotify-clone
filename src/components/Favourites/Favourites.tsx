@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { MdKeyboardArrowLeft } from 'react-icons/md';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../rtk/hooks/RTKHook';
 import { RootState, store } from '../../rtk/store';
 import '../../styles/Favourites/Favourites.css'
-import HeaderContent from '../Content/HeaderContent/HeaderContent';
 import MobileFooter from '../Footer/MobileFooter';
 import Sidebar from '../Sidebar/Sidebar';
 import ArtistsSection from './ArtistsSection';
@@ -27,8 +25,6 @@ const FavouritesPage = () => {
 
     React.useEffect(() => {
         if(!auth.token) navigate('/')
-        console.log(mobileSection);
-        
     }, [auth.profile, mobileSection]);
 
     return ( 

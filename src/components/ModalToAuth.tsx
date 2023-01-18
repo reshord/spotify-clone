@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../rtk/hooks/RTKHook';
 import { setModalToAuth } from '../rtk/slices/modals';
 import { RootState, store } from '../rtk/store';

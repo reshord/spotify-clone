@@ -1,9 +1,7 @@
-import axios from "axios";
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { getCurrentArtistTopTracks, getCurrentSearchArtist, getRelatedArtists } from "../../../rtk/axios";
-import { useAppDispatch, useAppSelector } from "../../../rtk/hooks/RTKHook";
-import { RootState, store } from "../../../rtk/store";
+import { useAppDispatch } from "../../../rtk/hooks/RTKHook";
 
 interface IProps {
     img: string | undefined 
@@ -15,8 +13,6 @@ interface IProps {
 const SearchedSongCard: React.FC<IProps> = ({img, name, songAuthorId, author}) => {
 
     const dispatch = useAppDispatch()
-    const {genres, auth, search, Modals} = useAppSelector<RootState>(store.getState)
-
 
     const id = songAuthorId
 

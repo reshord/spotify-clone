@@ -2,18 +2,8 @@ import HeaderContent from "../Content/HeaderContent/HeaderContent";
 import Sidebar from "../Sidebar/Sidebar";
 import PodcastsContainer from "./PodcastsContainer";
 import '../../styles/Podcasts/Podcasts.css'
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../rtk/hooks/RTKHook";
-import { getShows } from "../../rtk/axios";
-import { RootState, store } from "../../rtk/store";
 
 const PodcastsPage = () => {
-
-    const dispatch = useAppDispatch()
-    const {auth, shows} = useAppSelector<RootState>(store.getState)
-
-    useEffect(() => {
-    }, []);
 
     return ( 
         <div className="podcastsPageBody">

@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ISongInfo } from "../../types/types";
 
 interface IAction {
     id: string

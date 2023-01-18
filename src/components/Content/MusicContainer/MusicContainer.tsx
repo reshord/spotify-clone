@@ -2,10 +2,8 @@ import CardMusic from './CardMusic'
 import '../../../styles/Content/Music/MusicContainer.css'
 import { Link } from 'react-router-dom';
 import React, { useEffect, useRef, useState } from 'react';
-import SimpleBar from "simplebar-react";
 import { IPlaylist } from '../../../types/types';
-import { useAppDispatch, useAppSelector } from '../../../rtk/hooks/RTKHook';
-import { RootState, store } from '../../../rtk/store';
+import { useAppDispatch } from '../../../rtk/hooks/RTKHook';
 import { setCurrentSection } from '../../../rtk/slices/SpotifyPlaylists';
 
 
@@ -18,7 +16,6 @@ interface IProps {
 
 const MusicContainer: React.FC<IProps> = ({name, playlist, token, type}) => {
 
-    const {playlists} = useAppSelector<RootState>(store.getState) 
     const [currentTitle, setCurrentTitle] = useState<string>()
     const dispatch = useAppDispatch()
     

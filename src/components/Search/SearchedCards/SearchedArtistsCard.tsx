@@ -1,15 +1,11 @@
-import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 import { getCurrentArtistTopTracks, getCurrentSearchArtist, getRelatedArtists } from "../../../rtk/axios";
-import { useAppDispatch, useAppSelector } from "../../../rtk/hooks/RTKHook";
-import { setItemToSearchHistory } from "../../../rtk/slices/Search";
-import { RootState, store } from "../../../rtk/store";
+import { useAppDispatch } from "../../../rtk/hooks/RTKHook";
 import { ISearchedArtists } from "../../../types/types";
 
 const SearchedArtistsCard: React.FC<ISearchedArtists> = ({image, name, id, type}) => {
 
-    const {auth} = useAppSelector<RootState>(store.getState)
     const dispatch = useAppDispatch()
 
     const getArtist = () => {

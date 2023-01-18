@@ -2,12 +2,9 @@ import '../../styles/PlayerTrack/PlayerTrack.css'
 import {MdOutlineFavoriteBorder} from 'react-icons/md'
 import { useAppDispatch, useAppSelector } from '../../rtk/hooks/RTKHook';
 import { RootState, store } from '../../rtk/store';
-import axios from 'axios';
 import { useEffect, useRef } from 'react';
-import { getCurrentlyPlayingTrack } from '../../rtk/axios';
 import { Link } from 'react-router-dom';
 import {BsFillPlayFill, BsPauseFill} from 'react-icons/bs'
-import {VscDebugStart} from 'react-icons/vsc'
 import {ImNext2, ImPrevious2} from 'react-icons/im'
 import {  deleteCurrentPlayingSong, setCurrentPlayingSong, setStopSong } from '../../rtk/slices/TracksPlayer';
 
@@ -25,7 +22,6 @@ const PlayerTrack = () => {
         //     }
         // })
         // dispatch(getCurrentlyPlayingTrack(auth.token))
-
     }
 
     let audioElem = useRef<HTMLAudioElement | null>(null)

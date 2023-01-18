@@ -8,12 +8,9 @@ import { RootState, store } from './rtk/store';
 import { useAppDispatch, useAppSelector } from './rtk/hooks/RTKHook'
 import { setToken } from './rtk/slices/Auth'
 import MobileFooter from './components/Footer/MobileFooter';
-import { getPlaylistsSongs } from './rtk/axios';
 import ModalToAuth from './components/ModalToAuth';
 import PlayerTrack from './components/PlayerTrack/PlayerTrack';
-import SearchModal from './components/Search/SearchModal';
 import FavoriteModal from './components/Favourites/FavoriteModal';
-import { Modal } from '@mui/material';
 
 
 function App() {

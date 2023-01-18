@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ICurrentArtistTopTracks, IRelatedArtist, ISearchedAlbums, ISearchedArtist, ISearchedArtists, ISearchedPlaylists, ISearchedTracks, ISongInfo } from "../../types/types";
+import { IRelatedArtist, ISearchedAlbums, ISearchedArtist, ISearchedArtists, ISearchedPlaylists, ISearchedTracks, ISongInfo } from "../../types/types";
 import { getCurrentArtistTopTracks, getCurrentSearchArtist, getCurrentSearchPlaylistsSongs, getRelatedArtists, getSearched } from "../axios";
 import { addSongsToPlaylist, getNewSearchResultsAlbums, getNewSearchResultsArtists, getNewSearchResultsPlaylists, getNewSearchResultsTracks, getRelatedArtistsList, getSearchArtistTopTracks } from "../hooks/addSongsToPlaylist";
 
