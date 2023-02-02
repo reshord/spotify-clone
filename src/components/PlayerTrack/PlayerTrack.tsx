@@ -2,13 +2,13 @@ import '../../styles/PlayerTrack/PlayerTrack.css'
 import {MdOutlineFavoriteBorder} from 'react-icons/md'
 import { useAppDispatch, useAppSelector } from '../../rtk/hooks/RTKHook';
 import { RootState, store } from '../../rtk/store';
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {BsFillPlayFill, BsPauseFill} from 'react-icons/bs'
 import {ImNext2, ImPrevious2} from 'react-icons/im'
 import {  deleteCurrentPlayingSong, setCurrentPlayingSong, setStopSong } from '../../rtk/slices/TracksPlayer';
 
-const PlayerTrack = () => {
+const PlayerTrack = React.memo(() => {
 
     const {auth, player} = useAppSelector<RootState>(store.getState)
     const {isPlaying, currentPlayingSong} = player
@@ -62,9 +62,9 @@ const PlayerTrack = () => {
                             <Link to={''} className="currentTrackTitle">{player.currentPlayingSong?.title}</Link>
                             <Link to={`/artist/${player.currentPlayingSong.songAuthorId}`} className="currentTrackAuthor">{player.currentPlayingSong?.author}</Link>
                         </div>
-                        <div className="blockAddToFavourites">
+                        {/* <div className="blockAddToFavourites">
                             <MdOutlineFavoriteBorder style={{fontSize: 20, fill: 'white'}}/>
-                        </div>
+                        </div> */}
                     </>
                 )}
             </div>
@@ -93,6 +93,6 @@ const PlayerTrack = () => {
         </div>
         </div>
      );
-}
+})
  
 export default PlayerTrack;

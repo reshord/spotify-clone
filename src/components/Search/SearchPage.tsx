@@ -13,7 +13,7 @@ import SongCard from "../Content/Playlists/SongCard";
 import { Link } from "react-router-dom";
 import CardMusic from "../Content/MusicContainer/CardMusic";
 import { deleteSearchResults, setCurrentSearchValue } from "../../rtk/slices/Search";
-import { getCurrentArtistTopTracks, getCurrentSearchArtist, getRelatedArtists, getSearched } from "../../rtk/axios";
+import { getCurrentArtistTopTracks, getCurrentSearchArtist, getRelatedArtists, getSearched } from "../../axios";
 import SearchedArtistsCard from './SearchedCards/SearchedArtistsCard'
 import SearchedSongCard from "./SearchedCards/SearchedSongCard";
 import PlayerTrack from "../PlayerTrack/PlayerTrack";
@@ -160,8 +160,18 @@ const SearchPage = () => {
                                     <div className="searchResultsTracksBlock">
                                         <span className="searchResultsTracksTitle">Треки</span>
                                         <div className="searchResultsTracks">
-                                            {shortlyTracksList?.map(track => (
-                                                <SearchedSongCard img={track.img} name={track.name} songAuthorId={track.songAuthorId} author={track.author}/>
+                                            {shortlyTracksList?.map((track, index) => (
+                                                <SearchedSongCard 
+                                                    songUrl={track.songUrl} 
+                                                    number={index + 1} 
+                                                    index={index} 
+                                                    setButtonNumber={setButtonNumber} 
+                                                    buttonNumber={buttonNumber} 
+                                                    img={track.img} 
+                                                    name={track.name} 
+                                                    songAuthorId={track.songAuthorId} 
+                                                    author={track.author}
+                                                />
                                             ))}
                                         </div>
                                     </div>
@@ -186,7 +196,7 @@ const SearchPage = () => {
                                             buttonNumber={buttonNumber}
                                             songUrl={track.songUrl}
                                             index={index}
-
+                                            author={track.author}
                                         />
                                     ))}
                                 </div>

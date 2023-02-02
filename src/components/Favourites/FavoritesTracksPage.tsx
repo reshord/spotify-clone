@@ -20,10 +20,12 @@ const FavoritesTracksPage = () => {
                         <div className="favoritesTracksHeaderContentInfo">
                             <span className="favoriteTracksHeaderTitle">ПЛЕЙЛИСТ</span>
                             <span className="favoritesTrackPageTitle">Любимые треки</span>
-                            <div className="favoritesTrackPageUserInfoBlock">
-                                <img src={`${auth.profile?.images && auth.profile.images[0].url}`} alt="" className="favoritesTrackPageUserImage" />
-                                <span className="favoritesTrackPageUserName">{auth.profile?.display_name}</span>
-                            </div>
+                            {auth.token && (
+                                <div className="favoritesTrackPageUserInfoBlock">
+                                    <img src={`${auth.profile?.images && auth.profile.images[0].url}`} alt="" className="favoritesTrackPageUserImage" />
+                                    <span className="favoritesTrackPageUserName">{auth.profile?.display_name}</span>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

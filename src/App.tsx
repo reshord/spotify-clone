@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import './App.css';
+import '../src/styles/App.css';
 import BannerToAuth from './components/BannerToAuth';
 import Content from './components/Content/Content';
 import MobileModal from './components/MobileModal';
@@ -13,7 +13,7 @@ import PlayerTrack from './components/PlayerTrack/PlayerTrack';
 import FavoriteModal from './components/Favourites/FavoriteModal';
 
 
-function App() {
+const App = () => {
 
   const {Modals, auth, player, favourites} = useAppSelector<RootState>(store.getState)
 
@@ -25,7 +25,8 @@ function App() {
           const token = hash.substring(1).split('&')[0].split('=')[1]
           dispatch(setToken(token))
           window.localStorage.setItem('token', token)
-      }      
+      }  
+       
     }, [auth.token]);
 
   

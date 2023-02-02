@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getCurrentArtistTopTracks, getCurrentSearchArtist, getRelatedArtists } from "../../../rtk/axios";
+import { getCurrentArtistTopTracks, getCurrentSearchArtist, getRelatedArtists } from "../../../axios";
 import { useAppDispatch } from "../../../rtk/hooks/RTKHook";
 import { ISearchedArtists } from "../../../types/types";
 

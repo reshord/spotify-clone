@@ -1,24 +1,6 @@
 export interface ISong {
     description: string
     id: string
-
-}
-
-interface IArtist {
-    external_urls: {
-        spotify: string
-        href: string
-        id: string
-        name: string
-        type: string
-        uri: string
-    }
-}
-
-interface IImage {
-    height: number
-    url: string
-    width: number
 }
 
 export interface ISongInfo {
@@ -43,7 +25,6 @@ export interface IPlaylist {
     img: string
     title: string
     description: string
-    // type: string
     songs?: ISongInfo[]
 }
 
@@ -57,13 +38,8 @@ export interface IShowList {
     background?: string
 }
 
-export interface ISearchedTracks {
-    // name: string,
-    // id: string,
-    // albumName: string,
-    // author: string,
-    // image: string
-    songs: ISongInfo[] | undefined
+export interface ISearchedTrack {
+    songs?: ISongInfo[] | undefined
     name: string | undefined
     description: string
     img: string | undefined
@@ -72,6 +48,10 @@ export interface ISearchedTracks {
     albumName: string,
     songAuthorId: string
     songUrl: string
+    index: number
+    setButtonNumber?: (num: number) => void
+    buttonNumber?: number
+    number: number
 }
 export interface ISearchedAlbums {
     image: string,
@@ -99,16 +79,8 @@ export interface ISearchedArtist {
     name: string
 }
 
-export interface ICurrentArtistTopTracks {
-
-}
-
 export interface IRelatedArtist {
     authorId: string
     image: string
     name: string
 }
-
-// let INewRelatedArtist = {
-
-// }

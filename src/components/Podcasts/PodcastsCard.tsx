@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getShows } from "../../rtk/axios";
+import { getShows } from "../../axios";
 import { useAppDispatch, useAppSelector } from "../../rtk/hooks/RTKHook";
 import { setModalToAuth } from "../../rtk/slices/modals";
 import { setCurrentShow } from "../../rtk/slices/Show";

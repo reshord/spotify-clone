@@ -14,7 +14,7 @@ const ModalToAuth = () => {
 
     const handleClick = () => {
         const clientId = '4a4a31b6c9084d13b5499f9e8e2a2f45'
-        const redirectUrl = 'http://localhost:3000/'
+        const redirectUrl = 'https://magical-madeleine-924e48.netlify.app'
         const apiUrl = 'https://accounts.spotify.com/authorize'
 
         window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&response_type=token&show_daialog=true`

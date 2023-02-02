@@ -8,12 +8,15 @@ import SongCard from "../../Content/Playlists/SongCard";
 import RelatedArtistsContainer from "../RelatedArtistsContainers/RelatedArtistsContainer";
 import MobileFooter from "../../Footer/MobileFooter";
 import PlayerTrack from "../../PlayerTrack/PlayerTrack";
+import { useNavigate } from "react-router-dom";
 
 const SearchedArtistPage = () => {
 
-    const {search, player} = useAppSelector<RootState>(store.getState)
+    const {search, player, auth} = useAppSelector<RootState>(store.getState)
     const [buttonNumber, setButtonNumber] = useState<number | undefined>(-1)
     const [showAllTracks, setShowAllTracks] = useState<boolean>(false)
+
+    const navigate = useNavigate()
 
     const shrotlyListArtistTracks = search.currentArtistTopTracks?.slice(0, 5)
 
@@ -22,11 +25,13 @@ const SearchedArtistPage = () => {
                                 : search.currentArtistTopTracks
 
     useEffect(() => {
+        setShowAllTracks(false)
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         })
-    }, []);
+        if(!auth.token) navigate('/')
+    }, [search.currentSearchedArtist]);
 
     return ( 
         <>
@@ -59,6 +64,7 @@ const SearchedArtistPage = () => {
                                         songAuthorId={track.songAuthorId}
                                         buttonNumber={buttonNumber}
                                         songUrl={track.songUrl}
+                                        author={track.author}
                                     />
                                 ))}
                             </div>
@@ -78,6 +84,7 @@ const SearchedArtistPage = () => {
                                         key={index} 
                                         songAuthorId={track.songAuthorId}
                                         buttonNumber={buttonNumber}
+                                        author={track.author}
                                         songUrl={track.songUrl}
                                         
                                     />

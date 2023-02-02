@@ -195,6 +195,9 @@
 .mobilePlaylistDescription {
     font-weight: 600;
     opacity: 0.5;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .aboutPlaylistMobile {
@@ -297,6 +300,9 @@
     }
     .mobilePlaylistInfo {
         margin-left: 20px;
+    }
+    .mobilePlaylistDescription {
+        width: 200px;
     }
 }
 

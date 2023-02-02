@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { getCurrentSearchPlaylistsSongs, getPlaylistsSongs } from '../../../rtk/axios';
+import { getCurrentSearchPlaylistsSongs, getPlaylistsSongs } from '../../../axios';
 import { useAppDispatch, useAppSelector } from '../../../rtk/hooks/RTKHook';
 import { setModalToAuth } from '../../../rtk/slices/modals';
 import { deleteItemSearchHistory, setItemToSearchHistory } from '../../../rtk/slices/Search';

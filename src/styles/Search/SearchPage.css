@@ -215,10 +215,31 @@
 
 .searchedSongCardInfo {
     display: flex;
+    position: relative;
 }
 
 .searchedSongImage {
     width: 40px;
+}
+
+.playTrackButton {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+
+.playTrackButtonMobile {
+    position: absolute;
+    top: 15px;
+    left: 13px;
+}
+
+.onFocusSearchedSongCard {
+    padding: 7px 7px;
+    border-radius: 5px;
+    cursor: default;
+    --background-tinted-base: hsla(0,0%,100%,.1);
+    background-color: var(--background-tinted-base,rgba(0,0,0,0.6));
 }
 
 .searchedSongInfo {
@@ -698,6 +719,7 @@
         display: flex;
         align-items: center;
         margin-bottom: 10px;
+        position: relative;
     }
     .searchedTrackInfo {
         display: flex;
@@ -716,6 +738,7 @@
         opacity: 0.6;
         font-size: 12px;
         margin-top: 2px;
+        color: white;
     }
     .searchedTrackBody img {
         width: 56px;

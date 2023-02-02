@@ -7,7 +7,7 @@ import React, {useEffect} from 'react'
 import {MdOutlineFavoriteBorder, MdFavorite} from 'react-icons/md'
 import {BsPauseFill} from 'react-icons/bs'
 import { Link } from 'react-router-dom';
-import { getCurrentArtistTopTracks, getCurrentSearchArtist, getRelatedArtists } from '../../../rtk/axios';
+import { getCurrentArtistTopTracks, getCurrentSearchArtist, getRelatedArtists } from '../../../axios';
 import { deleteCurrentPlayingSong, setCurrentPlayingSong, setStopSong } from '../../../rtk/slices/TracksPlayer';
 
 const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, buttonNumber, index, author, title, albumName, img, id, songAuthorId, songUrl}) => {
@@ -53,7 +53,6 @@ const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, bu
     const setCurrentSong = async () => {
         await dispatch(deleteCurrentPlayingSong())
         dispatch(setCurrentPlayingSong({isFavourite, number, buttonNumber, index, author, title, albumName, img, id, songAuthorId, songUrl}))
-
     }
 
     useEffect(() => {
@@ -72,10 +71,10 @@ const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, bu
                 {onSongHover || buttonNumber === index && (
                     <>
                         {player.isPlaying ? (
-                            <BsPauseFill onClick={stopPlayingSong} style={{fontSize: 25, marginRight: 15}}/>
+                            <BsPauseFill onClick={stopPlayingSong} style={{width: 20, height: 20}}/>
                         ) : (
                             <span className='startPlaySong' onClick={setCurrentSong}>
-                                <svg role="img" height="24" width="24" aria-hidden="true" className="Svg-sc-ytk21e-0 uPxdw UIBT7E6ZYMcSDl1KL62g" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>
+                                <svg role="img" height="20" width="15" aria-hidden="true" className="Svg-sc-ytk21e-0 uPxdw UIBT7E6ZYMcSDl1KL62g" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>
                             </span>
                         )}
                     </>
@@ -83,7 +82,7 @@ const SongCard: React.FC<ISongInfo> = ({isFavourite, number, setButtonNumber, bu
                 )}
                 {onSongHover && (
                     <span className='startPlaySong' onClick={setCurrentSong}>
-                        <svg role="img" height="24" width="24" aria-hidden="true" className="Svg-sc-ytk21e-0 uPxdw UIBT7E6ZYMcSDl1KL62g" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>
+                        <svg role="img" height="20" width="15" aria-hidden="true" className="Svg-sc-ytk21e-0 uPxdw UIBT7E6ZYMcSDl1KL62g" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>
                     </span>
                 )}
                 {buttonNumber !== index && !onSongHover && (

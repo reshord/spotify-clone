@@ -1,14 +1,14 @@
 import React from "react";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
-import { getCurrentSearchPlaylistsSongs } from "../../../rtk/axios";
+import { getCurrentSearchPlaylistsSongs } from "../../../axios";
 import { useAppDispatch, useAppSelector } from "../../../rtk/hooks/RTKHook";
 import { deleteItemSearchHistory } from "../../../rtk/slices/Search";
 import { setCurrentPlaylist } from "../../../rtk/slices/SpotifyPlaylists";
 import { RootState, store } from "../../../rtk/store";
-import { ISearchedTracks } from "../../../types/types";
+import { ISearchedTrack } from "../../../types/types";
 
-const SearchHistoryCard: React.FC<ISearchedTracks> = ({img, id, songs, description, name}) => {
+const SearchHistoryCard: React.FC<ISearchedTrack> = ({img, id, songs, description, name}) => {
 
     const dispatch = useAppDispatch()
     const {search} = useAppSelector<RootState>(store.getState)

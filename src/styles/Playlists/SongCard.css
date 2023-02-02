@@ -103,7 +103,7 @@
 
 .startPlaySong svg {
     fill: white;
-    width: 17px;
+    min-width: 17px;
 }
 
 .moreMenuMobile {

@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IPlaylist, ISongInfo } from "../../types/types";
-import { getPlaylistsSongs } from "../axios";
+import { getPlaylistsSongs } from "../../axios";
 import { addSongsToPlaylist } from "../hooks/addSongsToPlaylist";
 
+const getSongsFromPayload = ({el, items}: IGetSongsFuncParams) => {
 
-
+}
 
 interface IState {
         favoritesList: ISongInfo[] | []
@@ -25,6 +26,11 @@ interface IState {
         Mood: IPlaylist[]
         Focus: IPlaylist[]
         Dream: IPlaylist[]
+}
+
+interface IGetSongsFuncParams {
+    el: IPlaylist,
+    items: any
 }
 
 const initialState: IState = {
@@ -259,10 +265,11 @@ const playlists = createSlice({
         [getPlaylistsSongs.fulfilled.toString()]: (state, action) => {
                 if(action.payload.type === 'ADD_SPOTIFY_SONGS') {
                     state.SpotifyPlaylists.filter(el => {
-
                         if(el.id === action.payload.data.id) {
+                            
                             const items = action.payload.data.tracks.items
                             const songsList = addSongsToPlaylist(items)
+
                             el.songs = songsList
                             state.currentPlaylist.songs = songsList
                         }

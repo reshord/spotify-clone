@@ -14,11 +14,6 @@ interface ISearchParams {
     value: string
 }
 
-interface IPlaylists {
-    token: string | null
-    id: string | undefined
-}
-
 interface SearchPlaylistSongsParams {
     id: string | undefined
     name: string | undefined
@@ -49,8 +44,6 @@ export const getPlaylistsSongs = createAsyncThunk(
         console.log(e);
     }
 })
-
-
 
 export const getProfile = createAsyncThunk(
        'profile', 
@@ -190,7 +183,6 @@ export const getRelatedArtists = createAsyncThunk(
                 "Content-Type": "application/json"
             }
         })
-        // debugger
         return {data: relatedArtistsList.data.artists}
     }
     catch(e) {

@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IRelatedArtist, ISearchedAlbums, ISearchedArtist, ISearchedArtists, ISearchedPlaylists, ISearchedTracks, ISongInfo } from "../../types/types";
-import { getCurrentArtistTopTracks, getCurrentSearchArtist, getCurrentSearchPlaylistsSongs, getRelatedArtists, getSearched } from "../axios";
+import { IRelatedArtist, ISearchedAlbums, ISearchedArtist, ISearchedArtists, ISearchedPlaylists, ISearchedTrack, ISongInfo } from "../../types/types";
+import { getCurrentArtistTopTracks, getCurrentSearchArtist, getCurrentSearchPlaylistsSongs, getRelatedArtists, getSearched } from "../../axios";
 import { addSongsToPlaylist, getNewSearchResultsAlbums, getNewSearchResultsArtists, getNewSearchResultsPlaylists, getNewSearchResultsTracks, getRelatedArtistsList, getSearchArtistTopTracks } from "../hooks/addSongsToPlaylist";
 
 interface IState {
-    searchedTracks: null | ISearchedTracks[]
+    searchedTracks: null | ISearchedTrack[]
     searchedArtists: null | ISearchedArtists[]
     searchedPlaylists: null | ISearchedPlaylists[]
     searchedAlbums: null | ISearchedAlbums[]
@@ -16,7 +16,7 @@ interface IState {
         description: string
         image: string | undefined
     }
-    searchHistory: ISearchedTracks[] | []
+    searchHistory: ISearchedTrack[] | []
     isLoading: boolean
     currentSearchedArtist: ISearchedArtist | null
     currentArtistTopTracks: ISongInfo[] | null
@@ -136,7 +136,6 @@ const SearchSlice = createSlice({
         },
         [getRelatedArtists.fulfilled.toString()]: (state, action) => {
             state.relatedArtists = getRelatedArtistsList(action.payload.data)
-            // debugger
         },
         [getRelatedArtists.rejected.toString()]: (state) => {
         },

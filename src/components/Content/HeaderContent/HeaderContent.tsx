@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from '../../../rtk/hooks/RTKHook';
 import { RootState, store } from '../../../rtk/store';
 import {AiOutlineSetting} from 'react-icons/ai'
 import {GiHamburgerMenu} from 'react-icons/gi'
-import { getProfile, getSearched } from '../../../rtk/axios';
+import { getProfile, getSearched } from '../../../axios';
 import {GrClose} from 'react-icons/gr'
 import { deleteSearchResults, setCurrentSearchValue } from '../../../rtk/slices/Search';
 
@@ -55,7 +55,6 @@ const HeaderContent = () => {
 
     const Exit = () => {
         window.location.href = '/'
-        navigate(0)
     }
     
     const dispatch = useAppDispatch()

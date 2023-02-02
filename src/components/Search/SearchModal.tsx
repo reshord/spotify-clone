@@ -4,7 +4,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai"
 import { BiSearch } from "react-icons/bi"
 import { GrClose } from "react-icons/gr"
 import { Link, useNavigate } from "react-router-dom"
-import { getSearched } from "../../rtk/axios"
+import { getCurrentArtistTopTracks, getCurrentSearchArtist, getRelatedArtists, getSearched } from "../../axios"
 import { useAppDispatch, useAppSelector } from "../../rtk/hooks/RTKHook"
 import { clearHistory, deleteSearchResults, setCurrentSearchValue } from "../../rtk/slices/Search"
 import { RootState, store } from "../../rtk/store"
@@ -12,18 +12,19 @@ import CardMusic from "../Content/MusicContainer/CardMusic"
 import SearchedAlbumCard from "./SearchedCards/SearchedAlbumCard"
 import SearchedArtistsCard from "./SearchedCards/SearchedArtistsCard"
 import SearchedPlaylistsCard from "./SearchedCards/SearchedPlaylistsCard"
-import SearchedTracksCard from "./SearchedCards/SearchedTracks"
+import SearchedTracksCard from "./SearchedCards/SearchedTracksCard"
 import SearchHistoryCard from "./SearchedCards/SearchHistoryCard"
 
 const SearchModal = () => {
     const {auth, search} = useAppSelector<RootState>(store.getState)
 
     const [value, setValue] = useState<string>('')
-    const searchSections = ['Топ', 'Треки', 'Альбомы', 'Исполнители', 'Плейлисты']
+    const searchSections = ['Топ', 'Треки', 'Исполнители', 'Плейлисты']
     const [currentSection, setCurrentSection] = useState<number>(0)
+    const [buttonNumber, setButtonNumber] = useState<number | undefined>(-1)
 
     const shortlyPlaylistsList = search.searchedPlaylists?.slice(0, 4)
-    const shortlyAlbumsList = search.searchedAlbums?.slice(0, 4)
+    const shortlyTracksList = search.searchedTracks?.slice(0, 4)
 
 
     const dispatch = useAppDispatch()
@@ -38,6 +39,14 @@ const SearchModal = () => {
     const spotifySearch = async () => {
         dispatch(getSearched({token: auth.token, value}))
         dispatch(setCurrentSearchValue(value))
+    }
+
+    const currentSearchArtistID = search.searchedArtists && search.searchedArtists[0].id
+
+    const getArtist = () => {
+        dispatch(getCurrentSearchArtist({id: currentSearchArtistID}))
+        dispatch(getCurrentArtistTopTracks(currentSearchArtistID))
+        dispatch(getRelatedArtists(currentSearchArtistID))
     }
     
     const clearFullHistory = () => {
@@ -140,7 +149,7 @@ const SearchModal = () => {
                 )}
                 {currentSection === 0 && search.currentSearchValue && (
                     <>
-                        <Link to={`/artist/${search.searchedArtists && search.searchedArtists[0].id}`}>
+                        <Link to={`/artist/${search.searchedArtists && search.searchedArtists[0].id}`} onClick={getArtist}>
                             <div className="searchedAuthor">
                                 <img className="searchedAuthorImage" src={`${search.searchedArtists && search.searchedArtists[0].image}`} alt="" />
                                 <div className="searchedAuthorInfo">
@@ -162,26 +171,55 @@ const SearchModal = () => {
                             </div>
                         </div>
                         <div className="shortlySearchedTracksList">
-                            {shortlyAlbumsList?.map(el => ( <SearchedAlbumCard {...el} /> ))}
+                            {shortlyTracksList?.map((el, index) => ( 
+                                <SearchedTracksCard 
+                                    name={el.name} 
+                                    description={el.description} 
+                                    img={el.img} 
+                                    id={el.id} 
+                                    author={el.author} 
+                                    albumName={el.albumName} 
+                                    songAuthorId={el.songAuthorId} 
+                                    songUrl={el.songUrl}
+                                    index={index}
+                                    buttonNumber={buttonNumber}
+                                    setButtonNumber={setButtonNumber}
+                                    number={index + 1}
+                                /> ))}
                         </div>
                     </>
                 )}
                 {currentSection === 1 && (
                     <div className="searchedTracksList">
-                        {search.searchedTracks?.map(el => ( <SearchedTracksCard {...el} /> ))}
+                        {search.searchedTracks?.map((el, index) => ( 
+                            <SearchedTracksCard 
+                                name={el.name} 
+                                description={el.description} 
+                                img={el.img} 
+                                id={el.id} 
+                                author={el.author} 
+                                albumName={el.albumName} 
+                                songAuthorId={el.songAuthorId} 
+                                songUrl={el.songUrl}
+                                index={index}
+                                buttonNumber={buttonNumber}
+                                setButtonNumber={setButtonNumber}
+                                number={index + 1}
+                            /> 
+                        ))}
                     </div>
                 )}
-                {currentSection === 2 && (
+                {/* {currentSection === 2 && (
                     <div className="searchedAlbumList">
                         {search.searchedAlbums?.map(el => ( <SearchedAlbumCard {...el} /> ))}
                     </div>
-                )}
-                {currentSection === 3 && (
+                )} */}
+                {currentSection === 2 && (
                     <div className="searchedArtists">
                         {search.searchedArtists?.map(el => ( <SearchedArtistsCard {...el} type="searchedArtists"/> ))}
                     </div>
                 )}
-                {currentSection === 4 && (
+                {currentSection === 3 && (
                     <div className="searchedPlaylistList">
                         {search.searchedPlaylists?.map(el => ( <SearchedPlaylistsCard {...el} /> ))}
                     </div>

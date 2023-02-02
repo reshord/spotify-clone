@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ISongInfo } from "../../types/types";
-import { getCurrentlyPlayingTrack } from "../axios";
+import { getCurrentlyPlayingTrack } from "../../axios";
 
 export interface ICurrentPlayingTrack {
     id: string

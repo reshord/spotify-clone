@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IShowList } from "../../types/types";
-import { getShows } from "../axios";
+import { getShows } from "../../axios";
 import { getNewShowListItems } from "../hooks/addSongsToPlaylist";
 
 interface IState {

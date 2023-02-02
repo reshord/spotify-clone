@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getCurrentSearchPlaylistsSongs } from "../../../rtk/axios";
+import { getCurrentSearchPlaylistsSongs } from "../../../axios";
 import { useAppDispatch, useAppSelector } from "../../../rtk/hooks/RTKHook";
 import { setItemToSearchHistory } from "../../../rtk/slices/Search";
 import { setCurrentPlaylist } from "../../../rtk/slices/SpotifyPlaylists";
